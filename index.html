@@ -1,108 +1,142 @@
 <!doctype html>
 <html lang="el">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>EVAGELAK EDU LAB</title>
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#E8F9FF">
+<title>EVAGELAK EDU LAB</title>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <div class="site-shell">
-    
+<canvas id="circuitCanvas" aria-hidden="true"></canvas>
+<div class="site">
+
 <header class="topbar">
-  <a class="logo-wrap" href="index.html" title="Αρχική σελίδα">
+  <a class="logo" href="index.html" aria-label="Αρχική">
     <img src="assets/logo.png" alt="EVAGELAK EDU LAB">
   </a>
-  <div class="title-block">
-    <h1 class="site-title">EVAGELAK EDU LAB</h1>
-    <div class="site-motto">Μαθαίνω • Δημιουργώ • Καινοτομώ</div>
+  <div class="brand">
+    <h1>EVAGELAK EDU LAB</h1>
+    <div class="motto">Μαθαίνω • Δημιουργώ • Καινοτομώ</div>
   </div>
-  <div class="topbar-spacer"></div>
-  <div class="clock-box">
-    <span class="date" id="live-date"></span>
-    <span class="time" id="live-time"></span>
+  <div class="clock">
+    <span class="date" id="liveDate"></span>
+    <span class="time" id="liveTime"></span>
   </div>
 </header>
 
-    <main class="container">
-      <section class="hero-panel">
-        <div class="hero-badge">🚀</div>
-        <div>
-          <h2>Διαδραστικές Δραστηριότητες Πληροφορικής</h2>
-          <p>Επίλεξε κατηγορία και ξεκίνα το παιχνίδι της γνώσης με δημιουργία, τεχνολογία και ρομποτική.</p>
-        </div>
-      </section>
-
-      <section class="dashboard">
-        
-    <a class="card" href="pontiki/index.html" style="--accent:#ff7a45">
-      <div class="icon-circle">🖱️</div>
-      <h3>Ποντίκι</h3>
-      <p>Κίνηση, κλικ, διπλό κλικ, σύρσιμο & απόθεση</p>
-      <div class="progress"><span></span></div>
-      <div class="meta">0 δραστηριότητες • 0 επίπεδα</div>
-    </a>
-    
-    <a class="card" href="pliktrologio/index.html" style="--accent:#5b6fe8">
-      <div class="icon-circle">⌨️</div>
-      <h3>Πληκτρολόγιο</h3>
-      <p>Γράμματα, λέξεις, φράσεις και σωστή χρήση πλήκτρων</p>
-      <div class="progress"><span></span></div>
-      <div class="meta">0 δραστηριότητες • 0 επίπεδα</div>
-    </a>
-    
-    <a class="card" href="ypologistis/index.html" style="--accent:#2eb7a3">
-      <div class="icon-circle">💻</div>
-      <h3>Υπολογιστής</h3>
-      <p>Γνωρίζω τα βασικά μέρη και τις λειτουργίες του υπολογιστή</p>
-      <div class="progress"><span></span></div>
-      <div class="meta">0 δραστηριότητες • 0 επίπεδα</div>
-    </a>
-    
-    <a class="card" href="skepsi/index.html" style="--accent:#29b36b">
-      <div class="icon-circle">🤖</div>
-      <h3>Υπολογιστική Σκέψη</h3>
-      <p>Βήματα, ακολουθίες, μοτίβα και λύση προβλημάτων</p>
-      <div class="progress"><span></span></div>
-      <div class="meta">0 δραστηριότητες • 0 επίπεδα</div>
-    </a>
-    
-    <a class="card" href="sxediase/index.html" style="--accent:#ff4f95">
-      <div class="icon-circle">🎨</div>
-      <h3>Σχεδίασε</h3>
-      <p>Ζωγραφική, pixel art, χρώματα και δημιουργικές δραστηριότητες</p>
-      <div class="progress"><span></span></div>
-      <div class="meta">0 δραστηριότητες • 0 επίπεδα</div>
-    </a>
-    
-    <a class="card" href="gnosi/index.html" style="--accent:#6f6de2">
-      <div class="icon-circle">🧠</div>
-      <h3>Γνώση & Τακτική</h3>
-      <p>Παιχνίδια γνώσεων, λογικής, μνήμης και στρατηγικής</p>
-      <div class="progress"><span></span></div>
-      <div class="meta">0 δραστηριότητες • 0 επίπεδα</div>
-    </a>
-    
-    <a class="card" href="diadiktyo/index.html" style="--accent:#3bb9d8">
-      <div class="icon-circle">🌐</div>
-      <h3>Διαδίκτυο</h3>
-      <p>Ασφαλής πλοήγηση, αναζήτηση και σωστή συμπεριφορά online</p>
-      <div class="progress"><span></span></div>
-      <div class="meta">0 δραστηριότητες • 0 επίπεδα</div>
-    </a>
-    
-    <a class="card" href="robotiki/index.html" style="--accent:#f39c12">
-      <div class="icon-circle">🦾</div>
-      <h3>Ρομποτική</h3>
-      <p>Αισθητήρες, ρομπότ, εντολές και δημιουργίες STEM</p>
-      <div class="progress"><span></span></div>
-      <div class="meta">0 δραστηριότητες • 0 επίπεδα</div>
-    </a>
-    
-      </section>
-    </main>
-    <footer class="footer">EVAGELAK EDU LAB • Πληροφορική Δημοτικού</footer>
+<main class="wrap">
+  <section class="intro">
+    <div class="intro-icon">🚀</div>
+    <div>
+      <h2>Διαδραστικές Δραστηριότητες Πληροφορικής</h2>
+      <p>Διάλεξε τάξη και κατηγορία. Το περιεχόμενο φιλτράρεται άμεσα χωρίς ανανέωση της σελίδας.</p>
+    </div>
+  </section>
+  
+<section class="filter-panel" aria-label="Φίλτρο τάξης">
+  <p class="filter-title">Επίλεξε τάξη</p>
+  <div class="grade-filters">
+    <button class="grade-btn all" data-grade="all" aria-pressed="true">Όλες</button>
+    <button class="grade-btn a" data-grade="a" aria-pressed="false">Α΄</button>
+    <button class="grade-btn b" data-grade="b" aria-pressed="false">Β΄</button>
+    <button class="grade-btn g" data-grade="g" aria-pressed="false">Γ΄</button>
+    <button class="grade-btn d" data-grade="d" aria-pressed="false">Δ΄</button>
+    <button class="grade-btn e" data-grade="e" aria-pressed="false">Ε΄</button>
+    <button class="grade-btn st" data-grade="st" aria-pressed="false">ΣΤ΄</button>
   </div>
-  <script src="assets/app.js"></script>
+</section>
+
+  <section class="dashboard" id="dashboard">
+    
+<a class="card" href="pontiki/index.html" data-grades="a,b" style="--accent:#F97316">
+  <div class="icon">🖱️</div>
+  <h3>Ποντίκι</h3>
+  <p>Κίνηση, κλικ, διπλό κλικ, σύρσιμο & απόθεση</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="pliktrologio/index.html" data-grades="a,b,g" style="--accent:#4F46E5">
+  <div class="icon">⌨️</div>
+  <h3>Πληκτρολόγιο</h3>
+  <p>Γράμματα, λέξεις, φράσεις και σωστή χρήση πλήκτρων</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="ypologistis/index.html" data-grades="a,b,g,d" style="--accent:#0F9E91">
+  <div class="icon">💻</div>
+  <h3>Υπολογιστής</h3>
+  <p>Γνωρίζω τα βασικά μέρη και τις λειτουργίες του υπολογιστή</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="skepsi/index.html" data-grades="b,g,d,e,st" style="--accent:#16A34A">
+  <div class="icon">🧩</div>
+  <h3>Υπολογιστική Σκέψη</h3>
+  <p>Ακολουθίες, μοτίβα, λογική και επίλυση προβλημάτων</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="sxediase/index.html" data-grades="a,b,g,d,e,st" style="--accent:#EC4899">
+  <div class="icon">🎨</div>
+  <h3>Σχεδίασε</h3>
+  <p>Ζωγραφική, pixel art, χρώματα και δημιουργικές αποστολές</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="gnosi/index.html" data-grades="a,b,g,d,e,st" style="--accent:#7C3AED">
+  <div class="icon">🧠</div>
+  <h3>Γνώση & Τακτική</h3>
+  <p>Παιχνίδια γνώσεων, μνήμης, λογικής και στρατηγικής</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="diadiktyo/index.html" data-grades="d,e,st" style="--accent:#0891B2">
+  <div class="icon">🌐</div>
+  <h3>Διαδίκτυο</h3>
+  <p>Ασφαλής πλοήγηση, αναζήτηση και σωστή συμπεριφορά online</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="robotiki/index.html" data-grades="g,d,e,st" style="--accent:#D97706">
+  <div class="icon">🤖</div>
+  <h3>Ρομποτική</h3>
+  <p>Αισθητήρες, ρομπότ, εντολές και δημιουργίες STEM</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+    <div class="empty-state" id="emptyState">
+      <h3>Δεν υπάρχουν ακόμη κατηγορίες για αυτή την τάξη.</h3>
+      <p>Μπορούμε να προσθέσουμε οποιαδήποτε στιγμή.</p>
+    </div>
+  </section>
+</main>
+<footer class="footer">EVAGELAK EDU LAB • Πληροφορική Δημοτικού</footer>
+</div>
+<script src="assets/app.js"></script>
 </body>
 </html>
