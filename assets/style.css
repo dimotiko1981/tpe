@@ -18,10 +18,19 @@ body{
   font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;
   color:var(--ink);
   background:
-    radial-gradient(circle at 12% 18%,rgba(255,255,255,.85) 0 70px,transparent 72px),
-    radial-gradient(circle at 88% 12%,rgba(255,255,255,.78) 0 90px,transparent 92px),
-    linear-gradient(180deg,#BDEEFF 0%,#E8F9FF 45%,#F6FCFF 72%,#ECFAF5 100%);
+    radial-gradient(circle at 12% 18%,rgba(255,255,255,.88) 0 70px,transparent 72px),
+    radial-gradient(circle at 88% 12%,rgba(255,255,255,.80) 0 90px,transparent 92px),
+    radial-gradient(circle at 20% 75%,rgba(92,224,205,.22),transparent 28%),
+    radial-gradient(circle at 82% 68%,rgba(85,199,218,.24),transparent 30%),
+    linear-gradient(135deg,#BDEEFF 0%,#E8F9FF 42%,#F6FCFF 70%,#ECFAF5 100%);
+  background-size:140% 140%;
+  animation:bgDrift 18s ease-in-out infinite alternate;
   overflow-x:hidden;
+}
+
+@keyframes bgDrift{
+  from{background-position:0% 0%}
+  to{background-position:100% 55%}
 }
 a{text-decoration:none;color:inherit}
 button{font:inherit}
@@ -33,7 +42,7 @@ button{font:inherit}
   height:100%;
   z-index:0;
   pointer-events:none;
-  opacity:.42;
+  opacity:.74;
 }
 
 .site{
@@ -222,7 +231,7 @@ button{font:inherit}
   padding:22px 20px 18px;
   border-radius:30px;
   border:4px solid var(--accent);
-  background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,255,255,.82));
+  background:linear-gradient(180deg,rgba(255,255,255,.93),rgba(255,255,255,.80));
   box-shadow:var(--shadow);
   backdrop-filter:blur(5px);
   position:relative;
@@ -386,6 +395,7 @@ button{font:inherit}
 
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto!important}
+  body{animation:none!important}
   .card,.grade-btn{transition:none!important}
   #circuitCanvas{display:none}
 }
