@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#E8F9FF">
+<title>EVAGELAK EDU LAB</title>
+<link rel="stylesheet" href="assets/style.css?v=20260916l">
+</head>
+<body>
+<canvas id="circuitCanvas" aria-hidden="true"></canvas>
+<div class="site">
+
+<header class="topbar">
+  <a class="logo" href="index.html" aria-label="Αρχική">
+    <img src="assets/logo.png" alt="EVAGELAK EDU LAB">
+  </a>
+  <div class="brand">
+    <h1>EVAGELAK EDU LAB</h1>
+    <div class="motto">Μαθαίνω • Δημιουργώ • Καινοτομώ</div>
+  </div>
+  <div class="header-tools">
+  <div class="clock">
+    <span class="date" id="liveDate"></span>
+    <span class="time" id="liveTime"></span>
+  </div>
+  <div class="settings-wrap">
+      <button class="settings-btn" id="settingsBtn" type="button" aria-label="Ρυθμίσεις" aria-expanded="false">⚙️</button>
+      <div class="settings-menu" id="settingsMenu" hidden>
+        <button class="settings-item danger" id="resetProgressBtn" type="button">↺ Μηδενισμός προόδου</button>
+      </div>
+    </div>
+  
+</div>
+</header>
+
+<main class="wrap">
+
+  
+  <div class="scene-panel" aria-hidden="true">
+    <div class="scene-content">
+      <div class="sun"><div class="sun-face">😊</div><div class="sun-rays">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div></div>
+
+      <div class="cloud c1"></div>
+      <div class="cloud c2"></div>
+      <div class="cloud c3"></div>
+
+      <div class="rainbow">
+        <span class="r1"></span><span class="r2"></span><span class="r3"></span>
+        <span class="r4"></span><span class="r5"></span><span class="r6"></span>
+      </div>
+
+      <div class="spark s1">✦</div><div class="spark s2">✦</div>
+      <div class="spark s3">✦</div><div class="spark s4">✦</div>
+
+      <div class="gear-big">⚙️</div>
+      <div class="gear-small">⚙️</div>
+      <div class="chip-icon">💻</div>
+      <div class="satellite">🛰️</div>
+      <div class="drone">🚁</div>
+      <div class="bulb-tech">💡</div>
+      <div class="code-star">✨</div>
+
+      <div class="orb o1"></div>
+      <div class="orb o2"></div>
+      <div class="orb o3"></div>
+      <div class="orb o4"></div>
+
+      <div class="plane">✈️</div>
+      <div class="robot-main">🤖</div>
+      <div class="robot-side left">🦾</div>
+      <div class="robot-side right">🤖</div>
+      <div class="rocket-float">🚀</div>
+      <div class="butterfly">🛸</div>
+      <div class="bee">🔩</div>
+
+      <div class="hill h1"></div>
+      <div class="hill h2"></div>
+      <div class="hill h3"></div>
+
+      <div class="tech-glow"></div>
+      <div class="circuit-band">
+        <span class="l1"></span><span class="l2"></span><span class="l3"></span><span class="l4"></span><span class="l5"></span>
+      </div>
+      <div class="platform"></div>
+      <div class="tech-tower t1"></div>
+      <div class="tech-tower t2"></div>
+
+      <div class="tree">
+        <div class="leaf1"></div><div class="leaf2"></div><div class="leaf3"></div><div class="trunk"></div>
+      </div>
+
+      <div class="flower f1"><div class="bloom"></div></div>
+      <div class="flower f2"><div class="bloom"></div></div>
+      <div class="flower f3"><div class="bloom"></div></div>
+      <div class="flower f4"><div class="bloom"></div></div>
+      <div class="flower f5"><div class="bloom"></div></div>
+      <div class="flower f6"><div class="bloom"></div></div>
+      <div class="mushroom"></div>
+
+      <div class="foreground-note">Πιο ρομποτικό, πιο δυναμικό, πιο ζωντανό περιβάλλον μάθησης</div>
+    </div>
+  </div>
+
+  <div class="content-layer">
+  <section class="intro">
+    <div class="intro-icon">🚀</div>
+    <div>
+      <h2>Διαδραστικές Δραστηριότητες Πληροφορικής</h2>
+      <p>Διάλεξε τάξη και κατηγορία. Το περιεχόμενο φιλτράρεται άμεσα χωρίς ανανέωση της σελίδας.</p>
+    </div>
+  </section>
+  
+<section class="filter-panel" aria-label="Φίλτρο τάξης">
+  <p class="filter-title">Επίλεξε τάξη</p>
+  <div class="grade-filters">
+    <button class="grade-btn all" data-grade="all" aria-pressed="true">Όλες</button>
+    <button class="grade-btn a" data-grade="a" aria-pressed="false">Α΄</button>
+    <button class="grade-btn b" data-grade="b" aria-pressed="false">Β΄</button>
+    <button class="grade-btn g" data-grade="g" aria-pressed="false">Γ΄</button>
+    <button class="grade-btn d" data-grade="d" aria-pressed="false">Δ΄</button>
+    <button class="grade-btn e" data-grade="e" aria-pressed="false">Ε΄</button>
+    <button class="grade-btn st" data-grade="st" aria-pressed="false">ΣΤ΄</button>
+  </div>
+</section>
+
+  <section class="dashboard" id="dashboard">
+    
+<a class="card" href="pontiki/index.html" data-grades="a,b" style="--accent:#F97316">
+  <div class="icon">🖱️</div>
+  <h3>Ποντίκι</h3>
+  <p>Κίνηση, κλικ, διπλό κλικ, σύρσιμο & απόθεση</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">2 δραστηριότητες • Ποντίκι</div>
+  </div>
+</a>
+
+<a class="card" href="pliktrologio/index.html" data-grades="a,b,g" style="--accent:#4F46E5">
+  <div class="icon">⌨️</div>
+  <h3>Πληκτρολόγιο</h3>
+  <p>Γράμματα, λέξεις, φράσεις και σωστή χρήση πλήκτρων</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="ypologistis/index.html" data-grades="a,b,g,d" style="--accent:#0F9E91">
+  <div class="icon">💻</div>
+  <h3>Υπολογιστής</h3>
+  <p>Γνωρίζω τα βασικά μέρη και τις λειτουργίες του υπολογιστή</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="skepsi/index.html" data-grades="b,g,d,e,st" style="--accent:#16A34A">
+  <div class="icon">🧩</div>
+  <h3>Υπολογιστική Σκέψη</h3>
+  <p>Ακολουθίες, μοτίβα, λογική και επίλυση προβλημάτων</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="sxediase/index.html" data-grades="a,b,g,d,e,st" style="--accent:#EC4899">
+  <div class="icon">🎨</div>
+  <h3>Σχεδίασε</h3>
+  <p>Ζωγραφική, pixel art, χρώματα και δημιουργικές αποστολές</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="gnosi/index.html" data-grades="a,b,g,d,e,st" style="--accent:#7C3AED">
+  <div class="icon">🧠</div>
+  <h3>Γνώση & Τακτική</h3>
+  <p>Παιχνίδια γνώσεων, μνήμης, λογικής και στρατηγικής</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="diadiktyo/index.html" data-grades="d,e,st" style="--accent:#0891B2">
+  <div class="icon">🌐</div>
+  <h3>Διαδίκτυο</h3>
+  <p>Ασφαλής πλοήγηση, αναζήτηση και σωστή συμπεριφορά online</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+<a class="card" href="robotiki/index.html" data-grades="g,d,e,st" style="--accent:#D97706">
+  <div class="icon">🤖</div>
+  <h3>Ρομποτική</h3>
+  <p>Αισθητήρες, ρομπότ, εντολές και δημιουργίες STEM</p>
+  <div class="card-bottom">
+    <div class="progress"><span></span></div>
+    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
+  </div>
+</a>
+
+    <div class="empty-state" id="emptyState">
+      <h3>Δεν υπάρχουν ακόμη κατηγορίες για αυτή την τάξη.</h3>
+      <p>Μπορούμε να προσθέσουμε οποιαδήποτε στιγμή.</p>
+    </div>
+  </section>
+  </div>
+</main>
+<footer class="footer">EVAGELAK EDU LAB • Πληροφορική Δημοτικού</footer>
+</div>
+<script src="assets/app.js?v=20260916l"></script>
+</body>
+</html>

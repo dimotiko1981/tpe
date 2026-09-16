@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#cfeeff">
+<title>Κυνήγι Αστεριών • EVAGELAK EDU LAB</title>
+<style>
+:root{
+  --yellow:#ffc83d;
+  --pink:#ff5c97;
+  --purple:#8254d8;
+  --green:#4bc563;
+  --green-dark:#2a8b3b;
+  --ink:#27384f;
+  --muted:#667487;
+  --soft:#ffffff;
+  --line:#dfe8ef;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;color:var(--ink)}
+body{
+  background:
+    radial-gradient(circle at 15% 12%,rgba(255,255,255,.65) 0 85px,transparent 86px),
+    radial-gradient(circle at 84% 8%,rgba(255,208,228,.45) 0 140px,transparent 141px),
+    linear-gradient(180deg,#caefff 0%,#edf9ff 42%,#d7e8ff 100%);
+  overflow:hidden;
+}
+button{font:inherit}
+.screen{display:none;min-height:100vh}
+.screen.active{display:flex}
+
+/* screen 1 - mission */
+#mission{
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+.modal{
+  width:min(760px,94vw);
+  background:rgba(255,255,255,.96);
+  border:7px solid rgba(187,190,202,.85);
+  border-radius:42px;
+  box-shadow:0 28px 70px rgba(55,64,106,.25);
+  padding:26px 34px 30px;
+  text-align:center;
+}
+.star-logo{
+  font-size:86px;
+  line-height:1;
+  filter:drop-shadow(0 8px 12px rgba(255,190,30,.20));
+}
+.modal h1{
+  margin:10px 0 8px;
+  font-size:clamp(36px,6vw,58px);
+  color:var(--pink);
+  line-height:1;
+}
+.level-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:4px 20px;
+  border-radius:999px;
+  background:var(--purple);
+  color:#fff;
+  font-weight:900;
+  margin:2px 0 20px;
+}
+.instruction{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:22px;
+  align-items:center;
+  text-align:left;
+  background:linear-gradient(90deg,#fff5d5,#fff0f4);
+  border-radius:26px;
+  padding:18px 24px;
+  margin:0 auto 18px;
+}
+.mouse-art{
+  font-size:72px;
+  text-align:center;
+}
+.instruction strong{
+  font-size:clamp(22px,3vw,31px);
+  line-height:1.35;
+}
+.level-dots{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin:14px auto 24px;
+  max-width:620px;
+}
+.level-dot{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#f3f4f6;
+  border:4px solid #cfd3d8;
+  color:#5a6672;
+  font-weight:900;
+  box-shadow:inset 0 -4px 0 rgba(0,0,0,.06);
+}
+.level-dot.current{
+  background:#8a54e8;
+  color:#fff;
+  border-color:#2d9e52;
+}
+.level-dot.locked{
+  font-size:20px;
+}
+.start-btn{
+  border:none;
+  border-radius:28px;
+  min-width:190px;
+  min-height:70px;
+  padding:0 34px;
+  font-size:32px;
+  font-weight:900;
+  color:#fff;
+  background:linear-gradient(180deg,#58d269,#39ad4f);
+  box-shadow:0 9px 0 #258c3a, 0 16px 26px rgba(38,126,55,.22);
+  cursor:pointer;
+  touch-action:manipulation;
+}
+.start-btn:active{transform:translateY(4px);box-shadow:0 5px 0 #258c3a}
+
+/* gameplay */
+#game{
+  flex-direction:column;
+  background:
+    radial-gradient(circle at 18% 30%,rgba(255,255,255,.8) 0 2px,transparent 3px),
+    radial-gradient(circle at 62% 18%,rgba(255,255,255,.9) 0 2px,transparent 3px),
+    radial-gradient(circle at 78% 56%,rgba(255,255,255,.75) 0 2px,transparent 3px),
+    radial-gradient(circle at 45% 68%,rgba(255,233,120,.35) 0 4px,transparent 10px),
+    linear-gradient(180deg,#25366e 0%,#33467f 55%,#2d386d 100%);
+}
+.game-top{
+  height:76px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:16px;
+  align-items:center;
+  padding:10px 18px;
+  background:rgba(229,247,255,.95);
+  border-bottom:4px solid rgba(72,144,190,.20);
+}
+.game-level{
+  background:#8a54e8;
+  color:#fff;
+  font-weight:900;
+  padding:10px 18px;
+  border-radius:18px;
+  white-space:nowrap;
+}
+.progress-wrap{
+  height:30px;
+  background:#fff;
+  border:2px solid #dbe3e9;
+  border-radius:999px;
+  overflow:hidden;
+  position:relative;
+}
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:repeating-linear-gradient(
+    -45deg,
+    #70cf70 0 14px,
+    #55b85c 14px 28px
+  );
+  transition:width .25s ease;
+}
+.progress-text{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  color:#385126;
+}
+.exit-btn{
+  border:none;
+  border-radius:14px;
+  padding:10px 12px;
+  background:#fff;
+  box-shadow:0 3px 8px rgba(0,0,0,.08);
+  cursor:pointer;
+}
+.tip{
+  background:rgba(245,252,255,.96);
+  color:#3e5266;
+  font-weight:800;
+  padding:12px 20px;
+  border-bottom:1px solid rgba(255,255,255,.35);
+}
+.playfield{
+  position:relative;
+  flex:1;
+  overflow:hidden;
+  touch-action:none;
+  min-height:420px;
+}
+.target{
+  position:absolute;
+  width:112px;
+  height:112px;
+  display:grid;
+  place-items:center;
+  font-size:96px;
+  line-height:1;
+  cursor:crosshair;
+  user-select:none;
+  filter:
+    drop-shadow(0 0 9px rgba(255,231,103,.95))
+    drop-shadow(0 0 18px rgba(255,221,64,.45));
+  transition:left .16s ease,top .16s ease,transform .12s ease;
+}
+.target.caught{transform:scale(1.25) rotate(10deg)}
+.pop{
+  position:absolute;
+  pointer-events:none;
+  font-size:28px;
+  font-weight:900;
+  color:#fff;
+  text-shadow:0 3px 8px rgba(0,0,0,.35);
+  animation:popUp .7s ease forwards;
+}
+@keyframes popUp{
+  0%{opacity:0;transform:translateY(6px) scale(.8)}
+  30%{opacity:1}
+  100%{opacity:0;transform:translateY(-45px) scale(1.15)}
+}
+
+/* level complete */
+#complete{
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:linear-gradient(180deg,#dff7ff,#eefcff);
+}
+.complete-card{
+  width:min(650px,92vw);
+  padding:30px;
+  background:#fff;
+  border-radius:36px;
+  text-align:center;
+  box-shadow:0 24px 60px rgba(50,90,130,.22);
+}
+.complete-card .big{font-size:82px}
+.complete-card h2{font-size:42px;margin:10px 0;color:#3f9f53}
+.complete-card p{font-size:20px;color:var(--muted)}
+.next-btn{
+  border:none;
+  min-height:62px;
+  padding:0 28px;
+  border-radius:22px;
+  background:linear-gradient(180deg,#5acb69,#3cae50);
+  color:#fff;
+  font-size:24px;
+  font-weight:900;
+  box-shadow:0 7px 0 #258d39;
+  cursor:pointer;
+}
+
+@media(max-width:700px){
+  .modal{padding:22px 18px;border-radius:30px}
+  .instruction{grid-template-columns:80px 1fr;padding:15px}
+  .mouse-art{font-size:56px}
+  .level-dot{width:42px;height:42px}
+  .game-top{grid-template-columns:1fr auto;height:auto}
+  .progress-wrap{grid-column:1/-1;grid-row:2}
+  .target{width:94px;height:94px;font-size:82px}
+}
+.mission-reset-btn{border:none;min-height:46px;padding:0 16px;border-radius:15px;background:#eef4f7;color:#405367;font-weight:900;cursor:pointer}.mission-reset-btn:hover{background:#e3edf2}\n
+.mission-top-nav{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.activity-home-btn,.activity-back-btn,.game-home-btn{
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 14px;
+  border-radius:15px;
+  background:#eef7fb;
+  color:#28445d;
+  font-weight:900;
+  box-shadow:0 5px 12px rgba(38,68,93,.10);
+  border:1px solid #d9e8ef;
+}
+.game-home-btn{
+  width:46px;
+  padding:0;
+  background:#fff;
+}
+.game-left-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.complete-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+@media(max-width:700px){
+  .mission-top-nav{flex-wrap:wrap}
+  .activity-home-btn,.activity-back-btn{flex:1}
+}
+
+/* V16 completion card style based on reference */
+.modern-complete{
+  width:min(620px,92vw);
+  padding:28px 26px 22px;
+  background:#f7f7f8;
+  border:6px solid rgba(202,193,208,.9);
+  border-radius:34px;
+  text-align:center;
+  box-shadow:0 22px 56px rgba(50,90,130,.20);
+}
+.complete-title{
+  font-size:clamp(34px,5.5vw,58px);
+  font-weight:900;
+  color:#ff5c97;
+  line-height:1.05;
+}
+.complete-title span{font-size:.72em}
+.complete-star{
+  font-size:82px;
+  line-height:1;
+  margin:12px 0 10px;
+  filter:drop-shadow(0 8px 10px rgba(255,191,28,.22));
+}
+.complete-level-track{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:2px auto 12px;
+  max-width:520px;
+}
+.complete-level-track .mini-dot{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:#d9d9dc;
+  border:3px solid #b9bcc0;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.08);
+}
+.complete-level-track .mini-dot.done{
+  background:#48b356;
+  border-color:#267e30;
+  position:relative;
+}
+.complete-level-track .mini-dot.done::after{
+  content:"★";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:#214d25;
+  font-size:15px;
+  font-weight:900;
+}
+.complete-text{
+  margin:10px 0 20px;
+  font-size:clamp(22px,3vw,34px);
+  color:#405064;
+  font-weight:700;
+}
+.complete-main-actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.complete-green,
+.complete-orange{
+  min-width:206px;
+  min-height:72px;
+  border-radius:30px;
+  font-size:24px;
+  box-shadow:0 8px 0 rgba(0,0,0,.18), 0 16px 24px rgba(0,0,0,.10);
+}
+.complete-green{
+  background:linear-gradient(180deg,#65d263,#3dae48);
+}
+.complete-orange{
+  border:none;
+  color:#fff;
+  font-weight:900;
+  background:linear-gradient(180deg,#ffb33d,#f28712);
+  cursor:pointer;
+}
+.complete-orange:active{transform:translateY(4px)}
+.complete-games-row{
+  display:flex;
+  justify-content:center;
+  margin-top:14px;
+}
+.games-btn{
+  min-width:220px;
+  min-height:68px;
+  padding:0 24px;
+  border-radius:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:#fff;
+  font-size:23px;
+  font-weight:900;
+  background:linear-gradient(180deg,#48b7f0,#1d8fcb);
+  box-shadow:0 8px 0 #1878ad, 0 16px 22px rgba(29,143,203,.18);
+}
+.complete-progress-row{
+  margin-top:12px;
+  display:flex;
+  justify-content:center;
+}
+.progress-pill{
+  border:none;
+  min-height:48px;
+  padding:0 20px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#ffffff,#f0f3f6);
+  color:#667687;
+  font-size:18px;
+  font-weight:900;
+  box-shadow:0 4px 10px rgba(16,59,85,.10);
+  cursor:pointer;
+}
+.progress-pill:hover{background:linear-gradient(180deg,#ffffff,#e9eef3)}
+@media(max-width:700px){
+  .modern-complete{padding:22px 16px 18px}
+  .complete-main-actions{gap:10px}
+  .complete-green,.complete-orange{min-width:160px;min-height:62px;font-size:21px}
+  .games-btn{min-width:180px;min-height:60px;font-size:21px}
+}
+
+</style>
+</head>
+<body>
+
+<section id="mission" class="screen active">
+  <div class="modal"><div class="mission-top-nav"><a class="activity-home-btn" href="../../index.html">🏠 Αρχική</a><a class="activity-back-btn" href="../index.html">← Ποντίκι</a></div>
+    <div class="star-logo">⭐</div>
+    <h1>Κυνήγι Αστεριών</h1>
+    <div class="level-badge">Επίπεδο <span id="missionLevel">1</span> από 15</div><div style="font-weight:900;color:#64778a;margin:-10px 0 16px">Στόχος: <span id="missionGoal">4</span> αστεράκια</div>
+
+    <div class="instruction">
+      <div class="mouse-art">🖱️</div>
+      <strong>Πήγαινε το ποντίκι πάνω στο αστέρι για να το πιάσεις!</strong>
+    </div>
+
+    <div class="level-dots" id="levelDots"></div>
+
+    <button class="start-btn" id="startBtn">Πάμε! 🚀</button><div style="margin-top:16px"><button class="mission-reset-btn" id="missionResetBtn" type="button">↺ Μηδενισμός προόδου</button></div>
+  </div>
+</section>
+
+<section id="game" class="screen">
+  <div class="game-top">
+    <div class="game-left-actions"><a class="game-home-btn" href="../../index.html" title="Αρχική">🏠</a><div class="game-level">Επίπεδο <span id="gameLevel">1</span> / 15</div></div>
+    <div class="progress-wrap">
+      <div class="progress-fill" id="progressFill"></div>
+      <div class="progress-text" id="progressText">0 / 6</div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center"><button class="exit-btn" id="resetGameBtn" title="Μηδενισμός προόδου">↺</button><button class="exit-btn" id="exitBtn" title="Επιστροφή">↩️</button></div>
+  </div>
+  <div class="tip">Πέρασε το ποντίκι πάνω από το αστέρι — τα επόμενα επίπεδα γίνονται πιο δύσκολα!</div>
+  <div class="playfield" id="playfield">
+    <div class="target" id="target" aria-label="Αστέρι">⭐</div>
+  </div>
+</section>
+
+
+<section id="complete" class="screen">
+  <div class="complete-card modern-complete">
+    <div class="complete-title">Μπράβο! <span>🎉</span></div>
+    <div class="complete-star">⭐</div>
+
+    <div class="complete-level-track" id="completeTrack"></div>
+
+    <p class="complete-text">Ολοκλήρωσες το επίπεδο <strong id="doneLevel">1</strong>!</p>
+
+    <div class="complete-main-actions">
+      <button class="next-btn complete-green" id="nextBtn">Επόμενο ➡️</button>
+      <button class="next-btn complete-orange" id="retryBtn" type="button">Ξανά 🔄</button>
+    </div>
+
+    <div class="complete-games-row">
+      <a class="games-btn" href="../index.html">Παιχνίδια 🎮</a>
+    </div>
+
+    <div class="complete-progress-row">
+      <button class="progress-pill" id="progressInfoBtn" type="button">🔑 Η πρόοδός μου</button>
+    </div>
+  </div>
+</section>
+
+
+<script>
+const TOTAL_LEVELS = 15;
+const BASE_GOAL = 4;
+
+let level = Number(localStorage.getItem("starHuntLevel") || 1);
+level = Math.min(Math.max(level,1),TOTAL_LEVELS);
+let caught = 0;
+let canCatch = true;
+
+const mission = document.getElementById("mission");
+const game = document.getElementById("game");
+const complete = document.getElementById("complete");
+const missionLevel = document.getElementById("missionLevel");
+const missionGoal = document.getElementById("missionGoal");
+const gameLevel = document.getElementById("gameLevel");
+const doneLevel = document.getElementById("doneLevel");
+const levelDots = document.getElementById("levelDots");
+const startBtn = document.getElementById("startBtn");
+const nextBtn = document.getElementById("nextBtn");
+const exitBtn = document.getElementById("exitBtn");
+const retryBtn = document.getElementById("retryBtn");
+const progressInfoBtn = document.getElementById("progressInfoBtn");
+const playfield = document.getElementById("playfield");
+const target = document.getElementById("target");
+const progressFill = document.getElementById("progressFill");
+const progressText = document.getElementById("progressText");
+
+function levelGoal(){
+  return Math.min(8, BASE_GOAL + Math.floor((level-1)/3));
+}
+
+function showScreen(el){
+  [mission,game,complete].forEach(s=>s.classList.remove("active"));
+  el.classList.add("active");
+}
+
+function buildDots(){
+  levelDots.innerHTML="";
+  for(let i=1;i<=TOTAL_LEVELS;i++){
+    const dot=document.createElement("div");
+    dot.className="level-dot";
+    if(i===level){
+      dot.classList.add("current");
+      dot.textContent=i;
+    }else if(i<level){
+      dot.textContent="✓";
+    }else{
+      dot.classList.add("locked");
+      dot.textContent="🔒";
+    }
+    levelDots.appendChild(dot);
+  }
+}
+
+
+function renderCompleteTrack(){
+  const track=document.getElementById("completeTrack");
+  if(!track) return;
+  track.innerHTML="";
+  for(let i=1;i<=TOTAL_LEVELS;i++){
+    const d=document.createElement("div");
+    d.className="mini-dot" + (i<=level ? " done" : "");
+    track.appendChild(d);
+  }
+}
+
+function updateMission(){
+  missionLevel.textContent=level;
+  if(missionGoal) missionGoal.textContent=levelGoal();
+  buildDots();
+  renderCompleteTrack();
+}
+
+function updateProgress(){
+  gameLevel.textContent=level;
+  const goal = levelGoal();
+  progressText.textContent=`${caught} / ${goal}`;
+  progressFill.style.width=`${(caught/goal)*100}%`;
+}
+
+function targetSize(){
+  // Gradually smaller target across 15 levels
+  const max=124, min=44;
+  return Math.round(max - ((level-1)/(TOTAL_LEVELS-1))*(max-min));
+}
+
+function moveTarget(){
+  const rect=playfield.getBoundingClientRect();
+  const size=targetSize();
+  target.style.width=size+"px";
+  target.style.height=size+"px";
+  target.style.fontSize=Math.round(size*.86)+"px";
+
+  const pad=20;
+  const maxX=Math.max(pad,rect.width-size-pad);
+  const maxY=Math.max(pad,rect.height-size-pad);
+  const x=pad + Math.random()*Math.max(1,maxX-pad);
+  const y=pad + Math.random()*Math.max(1,maxY-pad);
+
+  target.style.left=x+"px";
+  target.style.top=y+"px";
+}
+
+function popMessage(){
+  const p=document.createElement("div");
+  p.className="pop";
+  p.textContent=["Μπράβο!","Το έπιασες!","Τέλεια!","⭐"][Math.floor(Math.random()*4)];
+  p.style.left=(parseFloat(target.style.left)+18)+"px";
+  p.style.top=(parseFloat(target.style.top)-4)+"px";
+  playfield.appendChild(p);
+  setTimeout(()=>p.remove(),750);
+}
+
+function catchStar(){
+  if(!canCatch) return;
+  canCatch=false;
+  target.classList.add("caught");
+  caught++;
+  popMessage();
+  updateProgress();
+
+  setTimeout(()=>{
+    target.classList.remove("caught");
+    if(caught>=levelGoal()){
+      doneLevel.textContent=level;
+      showScreen(complete);
+      return;
+    }
+    moveTarget();
+    canCatch=true;
+  },220);
+}
+
+function startLevel(){
+  caught=0;
+  canCatch=true;
+  updateProgress();
+  showScreen(game);
+  requestAnimationFrame(()=>moveTarget());
+}
+
+function completeAndNext(){
+  if(level<TOTAL_LEVELS){
+    level++;
+    localStorage.setItem("starHuntLevel",level);
+    localStorage.setItem("evagelak_star_hunt_level",String(level));
+    updateMission();
+    showScreen(mission);
+  }else{
+    level=1;
+    localStorage.setItem("starHuntLevel",1);
+    updateMission();
+    showScreen(mission);
+  }
+}
+
+startBtn.addEventListener("click",startLevel);
+nextBtn.addEventListener("click",completeAndNext);
+retryBtn?.addEventListener("click",()=>{
+  showScreen(mission);
+});
+progressInfoBtn?.addEventListener("click",()=>{
+  const unlocked = Math.min(level, TOTAL_LEVELS);
+  alert(`Έχεις φτάσει μέχρι το επίπεδο ${unlocked} από ${TOTAL_LEVELS}.\nΣε αυτό το επίπεδο χρειάζεσαι ${levelGoal()} αστεράκια.`);
+});
+exitBtn.addEventListener("click",()=>{
+  updateMission();
+  showScreen(mission);
+});
+
+// Desktop mouse: catch on hover
+target.addEventListener("mouseenter",catchStar);
+
+// Pointer support for touch/tablet: moving/tapping onto the target catches it
+target.addEventListener("pointerdown",e=>{
+  if(e.pointerType!=="mouse") catchStar();
+});
+
+window.addEventListener("resize",()=>{
+  if(game.classList.contains("active")) moveTarget();
+});
+
+function resetStarHuntProgress(){
+  if(!confirm("Θέλεις να μηδενίσεις την πρόοδο στο Κυνήγι Αστεριών;")) return;
+  level=1; caught=0;
+  localStorage.setItem("starHuntLevel","1");
+  localStorage.setItem("evagelak_star_hunt_level","1");
+  renderCompleteTrack();
+  updateMission(); updateProgress(); showScreen(mission);
+}
+document.getElementById("resetGameBtn")?.addEventListener("click",resetStarHuntProgress);
+document.getElementById("missionResetBtn")?.addEventListener("click",resetStarHuntProgress);
+
+updateMission();
+</script>
+</body>
+</html>
