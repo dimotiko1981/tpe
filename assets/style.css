@@ -788,3 +788,183 @@ button{font:inherit}
   .sun{transform:scale(.84); top:24px; left:16px}
   .flower.f4,.flower.f6{display:none}
 }
+
+
+/* V8 stronger robotics scene */
+.scene-panel{
+  background:
+    radial-gradient(circle at 18% 18%, rgba(210,247,255,.82) 0 90px, transparent 91px),
+    radial-gradient(circle at 85% 15%, rgba(191,167,255,.30) 0 170px, transparent 171px),
+    radial-gradient(circle at 28% 78%, rgba(76,200,181,.16) 0 220px, transparent 221px),
+    linear-gradient(180deg, rgba(171,226,255,.96) 0%, rgba(215,242,255,.97) 40%, rgba(214,244,231,.98) 100%);
+}
+.scene-panel::after{
+  opacity:.28;
+  background-size: 150px 150px, 150px 150px, 150px 150px;
+}
+.tech-glow{
+  position:absolute;
+  inset:auto auto 180px 50%;
+  transform:translateX(-50%);
+  width:560px;
+  height:180px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(80,215,212,.18) 0%, rgba(80,215,212,.08) 40%, transparent 72%);
+  filter:blur(10px);
+}
+.robot-main{
+  position:absolute;
+  left:50%;
+  bottom:118px;
+  transform:translateX(-50%);
+  font-size:82px;
+  filter:drop-shadow(0 10px 16px rgba(18,80,112,.20));
+  animation: robotHero 4.8s ease-in-out infinite;
+}
+.robot-side{
+  position:absolute;
+  font-size:54px;
+  animation: bob 4.2s ease-in-out infinite;
+  filter:drop-shadow(0 8px 14px rgba(18,80,112,.16));
+}
+.robot-side.left{left:120px; bottom:180px; animation-delay:.9s}
+.robot-side.right{right:170px; bottom:182px; animation-delay:1.4s}
+.gear-big, .gear-small, .chip-icon, .satellite, .drone, .bulb-tech, .code-star{
+  position:absolute;
+  filter:drop-shadow(0 8px 14px rgba(18,80,112,.15));
+}
+.gear-big{left:62px; top:200px; font-size:68px; animation: spinSlow 14s linear infinite;}
+.gear-small{right:102px; top:240px; font-size:52px; animation: spinSlowReverse 11s linear infinite;}
+.chip-icon{left:235px; top:150px; font-size:48px; animation:bob 4.5s ease-in-out infinite .6s;}
+.satellite{right:255px; top:120px; font-size:46px; animation: driftSat 12s ease-in-out infinite;}
+.drone{left:56%; top:120px; font-size:42px; animation: droneFloat 7s ease-in-out infinite;}
+.bulb-tech{right:330px; top:215px; font-size:42px; animation: pulseBulb 4.8s ease-in-out infinite;}
+.code-star{left:42%; top:92px; font-size:34px; animation: twinkle 3.2s ease-in-out infinite;}
+.circuit-band{
+  position:absolute;
+  left:50%;
+  bottom:78px;
+  transform:translateX(-50%);
+  width:min(940px, 84%);
+  height:92px;
+  opacity:.78;
+}
+.circuit-band span{
+  position:absolute;
+  height:4px;
+  background:linear-gradient(90deg, rgba(15,158,145,.0), rgba(15,158,145,.85), rgba(85,199,218,.9));
+  border-radius:999px;
+}
+.circuit-band span::after{
+  content:"";
+  position:absolute;
+  right:-6px;
+  top:50%;
+  width:14px;
+  height:14px;
+  margin-top:-7px;
+  border-radius:50%;
+  background:rgba(85,199,218,.92);
+  box-shadow:0 0 12px rgba(85,199,218,.45);
+}
+.circuit-band .l1{width:32%; left:2%; bottom:52px}
+.circuit-band .l2{width:22%; left:25%; bottom:28px}
+.circuit-band .l3{width:28%; left:47%; bottom:58px}
+.circuit-band .l4{width:20%; left:68%; bottom:26px}
+.circuit-band .l5{width:16%; left:78%; bottom:46px}
+.platform{
+  position:absolute;
+  left:50%;
+  bottom:58px;
+  transform:translateX(-50%);
+  width:310px;
+  height:22px;
+  border-radius:999px;
+  background:linear-gradient(180deg, rgba(33,88,118,.82), rgba(16,59,85,.96));
+  box-shadow:0 10px 24px rgba(16,59,85,.22), inset 0 2px 6px rgba(255,255,255,.15);
+}
+.orb{
+  position:absolute;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, rgba(255,255,255,.95), rgba(85,199,218,.55) 42%, rgba(15,158,145,.12) 70%, transparent 72%);
+  box-shadow:0 0 18px rgba(85,199,218,.22);
+  animation: orbFloat 6s ease-in-out infinite;
+}
+.orb.o1{width:26px;height:26px;left:34%;top:250px;animation-delay:.2s}
+.orb.o2{width:18px;height:18px;left:62%;top:320px;animation-delay:1.1s}
+.orb.o3{width:22px;height:22px;right:24%;top:270px;animation-delay:2s}
+.orb.o4{width:16px;height:16px;left:18%;top:360px;animation-delay:1.5s}
+.tech-tower{
+  position:absolute;
+  bottom:88px;
+  width:54px;
+  border-radius:16px 16px 10px 10px;
+  background:linear-gradient(180deg, rgba(232,247,255,.96), rgba(172,222,247,.92));
+  box-shadow:0 8px 18px rgba(18,80,112,.10), inset 0 0 0 2px rgba(80,158,202,.18);
+}
+.tech-tower::before{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  top:10px;
+  height:6px;
+  border-radius:999px;
+  background:rgba(15,158,145,.75);
+  box-shadow:0 18px 0 rgba(85,199,218,.65), 0 36px 0 rgba(15,158,145,.60);
+}
+.tech-tower::after{
+  content:"";
+  position:absolute;
+  left:20px;
+  top:-18px;
+  width:14px;
+  height:18px;
+  border-radius:8px 8px 0 0;
+  background:linear-gradient(180deg, #8ed8ff, #6db3e6);
+}
+.tech-tower.t1{left:390px; height:110px}
+.tech-tower.t2{right:360px; height:126px}
+@keyframes robotHero{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(-16px)}
+}
+@keyframes spinSlow{from{transform:rotate(0)} to{transform:rotate(360deg)}}
+@keyframes spinSlowReverse{from{transform:rotate(360deg)} to{transform:rotate(0)}}
+@keyframes pulseBulb{
+  0%,100%{transform:scale(1); filter:drop-shadow(0 0 0 rgba(255,214,72,0))}
+  50%{transform:scale(1.08); filter:drop-shadow(0 0 18px rgba(255,214,72,.35))}
+}
+@keyframes droneFloat{
+  0%,100%{transform:translateY(0) translateX(0)}
+  50%{transform:translateY(-12px) translateX(12px)}
+}
+@keyframes driftSat{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(-22px,8px)}
+}
+@keyframes orbFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+@media (max-width: 900px){
+  .robot-side.right{right:80px}
+  .robot-side.left{left:48px}
+  .gear-big{left:20px}
+  .gear-small{right:34px}
+  .tech-tower.t1{left:260px}
+  .tech-tower.t2{right:240px}
+  .drone{left:60%}
+}
+@media (max-width: 620px){
+  .scene-panel{min-height:1780px}
+  .robot-main{font-size:70px; bottom:128px}
+  .robot-side{display:none}
+  .gear-small,.satellite,.tech-tower.t2,.code-star,.orb.o3{display:none}
+  .gear-big{left:14px; top:228px; font-size:58px}
+  .chip-icon{left:170px; top:168px}
+  .drone{left:64%; top:150px}
+  .bulb-tech{right:26px; top:254px}
+  .tech-tower.t1{left:34px; height:102px}
+  .platform{width:250px}
+}
