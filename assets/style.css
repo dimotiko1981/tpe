@@ -1511,3 +1511,192 @@ body{
     min-height:100vh !important;
   }
 }
+
+
+/* V12: final polish — cleaner, more coherent robotics/STEM look */
+:root{
+  --soft-glass: rgba(255,255,255,.84);
+  --soft-glass-2: rgba(255,255,255,.88);
+}
+
+/* cleaner top content blocks */
+.intro,
+.filter-panel{
+  background: var(--soft-glass);
+  border: 1px solid rgba(16,59,85,.10);
+  box-shadow: 0 12px 28px rgba(16,59,85,.10);
+  backdrop-filter: blur(10px);
+}
+
+.intro{
+  border-radius: 30px;
+}
+.filter-panel{
+  border-radius: 26px;
+}
+
+/* make the dashboard breathe a little more */
+.dashboard{
+  gap: 24px;
+  padding-top: 4px;
+  padding-bottom: 10px;
+}
+
+/* cards: slightly cleaner and more premium */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.86));
+  box-shadow: 0 16px 32px rgba(16,59,85,.14);
+}
+.card::after{
+  opacity:.75;
+}
+.card .icon{
+  box-shadow:
+    0 10px 20px rgba(16,59,85,.12),
+    inset 0 0 0 7px color-mix(in srgb,var(--accent) 14%,white);
+}
+
+/* --- Scenic cleanup: less random, more robotics --- */
+
+/* Keep only the clearer / stronger story elements */
+.cloud.c2,
+.flower.f4,
+.flower.f6,
+.mushroom,
+.bee,
+.butterfly,
+.plane,
+.orb.o4,
+.foreground-note{
+  display:none !important;
+}
+
+/* Slightly reduce rainbow so it supports, not dominates */
+.rainbow{
+  opacity:.78 !important;
+  filter:saturate(.95);
+}
+
+/* Reduce "cute landscape" dominance a bit */
+.tree{
+  transform: scale(.94) !important;
+  opacity:.96;
+}
+.flower{
+  opacity:.88;
+}
+.flower .bloom{
+  filter:saturate(.88);
+}
+
+/* Stronger STEM/robotics edge elements */
+.robot-main{
+  font-size: 92px !important;
+  filter: drop-shadow(0 12px 20px rgba(18,80,112,.24));
+}
+.robot-side.left{
+  font-size: 60px !important;
+  filter: drop-shadow(0 10px 18px rgba(18,80,112,.18));
+}
+.gear-big{
+  font-size: 82px !important;
+}
+.gear-small{
+  font-size: 64px !important;
+}
+.chip-icon{
+  font-size: 58px !important;
+}
+.satellite{
+  font-size: 54px !important;
+}
+.drone{
+  font-size: 50px !important;
+}
+.bulb-tech{
+  font-size: 54px !important;
+}
+.rocket-float{
+  font-size: 48px !important;
+}
+.code-star{
+  font-size: 40px !important;
+}
+
+/* more visible but still elegant low circuits */
+.circuit-band{
+  opacity:.70 !important;
+}
+.circuit-band span{
+  height:5px !important;
+}
+.circuit-band span::after{
+  width:16px !important;
+  height:16px !important;
+  margin-top:-8px !important;
+}
+
+/* stronger base robotics platform */
+.platform{
+  height:24px !important;
+  box-shadow:
+    0 12px 26px rgba(16,59,85,.24),
+    inset 0 2px 6px rgba(255,255,255,.18);
+}
+.tech-tower{
+  box-shadow:
+    0 8px 18px rgba(18,80,112,.12),
+    inset 0 0 0 2px rgba(80,158,202,.22);
+}
+.tech-glow{
+  opacity:.95;
+}
+
+/* keep the full-page scene but visually calmer behind content */
+.scene-panel::before{
+  opacity:.88;
+}
+.scene-panel::after{
+  opacity:.20;
+}
+
+/* Better spacing on tablet */
+@media (max-width: 900px){
+  .dashboard{
+    gap: 20px;
+  }
+  .robot-main{font-size: 78px !important;}
+  .robot-side.left{font-size: 50px !important;}
+  .gear-big{font-size: 68px !important;}
+  .gear-small{font-size: 54px !important;}
+  .chip-icon{font-size: 48px !important;}
+  .satellite{font-size: 44px !important;}
+  .drone{font-size: 42px !important;}
+  .bulb-tech{font-size: 44px !important;}
+  .rocket-float{font-size: 38px !important;}
+}
+
+/* Better spacing on mobile */
+@media (max-width: 620px){
+  .intro,
+  .filter-panel{
+    background: rgba(255,255,255,.86);
+  }
+  .dashboard{
+    gap: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .card{
+    border-radius: 26px;
+  }
+  .robot-main{font-size: 64px !important;}
+  .robot-side.left{font-size: 42px !important;}
+  .gear-big{font-size: 54px !important;}
+  .gear-small{font-size: 42px !important;}
+  .chip-icon{font-size: 40px !important;}
+  .satellite{font-size: 38px !important;}
+  .drone{font-size: 36px !important;}
+  .bulb-tech{font-size: 38px !important;}
+  .rocket-float{font-size: 32px !important;}
+}
