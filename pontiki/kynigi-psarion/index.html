@@ -271,6 +271,219 @@ button{font:inherit}
   .next-btn,.retry-btn{min-width:160px;min-height:62px;font-size:21px}
   .games-btn{min-width:180px;min-height:60px;font-size:21px}
 }
+
+/* V21 semi-realistic underwater fish scene */
+.playfield{
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255,255,255,.25) 0 110px, transparent 111px),
+    radial-gradient(circle at 75% 18%, rgba(255,255,255,.12) 0 140px, transparent 141px),
+    linear-gradient(180deg,#9fe7fb 0%,#48b8da 22%,#1a86ba 48%,#125f99 72%,#0d436d 100%);
+}
+.playfield::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(115deg, rgba(255,255,255,.18) 0 6%, transparent 6.5% 15%, rgba(255,255,255,.08) 15.5% 20%, transparent 20.5% 100%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 2px, transparent 2px 90px);
+  mix-blend-mode:screen;
+  opacity:.55;
+}
+.playfield::before{
+  content:"";
+  position:absolute;left:0;right:0;bottom:0;height:24%;
+  background:
+    radial-gradient(circle at 12% 32%,#f3ddab 0 10px,transparent 11px),
+    radial-gradient(circle at 24% 64%,#c8b483 0 7px,transparent 8px),
+    radial-gradient(circle at 68% 44%,#ebd39f 0 10px,transparent 11px),
+    radial-gradient(circle at 84% 31%,#bca372 0 8px,transparent 9px),
+    linear-gradient(180deg,#d0b47f,#9c814f);
+  opacity:.97;
+}
+.water-glow{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255,255,255,.18), transparent 40%),
+    radial-gradient(circle at 20% 60%, rgba(255,255,255,.08), transparent 32%);
+  pointer-events:none;
+}
+.plant,.coral,.reef{
+  position:absolute;
+  pointer-events:none;
+}
+.plant{
+  bottom:10%;
+  width:18px;
+  border-radius:18px 18px 0 0;
+  background:linear-gradient(180deg,#43d17f,#147d4d);
+  transform-origin:bottom center;
+  box-shadow:inset -4px 0 0 rgba(255,255,255,.14);
+}
+.plant::before,.plant::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  width:16px;
+  height:74%;
+  border-radius:16px 16px 0 0;
+  background:linear-gradient(180deg,#4bdd8a,#1a8b57);
+}
+.plant::before{left:-13px; transform:rotate(-14deg)}
+.plant::after{right:-13px; transform:rotate(14deg)}
+.plant1{left:7%; height:94px; transform:rotate(-2deg)}
+.plant2{left:18%; height:78px}
+.plant3{right:10%; height:98px}
+.plant4{right:24%; height:72px; transform:rotate(3deg)}
+.reef{
+  bottom:10%;
+  border-radius:48px;
+  background:linear-gradient(180deg,#83756b,#554842);
+  box-shadow:inset 0 6px 8px rgba(255,255,255,.12);
+}
+.rock1{left:30%; width:80px; height:42px}
+.rock2{right:31%; width:94px; height:50px}
+.coral{
+  bottom:11%;
+  width:24px;
+  border-radius:14px 14px 0 0;
+  background:linear-gradient(180deg,#ff9f67,#ff6c6c);
+  box-shadow:
+    16px -22px 0 0 #ff8f5f,
+    32px -6px 0 0 #ff7a74,
+    -14px -18px 0 0 #ff9564;
+}
+.coral::before,.coral::after{
+  content:"";
+  position:absolute;
+  bottom:24px;
+  width:18px;
+  height:40px;
+  border-radius:12px 12px 0 0;
+  background:inherit;
+}
+.coral::before{left:-10px; transform:rotate(-16deg)}
+.coral::after{right:-10px; transform:rotate(16deg)}
+.coral1{left:42%}
+.coral2{right:17%; transform:scale(.84)}
+.bubble{
+  position:absolute;
+  border:2px solid rgba(255,255,255,.58);
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), rgba(255,255,255,.07));
+  pointer-events:none;
+  animation:rise linear infinite;
+}
+@keyframes rise{from{transform:translateY(0)}to{transform:translateY(-120vh)}}
+
+/* Semi-realistic CSS fish */
+.fish{
+  position:absolute;
+  display:block;
+  width:150px;
+  height:90px;
+  user-select:none;
+  cursor:pointer;
+  filter:drop-shadow(0 10px 10px rgba(0,0,0,.18));
+  transition:left .08s linear, top .08s linear, transform .08s linear;
+  touch-action:manipulation;
+}
+.fish *{position:absolute;display:block}
+.fish-body{
+  left:20%;
+  top:14%;
+  width:62%;
+  height:72%;
+  border-radius:50% 44% 44% 50%;
+  background:linear-gradient(180deg,#ffb067,#f36d1f);
+  box-shadow:inset -10px -6px 0 rgba(0,0,0,.08), inset 7px 8px 0 rgba(255,255,255,.16);
+}
+.fish-tail{
+  left:0;
+  top:24%;
+  width:32%;
+  height:48%;
+  clip-path:polygon(100% 50%, 0 0, 0 100%);
+  background:linear-gradient(180deg,#ff9a47,#e06318);
+  transform-origin:right center;
+}
+.fish-fin{
+  width:22%;
+  height:22%;
+  background:linear-gradient(180deg,rgba(255,255,255,.38), rgba(255,255,255,.12));
+  clip-path:polygon(50% 0, 100% 100%, 0 100%);
+}
+.fish-fin.top{left:42%; top:4%; transform:rotate(-8deg)}
+.fish-fin.bottom{left:42%; bottom:2%; transform:rotate(180deg)}
+.fish-eye{
+  right:18%;
+  top:31%;
+  width:12%;
+  height:12%;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:inset -3px -2px 0 rgba(0,0,0,.12);
+}
+.fish-eye::after{
+  content:"";
+  position:absolute;
+  inset:26%;
+  border-radius:50%;
+  background:#111c26;
+}
+.fish-mouth{
+  right:8%;
+  top:46%;
+  width:8%;
+  height:8%;
+  border-bottom:3px solid rgba(45,25,14,.65);
+  border-radius:0 0 12px 12px;
+}
+.fish-stripe{
+  top:16%;
+  width:10%;
+  height:68%;
+  border-radius:10px;
+  background:rgba(255,248,240,.9);
+  box-shadow:inset 2px 0 0 rgba(255,255,255,.45), inset -2px 0 0 rgba(0,0,0,.05);
+}
+.stripe1{left:33%}
+.stripe2{left:50%}
+.fish.caught{transform:scale(1.14) !important}
+
+.fish.theme-blue .fish-body{
+  background:linear-gradient(180deg,#5fd0ff,#1f86d0);
+}
+.fish.theme-blue .fish-tail{
+  background:linear-gradient(180deg,#7ae0ff,#2a97d8);
+}
+.fish.theme-blue .fish-fin{
+  background:linear-gradient(180deg,rgba(252,248,109,.92), rgba(232,200,42,.74));
+}
+.fish.theme-blue .fish-stripe{
+  background:rgba(255,221,80,.92);
+}
+.fish.theme-yellow .fish-body{
+  background:linear-gradient(180deg,#ffe27b,#f1b52b);
+}
+.fish.theme-yellow .fish-tail{
+  background:linear-gradient(180deg,#ffd55d,#db9a12);
+}
+.fish.theme-yellow .fish-fin{
+  background:linear-gradient(180deg,rgba(255,253,206,.92), rgba(255,232,145,.72));
+}
+.fish.theme-yellow .fish-stripe{
+  background:rgba(255,244,198,.92);
+}
+.fish.theme-yellow .stripe2{opacity:.55}
+@media(max-width:700px){
+  .plant1,.plant3{height:78px}
+  .plant2,.plant4{height:60px}
+  .rock1{width:62px;height:34px}
+  .rock2{width:72px;height:38px}
+}
+
 </style>
 </head>
 <body>
@@ -321,10 +534,26 @@ button{font:inherit}
   <div class="tip">Κάνε <strong>αριστερό κλικ</strong> πάνω στο ψάρι! Κάθε νέο επίπεδο έχει μικρότερα και γρηγορότερα ψάρια. 🖱️</div>
 
   <div class="playfield" id="playfield">
-    <div class="seaweed s1">🌿</div><div class="seaweed s2">🌿</div>
-    <div class="seaweed s3">🌿</div><div class="seaweed s4">🌿</div>
-    <div class="rock r1">🪨</div><div class="rock r2">🪨</div>
-    <div class="fish" id="fish" aria-label="Ψάρι">🐠</div>
+    <div class="water-glow"></div>
+    <div class="plant plant1"></div>
+    <div class="plant plant2"></div>
+    <div class="plant plant3"></div>
+    <div class="plant plant4"></div>
+    <div class="reef rock1"></div>
+    <div class="reef rock2"></div>
+    <div class="coral coral1"></div>
+    <div class="coral coral2"></div>
+
+    <div class="fish theme-clown" id="fish" aria-label="Ψάρι">
+      <span class="fish-tail"></span>
+      <span class="fish-body"></span>
+      <span class="fish-fin top"></span>
+      <span class="fish-fin bottom"></span>
+      <span class="fish-eye"></span>
+      <span class="fish-stripe stripe1"></span>
+      <span class="fish-stripe stripe2"></span>
+      <span class="fish-mouth"></span>
+    </div>
   </div>
 </section>
 
@@ -427,7 +656,7 @@ function updateProgress(){
 }
 
 function fishSize(){
-  const max=98,min=44;
+  const max=92,min=42;
   return Math.round(max-((level-1)/(TOTAL_LEVELS-1))*(max-min));
 }
 
@@ -435,22 +664,23 @@ function fishSpeed(){
   return 1.0 + (level-1)*0.18;
 }
 
-function randomFishEmoji(){
-  const fishies=["🐠","🐟","🐡"];
-  return fishies[Math.floor(Math.random()*fishies.length)];
+function randomFishTheme(){
+  const variants=["theme-clown","theme-blue","theme-yellow"];
+  return variants[Math.floor(Math.random()*variants.length)];
 }
 
 function placeFish(resetDirection=true){
   const rect=playfield.getBoundingClientRect();
-  const goal = levelGoal();
   const size=fishSize();
-  fish.style.fontSize=size+"px";
-  fish.style.width=(size+18)+"px";
-  fish.style.height=(size+18)+"px";
-  fish.textContent=randomFishEmoji();
+  const width=Math.round(size*1.58);
+  const height=size;
 
-  fishX=20+Math.random()*Math.max(1,rect.width-size-60);
-  fishY=35+Math.random()*Math.max(1,rect.height-size-150);
+  fish.className="fish " + randomFishTheme();
+  fish.style.width=width+"px";
+  fish.style.height=height+"px";
+
+  fishX=20+Math.random()*Math.max(1,rect.width-width-50);
+  fishY=35+Math.random()*Math.max(1,rect.height-height-150);
 
   if(resetDirection){
     const speed=fishSpeed();
@@ -465,7 +695,7 @@ function spawnBubbles(){
   document.querySelectorAll(".bubble").forEach(b=>b.remove());
   const rect=playfield.getBoundingClientRect();
   const goal = levelGoal();
-  const count=window.innerWidth<700?8:16;
+  const count=window.innerWidth<700?12:22;
   for(let i=0;i<count;i++){
     const b=document.createElement("div");
     b.className="bubble";
@@ -495,7 +725,9 @@ function animateFish(){
 
   fish.style.left=fishX+"px";
   fish.style.top=fishY+"px";
-  fish.style.transform=vx<0?"scaleX(-1)":"scaleX(1)";
+  if(!fish.classList.contains("caught")){
+    fish.style.transform=vx<0?"scaleX(-1)":"scaleX(1)";
+  }
   motionRAF=requestAnimationFrame(animateFish);
 }
 
@@ -517,6 +749,7 @@ function catchFish(e){
 
   canCatch=false;
   fish.classList.add("caught");
+  fish.style.transform=(vx<0?"scaleX(-1) ":"") + "scale(1.14)";
   caught++;
   popMessage();
   updateProgress();
