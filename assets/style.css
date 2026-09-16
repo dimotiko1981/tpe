@@ -968,3 +968,445 @@ button{font:inherit}
   .tech-tower.t1{left:34px; height:102px}
   .platform{width:250px}
 }
+
+
+/* V9: move animated robotics elements to edges, outside the category cards area */
+.scene-panel{
+  overflow:hidden;
+}
+
+/* keep cards clearly above the scene */
+.content-layer,
+.intro,
+.filter-panel,
+.dashboard,
+.card{
+  position:relative;
+  z-index:2;
+}
+
+/* place decorative animated items around the perimeter */
+.sun{top:18px; left:18px; transform:scale(.9)}
+.cloud.c1{top:18px; left:150px;}
+.cloud.c2{top:64px; left:52%;}
+.cloud.c3{top:24px; right:86px;}
+
+.rainbow{right:-54px; top:24px; transform:scale(.82); opacity:.82;}
+
+.gear-big{
+  left:14px;
+  top:230px;
+  font-size:76px;
+  opacity:.95;
+}
+.gear-small{
+  right:18px;
+  top:260px;
+  font-size:60px;
+  opacity:.95;
+}
+.chip-icon{
+  left:42px;
+  top:350px;
+  font-size:52px;
+}
+.satellite{
+  right:34px;
+  top:132px;
+  font-size:48px;
+}
+.drone{
+  right:120px;
+  left:auto;
+  top:360px;
+  font-size:46px;
+}
+.bulb-tech{
+  left:44px;
+  top:500px;
+  right:auto;
+  font-size:48px;
+}
+.code-star{
+  right:160px;
+  left:auto;
+  top:88px;
+  font-size:36px;
+}
+.plane{
+  top:118px;
+  left:-90px;
+}
+.robot-main{
+  right:26px;
+  left:auto;
+  bottom:64px;
+  transform:none;
+  font-size:78px;
+}
+.robot-side.left{
+  left:26px;
+  bottom:112px;
+  font-size:58px;
+}
+.robot-side.right{
+  right:120px;
+  bottom:420px;
+  font-size:50px;
+}
+.rocket-float{
+  left:40px;
+  right:auto;
+  top:660px;
+  font-size:42px;
+}
+.butterfly{
+  right:34px;
+  bottom:240px;
+  font-size:38px;
+}
+.bee{
+  left:72px;
+  top:640px;
+  font-size:26px;
+}
+
+.orb.o1{left:56px; top:430px;}
+.orb.o2{right:64px; left:auto; top:520px;}
+.orb.o3{right:24px; top:640px;}
+.orb.o4{left:32px; top:720px;}
+
+.tech-glow{
+  width:280px;
+  height:140px;
+  right:-20px;
+  left:auto;
+  bottom:42px;
+  transform:none;
+}
+.circuit-band{
+  width:min(980px, 78%);
+  left:50%;
+  bottom:34px;
+  transform:translateX(-50%);
+  opacity:.62;
+}
+.platform{
+  right:18px;
+  left:auto;
+  bottom:32px;
+  transform:none;
+  width:230px;
+}
+.tech-tower.t1{
+  left:18px;
+  height:116px;
+  bottom:52px;
+}
+.tech-tower.t2{
+  right:18px;
+  height:138px;
+  bottom:52px;
+}
+
+.tree{
+  right:16px;
+  bottom:108px;
+  transform:scale(.88);
+}
+.flower.f1{left:8px;}
+.flower.f2{left:74px;}
+.flower.f3{left:136px;}
+.flower.f4{left:198px;}
+.flower.f5{right:112px;}
+.flower.f6{right:52px;}
+.mushroom{
+  left:260px;
+  bottom:24px;
+}
+.foreground-note{
+  bottom:102px;
+  font-size:12px;
+  width:60%;
+}
+
+@media (max-width: 900px){
+  .scene-panel{min-height:1180px;}
+  .gear-big{left:8px; top:250px; font-size:64px;}
+  .gear-small{right:8px; top:300px; font-size:52px;}
+  .chip-icon{left:22px; top:410px; font-size:46px;}
+  .drone{right:34px; top:510px; font-size:40px;}
+  .bulb-tech{left:20px; top:640px; font-size:42px;}
+  .robot-main{right:14px; bottom:92px; font-size:72px;}
+  .robot-side.left{left:14px; bottom:118px; font-size:48px;}
+  .robot-side.right{display:none;}
+  .rocket-float{left:18px; top:860px; font-size:36px;}
+  .bee{left:24px; top:790px;}
+  .tree{right:-8px; bottom:136px; transform:scale(.78);}
+  .platform{right:10px; width:190px;}
+  .tech-tower.t1{left:10px;}
+  .tech-tower.t2{right:10px;}
+  .circuit-band{width:min(740px, 70%);}
+  .foreground-note{width:72%;}
+}
+
+@media (max-width: 620px){
+  .scene-panel{min-height:1760px;}
+  .sun{left:8px; top:20px; transform:scale(.76);}
+  .cloud.c1{left:88px; top:18px; transform:scale(.8);}
+  .cloud.c2{display:none;}
+  .cloud.c3{right:36px; top:42px; transform:scale(.72);}
+  .rainbow{right:-96px; top:44px; transform:scale(.64);}
+  .gear-big{left:4px; top:310px; font-size:50px;}
+  .gear-small{right:2px; top:360px; font-size:42px;}
+  .chip-icon{left:8px; top:480px; font-size:40px;}
+  .satellite{right:4px; top:172px; font-size:40px;}
+  .drone{right:4px; top:630px; font-size:36px;}
+  .bulb-tech{left:6px; top:760px; font-size:38px;}
+  .code-star{right:34px; top:90px; font-size:30px;}
+  .robot-main{right:4px; bottom:154px; font-size:60px;}
+  .robot-side.left{left:4px; bottom:152px; font-size:42px;}
+  .rocket-float{left:8px; top:1230px; font-size:32px;}
+  .butterfly{right:4px; bottom:300px; font-size:32px;}
+  .bee{left:6px; top:1170px; font-size:22px;}
+  .orb.o1{left:12px; top:580px;}
+  .orb.o2{right:12px; top:760px;}
+  .orb.o3{display:none;}
+  .orb.o4{left:10px; top:1300px;}
+  .platform{right:4px; width:150px; height:18px;}
+  .tech-tower.t1{left:4px; height:88px; width:44px;}
+  .tech-tower.t2{right:4px; height:96px; width:44px;}
+  .tree{right:-24px; bottom:198px; transform:scale(.62);}
+  .flower.f4,.flower.f6{display:none;}
+  .foreground-note{
+    width:82%;
+    left:50%;
+    bottom:170px;
+    font-size:11px;
+  }
+}
+
+
+/* V10: fewer, bigger, clearer edge elements like the reference */
+.scene-panel{
+  min-height: 930px;
+}
+
+/* make decorative elements clear and readable */
+.sun{
+  top: 18px;
+  left: 14px;
+  transform: scale(1.0);
+  opacity: 1;
+}
+.rainbow{
+  right: -46px;
+  top: 18px;
+  transform: scale(0.92);
+  opacity: .96;
+}
+.tree{
+  right: 10px;
+  bottom: 70px;
+  transform: scale(1.02);
+}
+.flower{
+  transform-origin: center bottom;
+}
+.flower.f1{left:12px}
+.flower.f2{left:78px}
+.flower.f3{left:144px}
+.flower.f4{left:214px}
+.flower.f5{right:116px}
+.flower.f6{right:50px}
+.mushroom{
+  left: 292px;
+  bottom: 26px;
+  transform: scale(1.08);
+}
+
+/* hide extra clutter so the scene reads clearly */
+.cloud.c2,
+.robot-side.right,
+.orb.o3,
+.orb.o4,
+.foreground-note{
+  display:none;
+}
+
+/* top / side robotics elements */
+.gear-big{
+  left: 14px;
+  top: 190px;
+  font-size: 78px;
+  opacity: 1;
+}
+.chip-icon{
+  left: 26px;
+  top: 332px;
+  font-size: 54px;
+}
+.bulb-tech{
+  left: 34px;
+  top: 490px;
+  right: auto;
+  font-size: 50px;
+}
+.rocket-float{
+  left: 38px;
+  top: 650px;
+  right: auto;
+  font-size: 46px;
+}
+.bee{
+  left: 78px;
+  top: 610px;
+  font-size: 28px;
+}
+
+.satellite{
+  right: 28px;
+  top: 118px;
+  font-size: 50px;
+}
+.code-star{
+  right: 128px;
+  top: 84px;
+  left: auto;
+  font-size: 38px;
+}
+.gear-small{
+  right: 18px;
+  top: 232px;
+  font-size: 60px;
+}
+.drone{
+  right: 58px;
+  top: 388px;
+  left: auto;
+  font-size: 46px;
+}
+.butterfly{
+  right: 54px;
+  bottom: 246px;
+  font-size: 40px;
+}
+
+/* strong hero robot only in the lower-right edge */
+.robot-main{
+  right: 22px;
+  left: auto;
+  bottom: 78px;
+  transform: none;
+  font-size: 84px;
+  opacity: 1;
+}
+.robot-side.left{
+  left: 20px;
+  bottom: 118px;
+  font-size: 56px;
+}
+
+/* small circuit accents only low and peripheral */
+.tech-glow{
+  right: -12px;
+  bottom: 52px;
+  left: auto;
+  width: 250px;
+  height: 130px;
+  transform: none;
+}
+.circuit-band{
+  width: min(980px, 72%);
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  opacity: .55;
+}
+.platform{
+  right: 18px;
+  bottom: 36px;
+  left: auto;
+  transform: none;
+  width: 220px;
+}
+.tech-tower.t1{
+  left: 14px;
+  bottom: 54px;
+  width: 52px;
+  height: 108px;
+}
+.tech-tower.t2{
+  right: 14px;
+  bottom: 54px;
+  width: 52px;
+  height: 126px;
+}
+.orb.o1{
+  left: 42px;
+  top: 426px;
+}
+.orb.o2{
+  right: 44px;
+  left: auto;
+  top: 520px;
+}
+
+/* give the scene some free side gutters visually */
+.dashboard{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* tablet */
+@media (max-width: 900px){
+  .scene-panel{min-height:1200px}
+  .sun{transform:scale(.92)}
+  .rainbow{right:-64px; transform:scale(.82)}
+  .gear-big{left:8px; top:232px; font-size:64px}
+  .chip-icon{left:14px; top:390px; font-size:46px}
+  .bulb-tech{left:14px; top:590px; font-size:44px}
+  .rocket-float{left:14px; top:860px; font-size:38px}
+  .bee{left:20px; top:770px}
+  .satellite{right:8px; top:154px; font-size:42px}
+  .gear-small{right:8px; top:290px; font-size:50px}
+  .drone{right:16px; top:550px; font-size:40px}
+  .butterfly{right:18px; bottom:310px; font-size:34px}
+  .robot-main{right:8px; bottom:96px; font-size:72px}
+  .robot-side.left{left:8px; bottom:124px; font-size:48px}
+  .tree{right:-12px; bottom:128px; transform:scale(.84)}
+  .flower.f5{right:92px}
+  .flower.f6{right:34px}
+  .mushroom{left:250px}
+  .platform{right:8px; width:180px}
+  .tech-tower.t1{left:8px}
+  .tech-tower.t2{right:8px}
+  .circuit-band{width:min(760px, 66%)}
+}
+
+/* mobile */
+@media (max-width: 620px){
+  .scene-panel{min-height:1780px}
+  .sun{left:6px; top:18px; transform:scale(.74)}
+  .cloud.c1{left:80px; top:18px; transform:scale(.78)}
+  .cloud.c3{right:20px; top:44px; transform:scale(.68)}
+  .rainbow{right:-118px; top:46px; transform:scale(.62)}
+  .gear-big{left:2px; top:304px; font-size:52px}
+  .chip-icon{left:4px; top:482px; font-size:38px}
+  .bulb-tech{left:4px; top:744px; font-size:36px}
+  .rocket-float{left:6px; top:1230px; font-size:30px}
+  .bee{left:8px; top:1140px; font-size:22px}
+  .satellite{right:2px; top:174px; font-size:38px}
+  .gear-small{right:2px; top:356px; font-size:40px}
+  .drone{right:4px; top:628px; font-size:34px}
+  .butterfly{right:6px; bottom:316px; font-size:30px}
+  .robot-main{right:4px; bottom:164px; font-size:60px}
+  .robot-side.left{left:4px; bottom:160px; font-size:40px}
+  .tree{right:-26px; bottom:202px; transform:scale(.62)}
+  .flower.f4,.flower.f6{display:none}
+  .platform{right:4px; width:142px; height:18px}
+  .tech-tower.t1{left:4px; height:84px; width:42px}
+  .tech-tower.t2{right:4px; height:92px; width:42px}
+  .mushroom{left:236px; bottom:24px; transform:scale(.92)}
+  .circuit-band{width:min(430px, 60%)}
+}
