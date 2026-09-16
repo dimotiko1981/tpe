@@ -235,3 +235,21 @@ if(gradeNote && initialGrade && gradeLabels[initialGrade]){
   resize();
   draw();
 })();
+
+// Global reset of EVAGELAK EDU LAB progress
+const resetProgressBtn = document.getElementById("resetProgressBtn");
+if(resetProgressBtn){
+  resetProgressBtn.addEventListener("click",()=>{
+    if(!confirm("Θέλεις να μηδενιστεί όλη η πρόοδος των δραστηριοτήτων;")) return;
+    localStorage.removeItem("starHuntLevel");
+    localStorage.removeItem("evagelak_star_hunt_level");
+    const keys=[];
+    for(let i=0;i<localStorage.length;i++){
+      const k=localStorage.key(i);
+      if(k && k.startsWith("evagelak_")) keys.push(k);
+    }
+    keys.forEach(k=>localStorage.removeItem(k));
+    alert("Η πρόοδος μηδενίστηκε.");
+    location.reload();
+  });
+}

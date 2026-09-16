@@ -1700,3 +1700,40 @@ body{
   .bulb-tech{font-size: 38px !important;}
   .rocket-float{font-size: 32px !important;}
 }
+
+/* Global progress reset button */
+.reset-progress-btn{
+  border:none;min-height:48px;padding:0 14px;border-radius:16px;
+  background:linear-gradient(180deg,#ffffff,#eaf8fb);color:#17415a;
+  font-weight:900;box-shadow:0 7px 16px rgba(16,59,85,.09);
+  border:1px solid rgba(16,59,85,.11);cursor:pointer;touch-action:manipulation;
+  display:flex;align-items:center;gap:7px;white-space:nowrap;
+}
+.reset-progress-btn:hover{transform:translateY(-1px)}
+.reset-progress-btn:active{transform:translateY(1px)}
+@media(max-width:620px){
+  .reset-progress-btn{grid-column:1/-1;width:100%;justify-content:center;min-height:46px}
+}
+
+
+/* Category navigation row */
+.nav-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+  flex-wrap:wrap;
+}
+.home-nav-btn{
+  display:inline-flex;
+  align-items:center;
+  min-height:48px;
+  padding:0 15px;
+  border-radius:14px;
+  background:linear-gradient(180deg,#ffffff,#eaf8fb);
+  border:1px solid var(--line);
+  font-weight:900;
+  color:var(--navy);
+  box-shadow:0 7px 16px rgba(16,59,85,.08);
+}
+.nav-row .back{margin-bottom:0}

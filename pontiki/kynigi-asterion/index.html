@@ -278,12 +278,55 @@ button{font:inherit}
   .progress-wrap{grid-column:1/-1;grid-row:2}
   .target{width:94px;height:94px;font-size:82px}
 }
+.mission-reset-btn{border:none;min-height:46px;padding:0 16px;border-radius:15px;background:#eef4f7;color:#405367;font-weight:900;cursor:pointer}.mission-reset-btn:hover{background:#e3edf2}\n
+.mission-top-nav{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.activity-home-btn,.activity-back-btn,.game-home-btn{
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 14px;
+  border-radius:15px;
+  background:#eef7fb;
+  color:#28445d;
+  font-weight:900;
+  box-shadow:0 5px 12px rgba(38,68,93,.10);
+  border:1px solid #d9e8ef;
+}
+.game-home-btn{
+  width:46px;
+  padding:0;
+  background:#fff;
+}
+.game-left-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.complete-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+@media(max-width:700px){
+  .mission-top-nav{flex-wrap:wrap}
+  .activity-home-btn,.activity-back-btn{flex:1}
+}
 </style>
 </head>
 <body>
 
 <section id="mission" class="screen active">
-  <div class="modal">
+  <div class="modal"><div class="mission-top-nav"><a class="activity-home-btn" href="../../index.html">🏠 Αρχική</a><a class="activity-back-btn" href="../index.html">← Ποντίκι</a></div>
     <div class="star-logo">⭐</div>
     <h1>Κυνήγι Αστεριών</h1>
     <div class="level-badge">Επίπεδο <span id="missionLevel">1</span> από 15</div>
@@ -295,18 +338,18 @@ button{font:inherit}
 
     <div class="level-dots" id="levelDots"></div>
 
-    <button class="start-btn" id="startBtn">Πάμε! 🚀</button>
+    <button class="start-btn" id="startBtn">Πάμε! 🚀</button><div style="margin-top:16px"><button class="mission-reset-btn" id="missionResetBtn" type="button">↺ Μηδενισμός προόδου</button></div>
   </div>
 </section>
 
 <section id="game" class="screen">
   <div class="game-top">
-    <div class="game-level">Επίπεδο <span id="gameLevel">1</span> / 15</div>
+    <div class="game-left-actions"><a class="game-home-btn" href="../../index.html" title="Αρχική">🏠</a><div class="game-level">Επίπεδο <span id="gameLevel">1</span> / 15</div></div>
     <div class="progress-wrap">
       <div class="progress-fill" id="progressFill"></div>
       <div class="progress-text" id="progressText">0 / 6</div>
     </div>
-    <button class="exit-btn" id="exitBtn" title="Επιστροφή">↩️</button>
+    <div style="display:flex;gap:8px;align-items:center"><button class="exit-btn" id="resetGameBtn" title="Μηδενισμός προόδου">↺</button><button class="exit-btn" id="exitBtn" title="Επιστροφή">↩️</button></div>
   </div>
   <div class="tip">Πέρασε το ποντίκι πάνω από το αστέρι — χωρίς κλικ!</div>
   <div class="playfield" id="playfield">
@@ -319,7 +362,7 @@ button{font:inherit}
     <div class="big">🏆⭐</div>
     <h2>Μπράβο!</h2>
     <p>Ολοκλήρωσες το επίπεδο <strong id="doneLevel">1</strong>.</p>
-    <button class="next-btn" id="nextBtn">Επόμενο επίπεδο 🚀</button>
+    <div class="complete-actions"><a class="activity-home-btn" href="../../index.html">🏠 Αρχική</a><button class="next-btn" id="nextBtn">Επόμενο επίπεδο 🚀</button></div>
   </div>
 </section>
 
@@ -474,6 +517,16 @@ target.addEventListener("pointerdown",e=>{
 window.addEventListener("resize",()=>{
   if(game.classList.contains("active")) moveTarget();
 });
+
+function resetStarHuntProgress(){
+  if(!confirm("Θέλεις να μηδενίσεις την πρόοδο στο Κυνήγι Αστεριών;")) return;
+  level=1; caught=0;
+  localStorage.setItem("starHuntLevel","1");
+  localStorage.setItem("evagelak_star_hunt_level","1");
+  updateMission(); updateProgress(); showScreen(mission);
+}
+document.getElementById("resetGameBtn")?.addEventListener("click",resetStarHuntProgress);
+document.getElementById("missionResetBtn")?.addEventListener("click",resetStarHuntProgress);
 
 updateMission();
 </script>
