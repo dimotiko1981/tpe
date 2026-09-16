@@ -253,3 +253,36 @@ if(resetProgressBtn){
     location.reload();
   });
 }
+
+
+// Homepage settings menu toggle
+const settingsBtn = document.getElementById("settingsBtn");
+const settingsMenu = document.getElementById("settingsMenu");
+
+if(settingsBtn && settingsMenu){
+  settingsBtn.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    const willOpen = settingsMenu.hasAttribute("hidden");
+    if(willOpen){
+      settingsMenu.removeAttribute("hidden");
+      settingsBtn.setAttribute("aria-expanded","true");
+    }else{
+      settingsMenu.setAttribute("hidden","");
+      settingsBtn.setAttribute("aria-expanded","false");
+    }
+  });
+
+  document.addEventListener("click",(e)=>{
+    if(!settingsMenu.contains(e.target) && e.target !== settingsBtn){
+      settingsMenu.setAttribute("hidden","");
+      settingsBtn.setAttribute("aria-expanded","false");
+    }
+  });
+
+  document.addEventListener("keydown",(e)=>{
+    if(e.key==="Escape"){
+      settingsMenu.setAttribute("hidden","");
+      settingsBtn.setAttribute("aria-expanded","false");
+    }
+  });
+}

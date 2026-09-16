@@ -321,6 +321,137 @@ button{font:inherit}
   .mission-top-nav{flex-wrap:wrap}
   .activity-home-btn,.activity-back-btn{flex:1}
 }
+
+/* V16 completion card style based on reference */
+.modern-complete{
+  width:min(620px,92vw);
+  padding:28px 26px 22px;
+  background:#f7f7f8;
+  border:6px solid rgba(202,193,208,.9);
+  border-radius:34px;
+  text-align:center;
+  box-shadow:0 22px 56px rgba(50,90,130,.20);
+}
+.complete-title{
+  font-size:clamp(34px,5.5vw,58px);
+  font-weight:900;
+  color:#ff5c97;
+  line-height:1.05;
+}
+.complete-title span{font-size:.72em}
+.complete-star{
+  font-size:82px;
+  line-height:1;
+  margin:12px 0 10px;
+  filter:drop-shadow(0 8px 10px rgba(255,191,28,.22));
+}
+.complete-level-track{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:2px auto 12px;
+  max-width:520px;
+}
+.complete-level-track .mini-dot{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:#d9d9dc;
+  border:3px solid #b9bcc0;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.08);
+}
+.complete-level-track .mini-dot.done{
+  background:#48b356;
+  border-color:#267e30;
+  position:relative;
+}
+.complete-level-track .mini-dot.done::after{
+  content:"★";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:#214d25;
+  font-size:15px;
+  font-weight:900;
+}
+.complete-text{
+  margin:10px 0 20px;
+  font-size:clamp(22px,3vw,34px);
+  color:#405064;
+  font-weight:700;
+}
+.complete-main-actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.complete-green,
+.complete-orange{
+  min-width:206px;
+  min-height:72px;
+  border-radius:30px;
+  font-size:24px;
+  box-shadow:0 8px 0 rgba(0,0,0,.18), 0 16px 24px rgba(0,0,0,.10);
+}
+.complete-green{
+  background:linear-gradient(180deg,#65d263,#3dae48);
+}
+.complete-orange{
+  border:none;
+  color:#fff;
+  font-weight:900;
+  background:linear-gradient(180deg,#ffb33d,#f28712);
+  cursor:pointer;
+}
+.complete-orange:active{transform:translateY(4px)}
+.complete-games-row{
+  display:flex;
+  justify-content:center;
+  margin-top:14px;
+}
+.games-btn{
+  min-width:220px;
+  min-height:68px;
+  padding:0 24px;
+  border-radius:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:#fff;
+  font-size:23px;
+  font-weight:900;
+  background:linear-gradient(180deg,#48b7f0,#1d8fcb);
+  box-shadow:0 8px 0 #1878ad, 0 16px 22px rgba(29,143,203,.18);
+}
+.complete-progress-row{
+  margin-top:12px;
+  display:flex;
+  justify-content:center;
+}
+.progress-pill{
+  border:none;
+  min-height:48px;
+  padding:0 20px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#ffffff,#f0f3f6);
+  color:#667687;
+  font-size:18px;
+  font-weight:900;
+  box-shadow:0 4px 10px rgba(16,59,85,.10);
+  cursor:pointer;
+}
+.progress-pill:hover{background:linear-gradient(180deg,#ffffff,#e9eef3)}
+@media(max-width:700px){
+  .modern-complete{padding:22px 16px 18px}
+  .complete-main-actions{gap:10px}
+  .complete-green,.complete-orange{min-width:160px;min-height:62px;font-size:21px}
+  .games-btn{min-width:180px;min-height:60px;font-size:21px}
+}
+
 </style>
 </head>
 <body>
@@ -357,14 +488,31 @@ button{font:inherit}
   </div>
 </section>
 
+
 <section id="complete" class="screen">
-  <div class="complete-card">
-    <div class="big">🏆⭐</div>
-    <h2>Μπράβο!</h2>
-    <p>Ολοκλήρωσες το επίπεδο <strong id="doneLevel">1</strong>.</p>
-    <div class="complete-actions"><a class="activity-home-btn" href="../../index.html">🏠 Αρχική</a><button class="next-btn" id="nextBtn">Επόμενο επίπεδο 🚀</button></div>
+  <div class="complete-card modern-complete">
+    <div class="complete-title">Μπράβο! <span>🎉</span></div>
+    <div class="complete-star">⭐</div>
+
+    <div class="complete-level-track" id="completeTrack"></div>
+
+    <p class="complete-text">Ολοκλήρωσες το επίπεδο <strong id="doneLevel">1</strong>!</p>
+
+    <div class="complete-main-actions">
+      <button class="next-btn complete-green" id="nextBtn">Επόμενο ➡️</button>
+      <button class="next-btn complete-orange" id="retryBtn" type="button">Ξανά 🔄</button>
+    </div>
+
+    <div class="complete-games-row">
+      <a class="games-btn" href="../index.html">Παιχνίδια 🎮</a>
+    </div>
+
+    <div class="complete-progress-row">
+      <button class="progress-pill" id="progressInfoBtn" type="button">🔑 Η πρόοδός μου</button>
+    </div>
   </div>
 </section>
+
 
 <script>
 const TOTAL_LEVELS = 15;
@@ -385,6 +533,8 @@ const levelDots = document.getElementById("levelDots");
 const startBtn = document.getElementById("startBtn");
 const nextBtn = document.getElementById("nextBtn");
 const exitBtn = document.getElementById("exitBtn");
+const retryBtn = document.getElementById("retryBtn");
+const progressInfoBtn = document.getElementById("progressInfoBtn");
 const playfield = document.getElementById("playfield");
 const target = document.getElementById("target");
 const progressFill = document.getElementById("progressFill");
@@ -413,9 +563,22 @@ function buildDots(){
   }
 }
 
+
+function renderCompleteTrack(){
+  const track=document.getElementById("completeTrack");
+  if(!track) return;
+  track.innerHTML="";
+  for(let i=1;i<=TOTAL_LEVELS;i++){
+    const d=document.createElement("div");
+    d.className="mini-dot" + (i<=level ? " done" : "");
+    track.appendChild(d);
+  }
+}
+
 function updateMission(){
   missionLevel.textContent=level;
   buildDots();
+  renderCompleteTrack();
 }
 
 function updateProgress(){
@@ -489,6 +652,7 @@ function completeAndNext(){
   if(level<TOTAL_LEVELS){
     level++;
     localStorage.setItem("starHuntLevel",level);
+    localStorage.setItem("evagelak_star_hunt_level",String(level));
     updateMission();
     showScreen(mission);
   }else{
@@ -501,6 +665,13 @@ function completeAndNext(){
 
 startBtn.addEventListener("click",startLevel);
 nextBtn.addEventListener("click",completeAndNext);
+retryBtn?.addEventListener("click",()=>{
+  showScreen(mission);
+});
+progressInfoBtn?.addEventListener("click",()=>{
+  const unlocked = Math.min(level, TOTAL_LEVELS);
+  alert(`Έχεις φτάσει μέχρι το επίπεδο ${unlocked} από ${TOTAL_LEVELS}.`);
+});
 exitBtn.addEventListener("click",()=>{
   updateMission();
   showScreen(mission);
@@ -523,6 +694,7 @@ function resetStarHuntProgress(){
   level=1; caught=0;
   localStorage.setItem("starHuntLevel","1");
   localStorage.setItem("evagelak_star_hunt_level","1");
+  renderCompleteTrack();
   updateMission(); updateProgress(); showScreen(mission);
 }
 document.getElementById("resetGameBtn")?.addEventListener("click",resetStarHuntProgress);

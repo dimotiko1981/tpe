@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#E8F9FF">
 <title>EVAGELAK EDU LAB</title>
-<link rel="stylesheet" href="assets/style.css?v=20260916f">
+<link rel="stylesheet" href="assets/style.css?v=20260916h">
 </head>
 <body>
 <canvas id="circuitCanvas" aria-hidden="true"></canvas>
@@ -19,7 +19,12 @@
     <h1>EVAGELAK EDU LAB</h1>
     <div class="motto">Μαθαίνω • Δημιουργώ • Καινοτομώ</div>
   </div>
-  <button class="reset-progress-btn" id="resetProgressBtn" type="button" title="Μηδενισμός προόδου">↺ <span>Μηδενισμός</span></button>
+  <div class="settings-wrap">
+      <button class="settings-btn" id="settingsBtn" type="button" aria-label="Ρυθμίσεις" aria-expanded="false">⚙️</button>
+      <div class="settings-menu" id="settingsMenu" hidden>
+        <button class="settings-item danger" id="resetProgressBtn" type="button">↺ Μηδενισμός προόδου</button>
+      </div>
+    </div>
   <div class="clock">
     <span class="date" id="liveDate"></span>
     <span class="time" id="liveTime"></span>
@@ -210,6 +215,6 @@
 </main>
 <footer class="footer">EVAGELAK EDU LAB • Πληροφορική Δημοτικού</footer>
 </div>
-<script src="assets/app.js?v=20260916f"></script>
+<script src="assets/app.js?v=20260916h"></script>
 </body>
 </html>
