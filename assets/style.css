@@ -1410,3 +1410,104 @@ button{font:inherit}
   .mushroom{left:236px; bottom:24px; transform:scale(.92)}
   .circuit-band{width:min(430px, 60%)}
 }
+
+
+/* V11: illustrated background fills the ENTIRE visible page */
+.scene-panel{
+  position:fixed !important;
+  inset:0 !important;
+  left:0 !important;
+  right:0 !important;
+  top:0 !important;
+  bottom:0 !important;
+  width:100vw !important;
+  height:100vh !important;
+  min-height:100vh !important;
+  border-radius:0 !important;
+  border:none !important;
+  overflow:hidden !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+}
+
+/* content always stays above the full-screen scene */
+.site{
+  position:relative;
+  z-index:1;
+}
+.topbar{
+  position:sticky;
+  z-index:50;
+}
+.wrap{
+  position:relative;
+  z-index:2;
+}
+.content-layer{
+  position:relative;
+  z-index:3;
+}
+
+/* remove the old page-color showing outside the scenic layer */
+body{
+  background:#ccefff;
+}
+
+/* keep the lower landscape visible across the whole viewport */
+.hill.h1{left:-8%; width:50vw; height:24vh; min-height:150px;}
+.hill.h2{left:24%; width:48vw; height:20vh; min-height:130px;}
+.hill.h3{right:-10%; width:50vw; height:27vh; min-height:170px;}
+
+/* full-page decorative edges */
+.tree{
+  right:1.2vw !important;
+  bottom:5vh !important;
+}
+.robot-main{
+  right:2vw !important;
+  bottom:6vh !important;
+}
+.robot-side.left{
+  left:1.5vw !important;
+  bottom:8vh !important;
+}
+.tech-tower.t1{
+  left:1vw !important;
+  bottom:4vh !important;
+}
+.tech-tower.t2{
+  right:1vw !important;
+  bottom:4vh !important;
+}
+.platform{
+  right:1vw !important;
+  bottom:3.5vh !important;
+}
+.circuit-band{
+  bottom:2.5vh !important;
+}
+
+/* cards stay readable but let the colorful full-page scene show around them */
+.intro,
+.filter-panel{
+  background:rgba(255,255,255,.80);
+}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.93),rgba(255,255,255,.84));
+}
+
+/* On tablet/mobile the full scenic background still fills the viewport */
+@media (max-width:900px){
+  .scene-panel{
+    width:100vw !important;
+    height:100vh !important;
+    min-height:100vh !important;
+  }
+}
+@media (max-width:620px){
+  .scene-panel{
+    width:100vw !important;
+    height:100vh !important;
+    min-height:100vh !important;
+  }
+}
