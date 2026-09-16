@@ -284,7 +284,7 @@ button{font:inherit}
 
     <div class="fish-logo">🐠</div>
     <h1>Κυνήγι Ψαριών</h1>
-    <div class="level-badge">Επίπεδο <span id="missionLevel">1</span> από 15</div>
+    <div class="level-badge">Επίπεδο <span id="missionLevel">1</span> από 15</div><div style="font-weight:900;color:#64778a;margin:-10px 0 16px">Στόχος: <span id="missionGoal">4</span> ψάρια</div>
 
     <div class="instruction">
       <div class="mouse-art">🖱️</div>
@@ -318,7 +318,7 @@ button{font:inherit}
     </div>
   </div>
 
-  <div class="tip">Κάνε <strong>αριστερό κλικ</strong> πάνω στο ψάρι! 🖱️</div>
+  <div class="tip">Κάνε <strong>αριστερό κλικ</strong> πάνω στο ψάρι! Κάθε νέο επίπεδο έχει μικρότερα και γρηγορότερα ψάρια. 🖱️</div>
 
   <div class="playfield" id="playfield">
     <div class="seaweed s1">🌿</div><div class="seaweed s2">🌿</div>
@@ -354,7 +354,7 @@ button{font:inherit}
 
 <script>
 const TOTAL_LEVELS=15;
-const FISH_PER_LEVEL=6;
+const BASE_GOAL=4;
 
 let level=Number(localStorage.getItem("fishHuntLevel")||1);
 level=Math.min(Math.max(level,1),TOTAL_LEVELS);
@@ -367,6 +367,7 @@ const mission=document.getElementById("mission");
 const game=document.getElementById("game");
 const complete=document.getElementById("complete");
 const missionLevel=document.getElementById("missionLevel");
+const missionGoal=document.getElementById("missionGoal");
 const gameLevel=document.getElementById("gameLevel");
 const doneLevel=document.getElementById("doneLevel");
 const levelDots=document.getElementById("levelDots");
@@ -379,6 +380,10 @@ const playfield=document.getElementById("playfield");
 const fish=document.getElementById("fish");
 const progressFill=document.getElementById("progressFill");
 const progressText=document.getElementById("progressText");
+
+function levelGoal(){
+  return Math.min(9, BASE_GOAL + Math.floor((level-1)/3));
+}
 
 function showScreen(el){
   [mission,game,complete].forEach(s=>s.classList.remove("active"));
@@ -409,23 +414,25 @@ function renderCompleteTrack(){
 
 function updateMission(){
   missionLevel.textContent=level;
+  if(missionGoal) missionGoal.textContent=levelGoal();
   buildDots();
   renderCompleteTrack();
 }
 
 function updateProgress(){
   gameLevel.textContent=level;
-  progressText.textContent=`${caught} / ${FISH_PER_LEVEL}`;
-  progressFill.style.width=`${(caught/FISH_PER_LEVEL)*100}%`;
+  const goal = levelGoal();
+  progressText.textContent=`${caught} / ${goal}`;
+  progressFill.style.width=`${(caught/goal)*100}%`;
 }
 
 function fishSize(){
-  const max=92,min=58;
+  const max=98,min=44;
   return Math.round(max-((level-1)/(TOTAL_LEVELS-1))*(max-min));
 }
 
 function fishSpeed(){
-  return 0.9 + (level-1)*0.11;
+  return 1.0 + (level-1)*0.18;
 }
 
 function randomFishEmoji(){
@@ -435,6 +442,7 @@ function randomFishEmoji(){
 
 function placeFish(resetDirection=true){
   const rect=playfield.getBoundingClientRect();
+  const goal = levelGoal();
   const size=fishSize();
   fish.style.fontSize=size+"px";
   fish.style.width=(size+18)+"px";
@@ -447,7 +455,7 @@ function placeFish(resetDirection=true){
   if(resetDirection){
     const speed=fishSpeed();
     vx=(Math.random()<.5?-1:1)*speed;
-    vy=(Math.random()-.5)*speed*.45;
+    vy=(Math.random()-.5)*speed*.9;
   }
   fish.style.left=fishX+"px";
   fish.style.top=fishY+"px";
@@ -456,6 +464,7 @@ function placeFish(resetDirection=true){
 function spawnBubbles(){
   document.querySelectorAll(".bubble").forEach(b=>b.remove());
   const rect=playfield.getBoundingClientRect();
+  const goal = levelGoal();
   const count=window.innerWidth<700?8:16;
   for(let i=0;i<count;i++){
     const b=document.createElement("div");
@@ -473,6 +482,7 @@ function spawnBubbles(){
 function animateFish(){
   if(!game.classList.contains("active")) return;
   const rect=playfield.getBoundingClientRect();
+  const goal = levelGoal();
   const size=fish.getBoundingClientRect().width || 100;
 
   fishX+=vx;
@@ -513,7 +523,7 @@ function catchFish(e){
 
   setTimeout(()=>{
     fish.classList.remove("caught");
-    if(caught>=FISH_PER_LEVEL){
+    if(caught>=levelGoal()){
       if(motionRAF) cancelAnimationFrame(motionRAF);
       doneLevel.textContent=level;
       renderCompleteTrack();
@@ -564,7 +574,7 @@ startBtn.addEventListener("click",startLevel);
 nextBtn.addEventListener("click",completeAndNext);
 retryBtn.addEventListener("click",()=>showScreen(mission));
 progressInfoBtn.addEventListener("click",()=>{
-  alert(`Έχεις φτάσει μέχρι το επίπεδο ${level} από ${TOTAL_LEVELS}.`);
+  alert(`Έχεις φτάσει μέχρι το επίπεδο ${level} από ${TOTAL_LEVELS}.\nΣε αυτό το επίπεδο χρειάζεσαι ${levelGoal()} ψάρια.`);
 });
 exitBtn.addEventListener("click",()=>{
   if(motionRAF) cancelAnimationFrame(motionRAF);

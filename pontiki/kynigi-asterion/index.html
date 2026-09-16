@@ -460,7 +460,7 @@ button{font:inherit}
   <div class="modal"><div class="mission-top-nav"><a class="activity-home-btn" href="../../index.html">🏠 Αρχική</a><a class="activity-back-btn" href="../index.html">← Ποντίκι</a></div>
     <div class="star-logo">⭐</div>
     <h1>Κυνήγι Αστεριών</h1>
-    <div class="level-badge">Επίπεδο <span id="missionLevel">1</span> από 15</div>
+    <div class="level-badge">Επίπεδο <span id="missionLevel">1</span> από 15</div><div style="font-weight:900;color:#64778a;margin:-10px 0 16px">Στόχος: <span id="missionGoal">4</span> αστεράκια</div>
 
     <div class="instruction">
       <div class="mouse-art">🖱️</div>
@@ -482,7 +482,7 @@ button{font:inherit}
     </div>
     <div style="display:flex;gap:8px;align-items:center"><button class="exit-btn" id="resetGameBtn" title="Μηδενισμός προόδου">↺</button><button class="exit-btn" id="exitBtn" title="Επιστροφή">↩️</button></div>
   </div>
-  <div class="tip">Πέρασε το ποντίκι πάνω από το αστέρι — χωρίς κλικ!</div>
+  <div class="tip">Πέρασε το ποντίκι πάνω από το αστέρι — τα επόμενα επίπεδα γίνονται πιο δύσκολα!</div>
   <div class="playfield" id="playfield">
     <div class="target" id="target" aria-label="Αστέρι">⭐</div>
   </div>
@@ -516,7 +516,7 @@ button{font:inherit}
 
 <script>
 const TOTAL_LEVELS = 15;
-const STARS_PER_LEVEL = 6;
+const BASE_GOAL = 4;
 
 let level = Number(localStorage.getItem("starHuntLevel") || 1);
 level = Math.min(Math.max(level,1),TOTAL_LEVELS);
@@ -527,6 +527,7 @@ const mission = document.getElementById("mission");
 const game = document.getElementById("game");
 const complete = document.getElementById("complete");
 const missionLevel = document.getElementById("missionLevel");
+const missionGoal = document.getElementById("missionGoal");
 const gameLevel = document.getElementById("gameLevel");
 const doneLevel = document.getElementById("doneLevel");
 const levelDots = document.getElementById("levelDots");
@@ -539,6 +540,10 @@ const playfield = document.getElementById("playfield");
 const target = document.getElementById("target");
 const progressFill = document.getElementById("progressFill");
 const progressText = document.getElementById("progressText");
+
+function levelGoal(){
+  return Math.min(8, BASE_GOAL + Math.floor((level-1)/3));
+}
 
 function showScreen(el){
   [mission,game,complete].forEach(s=>s.classList.remove("active"));
@@ -577,19 +582,21 @@ function renderCompleteTrack(){
 
 function updateMission(){
   missionLevel.textContent=level;
+  if(missionGoal) missionGoal.textContent=levelGoal();
   buildDots();
   renderCompleteTrack();
 }
 
 function updateProgress(){
   gameLevel.textContent=level;
-  progressText.textContent=`${caught} / ${STARS_PER_LEVEL}`;
-  progressFill.style.width=`${(caught/STARS_PER_LEVEL)*100}%`;
+  const goal = levelGoal();
+  progressText.textContent=`${caught} / ${goal}`;
+  progressFill.style.width=`${(caught/goal)*100}%`;
 }
 
 function targetSize(){
   // Gradually smaller target across 15 levels
-  const max=112, min=62;
+  const max=124, min=44;
   return Math.round(max - ((level-1)/(TOTAL_LEVELS-1))*(max-min));
 }
 
@@ -630,7 +637,7 @@ function catchStar(){
 
   setTimeout(()=>{
     target.classList.remove("caught");
-    if(caught>=STARS_PER_LEVEL){
+    if(caught>=levelGoal()){
       doneLevel.textContent=level;
       showScreen(complete);
       return;
@@ -670,7 +677,7 @@ retryBtn?.addEventListener("click",()=>{
 });
 progressInfoBtn?.addEventListener("click",()=>{
   const unlocked = Math.min(level, TOTAL_LEVELS);
-  alert(`Έχεις φτάσει μέχρι το επίπεδο ${unlocked} από ${TOTAL_LEVELS}.`);
+  alert(`Έχεις φτάσει μέχρι το επίπεδο ${unlocked} από ${TOTAL_LEVELS}.\nΣε αυτό το επίπεδο χρειάζεσαι ${levelGoal()} αστεράκια.`);
 });
 exitBtn.addEventListener("click",()=>{
   updateMission();
