@@ -1793,3 +1793,103 @@ body{
   .settings-btn{width:46px;height:46px;font-size:23px}
   .settings-menu{right:0;top:56px;min-width:210px}
 }
+
+
+/* V18: discreet date/time next to settings gear */
+.header-tools{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left:auto;
+}
+
+.header-tools .clock{
+  min-width:0;
+  padding:6px 10px;
+  border-radius:12px;
+  background:rgba(255,255,255,.48);
+  border:1px solid rgba(16,59,85,.07);
+  box-shadow:none;
+  text-align:right;
+  backdrop-filter:blur(6px);
+}
+
+.header-tools .clock .date{
+  font-size:10px;
+  line-height:1.15;
+  color:rgba(70,91,108,.72);
+  font-weight:700;
+  text-transform:none;
+}
+
+.header-tools .clock .time{
+  margin-top:2px;
+  font-size:20px;
+  line-height:1;
+  color:#173b52;
+  font-weight:900;
+  letter-spacing:.01em;
+}
+
+.header-tools .settings-btn{
+  width:46px;
+  height:46px;
+  font-size:22px;
+  box-shadow:0 5px 12px rgba(16,59,85,.08);
+}
+
+@media(max-width:900px){
+  .header-tools{
+    gap:8px;
+  }
+  .header-tools .clock{
+    padding:5px 8px;
+  }
+  .header-tools .clock .date{
+    font-size:9px;
+  }
+  .header-tools .clock .time{
+    font-size:18px;
+  }
+}
+
+@media(max-width:620px){
+  .topbar{
+    grid-template-columns:auto minmax(0,1fr) auto;
+  }
+
+  .header-tools{
+    grid-column:3;
+    grid-row:1;
+    gap:6px;
+    align-self:center;
+  }
+
+  .header-tools .clock{
+    display:block;
+    width:auto;
+    min-width:82px;
+    padding:4px 7px;
+    text-align:right;
+  }
+
+  .header-tools .clock .date{
+    display:none;
+  }
+
+  .header-tools .clock .time{
+    font-size:17px;
+    margin:0;
+  }
+
+  .header-tools .settings-btn{
+    width:42px;
+    height:42px;
+    font-size:20px;
+  }
+
+  .header-tools .settings-menu{
+    right:0;
+    top:52px;
+  }
+}
