@@ -460,6 +460,94 @@ button{font:inherit}
   text-shadow:0 1px 0 rgba(255,255,255,.65);
 }
 
+
+/* V32 — vector scene overlays and separated subject animation */
+.scene-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.sv-cloud{animation:cloudDrift 8s ease-in-out infinite}
+.sv-bubble{transform-box:fill-box;transform-origin:center;animation:bubbleRise 4.8s ease-in-out infinite}
+.sv-star{transform-box:fill-box;transform-origin:center;animation:starTwinkle 2.4s ease-in-out infinite}
+.sv-gear{transform-box:fill-box;transform-origin:center;animation:gearTurn 9s linear infinite}
+.sv-wave{animation:waveGlow 4s ease-in-out infinite}
+.sv-leaf{transform-box:fill-box;transform-origin:center bottom;animation:leafSway 4.6s ease-in-out infinite}
+.sv-sun{animation:sunPulse 4.5s ease-in-out infinite}
+.sv-orbit{stroke-dasharray:7 14;animation:orbitSpin 13s linear infinite}
+.sv-planet{animation:planetFloat 5.5s ease-in-out infinite}
+@keyframes cloudDrift{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}
+@keyframes bubbleRise{0%,100%{transform:translateY(8px) scale(.96);opacity:.45}50%{transform:translateY(-12px) scale(1.04);opacity:.72}}
+@keyframes starTwinkle{0%,100%{transform:scale(.82) rotate(0);opacity:.55}50%{transform:scale(1.18) rotate(18deg);opacity:1}}
+@keyframes gearTurn{to{transform:rotate(360deg)}}
+@keyframes waveGlow{0%,100%{opacity:.50}50%{opacity:.88}}
+@keyframes leafSway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(5deg)}}
+@keyframes sunPulse{0%,100%{opacity:.72;transform:scale(1)}50%{opacity:.92;transform:scale(1.05)}}
+@keyframes orbitSpin{to{stroke-dashoffset:-120}}
+@keyframes planetFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.illustration-scene{
+  transform-box:fill-box;
+  transform-origin:center;
+  opacity:.92;
+  animation:illustrationSceneBreathe 6s ease-in-out infinite;
+}
+@keyframes illustrationSceneBreathe{0%,100%{opacity:.86;transform:scale(1)}50%{opacity:1;transform:scale(1.015)}}
+
+.illustration-subject{
+  transform-box:fill-box;
+  transform-origin:center;
+  will-change:transform;
+}
+
+/* Override the outer idle animations: revealArt only handles the entrance.
+   The subject itself carries the ongoing motion, so the background stays stable. */
+.reveal-art.anim-star.show,
+.reveal-art.anim-heart.show,
+.reveal-art.anim-fish.show,
+.reveal-art.anim-boat.show,
+.reveal-art.anim-house.show,
+.reveal-art.anim-butterfly.show,
+.reveal-art.anim-rocket.show,
+.reveal-art.anim-robot.show,
+.reveal-art.anim-car.show,
+.reveal-art.anim-tree.show,
+.reveal-art.anim-plane.show,
+.reveal-art.anim-turtle.show,
+.reveal-art.anim-dino.show,
+.reveal-art.anim-castle.show,
+.reveal-art.anim-submarine.show{
+  animation:premiumReveal .95s cubic-bezier(.16,.86,.24,1) both;
+}
+
+.anim-star.show .illustration-subject{animation:subjectStar 3.4s ease-in-out 1s infinite}
+.anim-heart.show .illustration-subject{animation:subjectHeart 2.5s ease-in-out 1s infinite}
+.anim-fish.show .illustration-subject{animation:subjectFish 3.1s ease-in-out 1s infinite}
+.anim-boat.show .illustration-subject{animation:subjectBoat 3.2s ease-in-out 1s infinite}
+.anim-house.show .illustration-subject{animation:subjectHouse 4s ease-in-out 1s infinite}
+.anim-butterfly.show .illustration-subject{animation:subjectButterfly 2.1s ease-in-out 1s infinite}
+.anim-rocket.show .illustration-subject{animation:subjectRocket 2.35s ease-in-out 1s infinite}
+.anim-robot.show .illustration-subject{animation:subjectRobot 2.8s ease-in-out 1s infinite}
+.anim-car.show .illustration-subject{animation:subjectCar 2.6s ease-in-out 1s infinite}
+.anim-tree.show .illustration-subject{animation:subjectTree 4.4s ease-in-out 1s infinite}
+.anim-plane.show .illustration-subject{animation:subjectPlane 3.1s ease-in-out 1s infinite}
+.anim-turtle.show .illustration-subject{animation:subjectTurtle 3.6s ease-in-out 1s infinite}
+.anim-dino.show .illustration-subject{animation:subjectDino 3.3s ease-in-out 1s infinite}
+.anim-castle.show .illustration-subject{animation:subjectCastle 4s ease-in-out 1s infinite}
+.anim-submarine.show .illustration-subject{animation:subjectSub 3.4s ease-in-out 1s infinite}
+
+@keyframes subjectStar{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-9px) rotate(.8deg)}}
+@keyframes subjectHeart{0%,100%{transform:scale(1)}50%{transform:scale(1.028)}}
+@keyframes subjectFish{0%,100%{transform:translate(-8px,2px) rotate(-.7deg)}50%{transform:translate(9px,-6px) rotate(.8deg)}}
+@keyframes subjectBoat{0%,100%{transform:translateY(2px) rotate(-.8deg)}50%{transform:translateY(-6px) rotate(.8deg)}}
+@keyframes subjectHouse{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes subjectButterfly{0%,100%{transform:translateY(3px) rotate(-1.2deg)}50%{transform:translateY(-12px) rotate(1.2deg)}}
+@keyframes subjectRocket{0%,100%{transform:translateY(3px)}50%{transform:translateY(-13px)}}
+@keyframes subjectRobot{0%,100%{transform:translateY(1px) rotate(-.4deg)}50%{transform:translateY(-5px) rotate(.4deg)}}
+@keyframes subjectCar{0%,100%{transform:translateX(-4px) translateY(1px)}50%{transform:translateX(5px) translateY(-2px)}}
+@keyframes subjectTree{0%,100%{transform:rotate(-.4deg)}50%{transform:rotate(.4deg)}}
+@keyframes subjectPlane{0%,100%{transform:translate(-8px,3px)}50%{transform:translate(10px,-7px)}}
+@keyframes subjectTurtle{0%,100%{transform:translate(-5px,3px) rotate(-.4deg)}50%{transform:translate(6px,-7px) rotate(.4deg)}}
+@keyframes subjectDino{0%,100%{transform:translateY(1px) rotate(-.25deg)}50%{transform:translateY(-4px) rotate(.25deg)}}
+@keyframes subjectCastle{0%,100%{transform:scale(1)}50%{transform:scale(1.008)}}
+@keyframes subjectSub{0%,100%{transform:translate(-6px,3px)}50%{transform:translate(7px,-6px)}}
+
 @media(max-width:700px){
   .modal{padding:18px 15px;border-radius:30px}
   .instruction{grid-template-columns:76px 1fr;padding:15px}
@@ -489,7 +577,7 @@ button{font:inherit}
 
     <div class="instruction">
       <div class="mouse-demo">🖱️</div>
-      <strong>Κάνε κλικ στις αριθμημένες τελείες με τη σωστή σειρά. Κάθε σωστή σύνδεση αποκαλύπτει σταδιακά την εικόνα και στο τέλος ζωντανεύει με animation!</strong>
+      <strong>Κάνε κλικ στις αριθμημένες τελείες με τη σωστή σειρά. Κάθε σωστή σύνδεση αποκαλύπτει σταδιακά την εικόνα και στο τέλος η εικονογράφηση ζωντανεύει με premium animation!</strong>
     </div>
 
     <div class="level-dots" id="levelDots"></div>
@@ -626,112 +714,95 @@ function resampleClosed(points, n){
 }
 
 
-const SCENE_DECORS = {
-  star:[
-    {e:"☁️",x:6,y:8,s:62,c:"cloud",r:-4},
-    {e:"☁️",x:79,y:12,s:56,c:"cloud",r:3},
-    {e:"✨",x:14,y:24,s:34,c:"sparkle",r:0},
-    {e:"✨",x:84,y:28,s:30,c:"sparkle",r:0},
-    {e:"🌙",x:86,y:6,s:36,c:"sparkle",r:0}
-  ],
-  heart:[
-    {e:"☁️",x:10,y:9,s:60,c:"cloud",r:-2},
-    {e:"🌸",x:10,y:74,s:34,c:"leaf",r:0},
-    {e:"🌸",x:82,y:74,s:34,c:"leaf",r:0},
-    {e:"💖",x:82,y:14,s:32,c:"sparkle",r:0}
-  ],
-  fish:[
-    {e:"🫧",x:8,y:11,s:36,c:"bubble",r:0},
-    {e:"🫧",x:82,y:18,s:32,c:"bubble",r:0},
-    {e:"🐚",x:8,y:78,s:34,c:"leaf",r:0},
-    {e:"🪸",x:82,y:77,s:40,c:"leaf",r:0},
-    {e:"🪸",x:70,y:82,s:32,c:"leaf",r:0}
-  ],
-  boat:[
-    {e:"☀️",x:82,y:10,s:42,c:"sparkle",r:0},
-    {e:"☁️",x:8,y:10,s:60,c:"cloud",r:0},
-    {e:"☁️",x:72,y:18,s:54,c:"cloud",r:0},
-    {e:"🌊",x:12,y:78,s:38,c:"leaf",r:0},
-    {e:"🌊",x:78,y:78,s:38,c:"leaf",r:0}
-  ],
-  house:[
-    {e:"☀️",x:82,y:10,s:40,c:"sparkle",r:0},
-    {e:"☁️",x:8,y:14,s:58,c:"cloud",r:0},
-    {e:"🌳",x:8,y:69,s:42,c:"leaf",r:0},
-    {e:"🌷",x:83,y:78,s:34,c:"leaf",r:0},
-    {e:"🌼",x:16,y:80,s:34,c:"leaf",r:0}
-  ],
-  butterfly:[
-    {e:"🌸",x:10,y:17,s:34,c:"leaf",r:0},
-    {e:"🌸",x:83,y:19,s:34,c:"leaf",r:0},
-    {e:"🌿",x:12,y:80,s:34,c:"leaf",r:-8},
-    {e:"🌿",x:80,y:80,s:34,c:"leaf",r:8},
-    {e:"✨",x:86,y:48,s:28,c:"sparkle",r:0}
-  ],
-  rocket:[
-    {e:"🪐",x:10,y:13,s:42,c:"sparkle",r:0},
-    {e:"🌟",x:83,y:14,s:36,c:"sparkle",r:0},
-    {e:"✨",x:17,y:28,s:28,c:"sparkle",r:0},
-    {e:"✨",x:78,y:32,s:28,c:"sparkle",r:0}
-  ],
-  robot:[
-    {e:"⚙️",x:8,y:14,s:34,c:"gear",r:0},
-    {e:"⚙️",x:84,y:17,s:34,c:"gear",r:0},
-    {e:"🔩",x:12,y:77,s:28,c:"gear",r:0},
-    {e:"🔧",x:81,y:77,s:28,c:"gear",r:0},
-    {e:"💡",x:82,y:45,s:30,c:"sparkle",r:0}
-  ],
-  car:[
-    {e:"☀️",x:82,y:9,s:38,c:"sparkle",r:0},
-    {e:"☁️",x:8,y:12,s:58,c:"cloud",r:0},
-    {e:"🏁",x:82,y:74,s:32,c:"leaf",r:0},
-    {e:"🛞",x:11,y:77,s:30,c:"leaf",r:0}
-  ],
-  tree:[
-    {e:"☀️",x:82,y:10,s:40,c:"sparkle",r:0},
-    {e:"☁️",x:8,y:11,s:56,c:"cloud",r:0},
-    {e:"🍄",x:13,y:79,s:30,c:"leaf",r:0},
-    {e:"🌼",x:82,y:80,s:32,c:"leaf",r:0},
-    {e:"🌿",x:75,y:72,s:28,c:"leaf",r:0}
-  ],
-  plane:[
-    {e:"☁️",x:7,y:10,s:60,c:"cloud",r:0},
-    {e:"☁️",x:75,y:18,s:56,c:"cloud",r:0},
-    {e:"☀️",x:84,y:8,s:34,c:"sparkle",r:0}
-  ],
-  turtle:[
-    {e:"🫧",x:11,y:14,s:34,c:"bubble",r:0},
-    {e:"🫧",x:84,y:20,s:34,c:"bubble",r:0},
-    {e:"🐚",x:10,y:79,s:32,c:"leaf",r:0},
-    {e:"🪸",x:82,y:79,s:40,c:"leaf",r:0}
-  ],
-  dino:[
-    {e:"☀️",x:82,y:10,s:38,c:"sparkle",r:0},
-    {e:"☁️",x:9,y:12,s:56,c:"cloud",r:0},
-    {e:"🪨",x:12,y:80,s:30,c:"leaf",r:0},
-    {e:"🌿",x:82,y:79,s:30,c:"leaf",r:0}
-  ],
-  castle:[
-    {e:"☀️",x:82,y:9,s:38,c:"sparkle",r:0},
-    {e:"☁️",x:8,y:11,s:56,c:"cloud",r:0},
-    {e:"⚜️",x:84,y:74,s:32,c:"sparkle",r:0},
-    {e:"🌷",x:11,y:79,s:32,c:"leaf",r:0}
-  ],
-  submarine:[
-    {e:"🫧",x:9,y:15,s:36,c:"bubble",r:0},
-    {e:"🫧",x:84,y:18,s:34,c:"bubble",r:0},
-    {e:"🐚",x:11,y:79,s:32,c:"leaf",r:0},
-    {e:"🪸",x:82,y:79,s:40,c:"leaf",r:0},
-    {e:"⭐",x:82,y:46,s:26,c:"sparkle",r:0}
-  ]
-};
+
+function sceneOverlayMarkup(kind){
+  const cloud = (x,y,s=1,o=.48)=>`
+    <g class="sv-cloud" transform="translate(${x} ${y}) scale(${s})" opacity="${o}">
+      <ellipse cx="0" cy="16" rx="56" ry="22" fill="#fff"/>
+      <circle cx="-28" cy="2" r="24" fill="#fff"/>
+      <circle cx="6" cy="-8" r="31" fill="#fff"/>
+      <circle cx="38" cy="6" r="24" fill="#fff"/>
+    </g>`;
+  const bubble = (x,y,r=16,d=0)=>`
+    <circle class="sv-bubble" cx="${x}" cy="${y}" r="${r}" fill="rgba(255,255,255,.08)"
+      stroke="rgba(255,255,255,.55)" stroke-width="3" style="animation-delay:${d}s"/>`;
+  const star = (x,y,s=1,d=0)=>`
+    <g class="sv-star" transform="translate(${x} ${y}) scale(${s})" style="animation-delay:${d}s">
+      <path d="M0,-16 L5,-5 L16,0 L5,5 L0,16 L-5,5 L-16,0 L-5,-5 Z" fill="#fff4a8"/>
+    </g>`;
+  const leaf = (x,y,rot=0)=>`
+    <g class="sv-leaf" transform="translate(${x} ${y}) rotate(${rot})">
+      <ellipse cx="0" cy="0" rx="18" ry="42" fill="rgba(88,177,91,.28)"/>
+      <path d="M0,-34 Q2 0 0 36" stroke="rgba(64,132,68,.35)" stroke-width="3" fill="none"/>
+    </g>`;
+  const gear = (x,y,s=1,d=0)=>`
+    <g class="sv-gear" transform="translate(${x} ${y}) scale(${s})" style="animation-delay:${d}s">
+      <circle r="28" fill="rgba(111,105,180,.12)" stroke="rgba(111,105,180,.28)" stroke-width="7"/>
+      <circle r="10" fill="rgba(255,255,255,.45)"/>
+      <path d="M0,-42 V-28 M0,42 V28 M42,0 H28 M-42,0 H-28 M30,-30 L20,-20 M-30,30 L-20,20 M30,30 L20,20 M-30,-30 L-20,-20"
+        stroke="rgba(111,105,180,.28)" stroke-width="8" stroke-linecap="round"/>
+    </g>`;
+  const wave = (y,offset=0,o=.24)=>`
+    <path class="sv-wave" d="M70 ${y} Q170 ${y-28+offset} 270 ${y} T470 ${y} T670 ${y} T870 ${y}"
+      fill="none" stroke="rgba(77,175,215,${o})" stroke-width="10" stroke-linecap="round"/>`;
+
+  const baseStart = `<svg class="scene-svg" viewBox="0 0 1000 620" preserveAspectRatio="none">`;
+  const baseEnd = `</svg>`;
+
+  const scenes = {
+    star: `${star(155,125,1.1,0)}${star(820,160,.85,.3)}${star(735,85,.55,.6)}
+           <circle class="sv-orbit" cx="500" cy="290" r="210" fill="none" stroke="rgba(141,120,231,.10)" stroke-width="3"/>`,
+    heart: `${cloud(175,120,.85,.42)}${cloud(790,120,.75,.34)}
+            <circle cx="500" cy="305" r="215" fill="rgba(255,119,164,.05)"/>
+            ${star(160,450,.65,.2)}${star(835,445,.65,.5)}`,
+    fish: `${bubble(140,130,18,0)}${bubble(180,90,10,.4)}${bubble(820,150,16,.2)}${bubble(850,105,9,.6)}
+           ${wave(510,0,.20)}${wave(545,10,.15)}
+           <path d="M70 570 Q120 520 160 570 T250 570" fill="none" stroke="rgba(61,145,89,.22)" stroke-width="18" stroke-linecap="round"/>
+           <path d="M760 575 Q800 515 840 575 T930 575" fill="none" stroke="rgba(61,145,89,.22)" stroke-width="18" stroke-linecap="round"/>`,
+    boat: `${cloud(180,120,.86,.50)}${cloud(770,145,.72,.38)}
+           <circle class="sv-sun" cx="820" cy="100" r="44" fill="rgba(255,221,105,.44)"/>
+           ${wave(500,0,.28)}${wave(535,8,.18)}`,
+    house: `${cloud(180,110,.8,.46)}<circle class="sv-sun" cx="820" cy="105" r="42" fill="rgba(255,221,105,.42)"/>
+            ${leaf(120,500,-28)}${leaf(870,500,30)}
+            <path d="M60 560 Q250 520 500 550 T940 560" fill="rgba(92,173,76,.12)" stroke="none"/>`,
+    butterfly: `${leaf(120,480,-30)}${leaf(875,480,28)}${star(165,155,.65,.2)}${star(830,170,.65,.5)}
+                <circle cx="500" cy="305" r="220" fill="rgba(218,128,199,.035)"/>`,
+    rocket: `${star(135,125,.8,0)}${star(835,145,.7,.4)}${star(790,80,.45,.7)}
+             <circle class="sv-planet" cx="165" cy="450" r="42" fill="rgba(139,115,220,.12)" stroke="rgba(139,115,220,.18)" stroke-width="6"/>
+             <ellipse cx="165" cy="450" rx="70" ry="16" fill="none" stroke="rgba(139,115,220,.20)" stroke-width="5" transform="rotate(-15 165 450)"/>`,
+    robot: `${gear(150,150,.8,0)}${gear(840,155,.72,.25)}${gear(120,470,.5,.5)}
+            <circle cx="500" cy="305" r="220" fill="rgba(101,132,150,.035)"/>`,
+    car: `${cloud(170,105,.75,.40)}<circle class="sv-sun" cx="820" cy="100" r="40" fill="rgba(255,217,101,.40)"/>
+          <path d="M70 530 Q300 510 500 520 T930 535" fill="none" stroke="rgba(70,82,100,.10)" stroke-width="18" stroke-linecap="round"/>
+          <path d="M120 555 H880" stroke="rgba(255,255,255,.45)" stroke-width="5" stroke-dasharray="34 28"/>`,
+    tree: `${cloud(170,110,.75,.42)}<circle class="sv-sun" cx="820" cy="100" r="42" fill="rgba(255,221,105,.42)"/>
+           ${leaf(120,480,-26)}${leaf(875,485,28)}
+           <path d="M70 560 Q260 520 500 548 T930 560" fill="rgba(92,173,76,.12)"/>`,
+    plane: `${cloud(150,125,.88,.48)}${cloud(800,150,.72,.36)}
+            <circle class="sv-sun" cx="835" cy="90" r="38" fill="rgba(255,220,106,.38)"/>`,
+    turtle: `${bubble(145,130,17,0)}${bubble(180,95,9,.4)}${bubble(825,150,16,.2)}
+             ${wave(520,0,.18)}
+             <path d="M80 575 Q120 520 160 575 T255 575" fill="none" stroke="rgba(61,145,89,.20)" stroke-width="16" stroke-linecap="round"/>`,
+    dino: `${cloud(180,105,.76,.42)}<circle class="sv-sun" cx="820" cy="100" r="42" fill="rgba(255,221,105,.40)"/>
+          ${leaf(115,485,-30)}${leaf(880,485,30)}
+          <path d="M70 560 Q270 525 500 550 T930 560" fill="rgba(92,173,76,.12)"/>`,
+    castle: `${cloud(170,105,.76,.42)}<circle class="sv-sun" cx="820" cy="98" r="42" fill="rgba(255,221,105,.40)"/>
+            ${star(135,205,.55,.2)}${star(850,210,.55,.5)}
+            <path d="M70 560 Q270 525 500 550 T930 560" fill="rgba(92,173,76,.10)"/>`,
+    submarine: `${bubble(145,130,18,0)}${bubble(180,95,9,.4)}${bubble(825,150,16,.2)}${bubble(850,110,9,.7)}
+                ${wave(520,0,.17)}
+                <path d="M75 575 Q120 518 165 575 T255 575" fill="none" stroke="rgba(61,145,89,.20)" stroke-width="17" stroke-linecap="round"/>
+                <path d="M760 575 Q805 520 850 575 T930 575" fill="none" stroke="rgba(61,145,89,.20)" stroke-width="17" stroke-linecap="round"/>`
+  };
+
+  return baseStart + (scenes[kind] || scenes.star) + baseEnd;
+}
 
 function setSceneDecor(data){
-  const items = SCENE_DECORS[data.art] || [];
-  paperScene.innerHTML = items.map((it,idx)=>
-    `<div class="scene-item ${it.c||''}" style="left:${it.x}%; top:${it.y}%; font-size:${it.s}px; --rot:${it.r||0}deg; animation-delay:${idx*0.18}s">${it.e}</div>`
-  ).join("");
+  paperScene.className = `paper-scene scene-${data.art}`;
+  paperScene.innerHTML = sceneOverlayMarkup(data.art);
 }
+
 
 function setupPartialReveal(){
   const defs = svg.querySelector("defs");
@@ -1054,7 +1125,7 @@ function artMarkup(kind){
     </g>`
   };
 
-  return defs + `<g class="reveal-art anim-${kind}" id="revealArt">${sceneMap[kind]||""}${A[kind]||A.star}</g>`;
+  return defs + `<g class="reveal-art anim-${kind}" id="revealArt"><g class="illustration-scene">${sceneMap[kind]||""}</g><g class="illustration-subject">${A[kind]||A.star}</g></g>`;
 }
 
 function renderGame(){
