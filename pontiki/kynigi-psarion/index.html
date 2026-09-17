@@ -272,12 +272,14 @@ button{font:inherit}
   .games-btn{min-width:180px;min-height:60px;font-size:21px}
 }
 
-/* V21 semi-realistic underwater fish scene */
+
+/* V22 richer semi-realistic underwater fish scene */
 .playfield{
   background:
-    radial-gradient(circle at 18% 12%, rgba(255,255,255,.25) 0 110px, transparent 111px),
-    radial-gradient(circle at 75% 18%, rgba(255,255,255,.12) 0 140px, transparent 141px),
-    linear-gradient(180deg,#9fe7fb 0%,#48b8da 22%,#1a86ba 48%,#125f99 72%,#0d436d 100%);
+    radial-gradient(circle at 50% 8%, rgba(255,255,255,.28) 0 130px, transparent 132px),
+    radial-gradient(circle at 18% 12%, rgba(255,255,255,.16) 0 110px, transparent 111px),
+    radial-gradient(circle at 82% 18%, rgba(255,255,255,.10) 0 150px, transparent 151px),
+    linear-gradient(180deg,#b6f1ff 0%,#6ed3ee 18%,#269ac7 42%,#126eaa 67%,#0d4e83 86%,#0b3d68 100%);
 }
 .playfield::after{
   content:"";
@@ -285,41 +287,75 @@ button{font:inherit}
   inset:0;
   pointer-events:none;
   background:
-    linear-gradient(115deg, rgba(255,255,255,.18) 0 6%, transparent 6.5% 15%, rgba(255,255,255,.08) 15.5% 20%, transparent 20.5% 100%),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 2px, transparent 2px 90px);
+    repeating-linear-gradient(115deg, rgba(255,255,255,.08) 0 18px, transparent 18px 80px),
+    linear-gradient(180deg, rgba(255,255,255,.06), transparent 24%, rgba(3,39,71,.08) 100%);
   mix-blend-mode:screen;
-  opacity:.55;
+  opacity:.65;
 }
 .playfield::before{
   content:"";
-  position:absolute;left:0;right:0;bottom:0;height:24%;
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:27%;
   background:
-    radial-gradient(circle at 12% 32%,#f3ddab 0 10px,transparent 11px),
-    radial-gradient(circle at 24% 64%,#c8b483 0 7px,transparent 8px),
-    radial-gradient(circle at 68% 44%,#ebd39f 0 10px,transparent 11px),
-    radial-gradient(circle at 84% 31%,#bca372 0 8px,transparent 9px),
-    linear-gradient(180deg,#d0b47f,#9c814f);
-  opacity:.97;
+    radial-gradient(circle at 12% 32%,#f6e2b8 0 10px,transparent 11px),
+    radial-gradient(circle at 24% 64%,#d0be92 0 7px,transparent 8px),
+    radial-gradient(circle at 68% 44%,#efd6a6 0 10px,transparent 11px),
+    radial-gradient(circle at 84% 31%,#c3aa79 0 8px,transparent 9px),
+    radial-gradient(circle at 42% 72%, rgba(255,255,255,.20) 0 22px, transparent 23px),
+    linear-gradient(180deg,#d9be87,#c0a066 55%,#9f7d49 100%);
+  box-shadow:inset 0 18px 28px rgba(255,255,255,.12);
+  opacity:.98;
 }
 .water-glow{
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at 50% 30%, rgba(255,255,255,.18), transparent 40%),
-    radial-gradient(circle at 20% 60%, rgba(255,255,255,.08), transparent 32%);
+    radial-gradient(circle at 50% 25%, rgba(255,255,255,.16), transparent 35%),
+    radial-gradient(circle at 20% 60%, rgba(255,255,255,.09), transparent 32%),
+    radial-gradient(circle at 78% 48%, rgba(255,255,255,.06), transparent 28%);
   pointer-events:none;
 }
-.plant,.coral,.reef{
+.caustics{
+  position:absolute;
+  inset:auto 0 14% 0;
+  height:44%;
+  pointer-events:none;
+  opacity:.16;
+  background:
+    repeating-linear-gradient(103deg, rgba(255,255,255,.95) 0 10px, transparent 10px 58px),
+    repeating-linear-gradient(76deg, rgba(255,255,255,.82) 0 8px, transparent 8px 54px);
+  mix-blend-mode:screen;
+  filter:blur(3px);
+}
+.caustic1{transform:translateY(8px) scaleY(.95)}
+.caustic2{transform:translateY(-6px) scaleY(.8); opacity:.10}
+
+.sand-dune{
+  position:absolute;
+  bottom:12%;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(180deg, rgba(241,222,180,.95), rgba(196,162,105,.95));
+  filter:blur(.2px);
+  pointer-events:none;
+  box-shadow:inset 0 12px 18px rgba(255,255,255,.18), inset 0 -10px 14px rgba(120,87,39,.12);
+}
+.dune1{left:6%; width:210px}
+.dune2{left:37%; width:260px; height:58px}
+.dune3{right:8%; width:230px}
+
+.plant,.coral,.reef,.shell,.starfish-decor{
   position:absolute;
   pointer-events:none;
 }
 .plant{
-  bottom:10%;
+  bottom:11%;
   width:18px;
   border-radius:18px 18px 0 0;
-  background:linear-gradient(180deg,#43d17f,#147d4d);
+  background:linear-gradient(180deg,#57df8d,#1b8d59);
   transform-origin:bottom center;
-  box-shadow:inset -4px 0 0 rgba(255,255,255,.14);
+  box-shadow:inset -4px 0 0 rgba(255,255,255,.12), 2px 0 0 rgba(0,0,0,.05);
 }
 .plant::before,.plant::after{
   content:"";
@@ -328,22 +364,26 @@ button{font:inherit}
   width:16px;
   height:74%;
   border-radius:16px 16px 0 0;
-  background:linear-gradient(180deg,#4bdd8a,#1a8b57);
+  background:linear-gradient(180deg,#68e898,#1f935f);
 }
 .plant::before{left:-13px; transform:rotate(-14deg)}
 .plant::after{right:-13px; transform:rotate(14deg)}
-.plant1{left:7%; height:94px; transform:rotate(-2deg)}
-.plant2{left:18%; height:78px}
-.plant3{right:10%; height:98px}
-.plant4{right:24%; height:72px; transform:rotate(3deg)}
+.plant1{left:7%; height:108px; transform:rotate(-2deg)}
+.plant2{left:18%; height:88px}
+.plant3{right:10%; height:112px}
+.plant4{right:24%; height:82px; transform:rotate(3deg)}
+.plant5{left:52%; height:76px; transform:rotate(-4deg)}
+
 .reef{
   bottom:10%;
   border-radius:48px;
-  background:linear-gradient(180deg,#83756b,#554842);
-  box-shadow:inset 0 6px 8px rgba(255,255,255,.12);
+  background:linear-gradient(180deg,#85776c,#5a4c45 70%,#4b3f38 100%);
+  box-shadow:inset 0 8px 10px rgba(255,255,255,.10), inset 0 -6px 10px rgba(0,0,0,.10);
 }
-.rock1{left:30%; width:80px; height:42px}
-.rock2{right:31%; width:94px; height:50px}
+.rock1{left:28%; width:92px; height:46px}
+.rock2{right:30%; width:106px; height:56px}
+.rock3{left:61%; width:64px; height:34px; bottom:12%}
+
 .coral{
   bottom:11%;
   width:24px;
@@ -365,13 +405,44 @@ button{font:inherit}
 }
 .coral::before{left:-10px; transform:rotate(-16deg)}
 .coral::after{right:-10px; transform:rotate(16deg)}
-.coral1{left:42%}
-.coral2{right:17%; transform:scale(.84)}
+.coral1{left:40%}
+.coral2{right:16%; transform:scale(.84)}
+.coral3{left:72%; transform:scale(.68); background:linear-gradient(180deg,#ffb56b,#ff8560)}
+
+.shell{
+  bottom:12%;
+  width:26px;
+  height:18px;
+  border-radius:26px 26px 8px 8px;
+  background:linear-gradient(180deg,#fff6df,#e4cc9a);
+  box-shadow:0 2px 0 rgba(0,0,0,.05), inset 0 6px 8px rgba(255,255,255,.40);
+}
+.shell::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(90deg, transparent 0 4px, rgba(168,130,76,.18) 4px 5px);
+  border-radius:inherit;
+}
+.shell1{left:14%}
+.shell2{right:22%; transform:scale(.88)}
+
+.starfish-decor{
+  bottom:13%;
+  width:26px;
+  height:26px;
+  background:#ff9f52;
+  clip-path:polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 69%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  filter:drop-shadow(0 3px 4px rgba(0,0,0,.12));
+}
+.star1{left:48%; transform:rotate(12deg)}
+
 .bubble{
   position:absolute;
   border:2px solid rgba(255,255,255,.58);
   border-radius:50%;
-  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), rgba(255,255,255,.07));
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.30), rgba(255,255,255,.07) 45%, rgba(255,255,255,.03) 100%);
   pointer-events:none;
   animation:rise linear infinite;
 }
@@ -452,37 +523,26 @@ button{font:inherit}
 .stripe2{left:50%}
 .fish.caught{transform:scale(1.14) !important}
 
-.fish.theme-blue .fish-body{
-  background:linear-gradient(180deg,#5fd0ff,#1f86d0);
-}
-.fish.theme-blue .fish-tail{
-  background:linear-gradient(180deg,#7ae0ff,#2a97d8);
-}
-.fish.theme-blue .fish-fin{
-  background:linear-gradient(180deg,rgba(252,248,109,.92), rgba(232,200,42,.74));
-}
-.fish.theme-blue .fish-stripe{
-  background:rgba(255,221,80,.92);
-}
-.fish.theme-yellow .fish-body{
-  background:linear-gradient(180deg,#ffe27b,#f1b52b);
-}
-.fish.theme-yellow .fish-tail{
-  background:linear-gradient(180deg,#ffd55d,#db9a12);
-}
-.fish.theme-yellow .fish-fin{
-  background:linear-gradient(180deg,rgba(255,253,206,.92), rgba(255,232,145,.72));
-}
-.fish.theme-yellow .fish-stripe{
-  background:rgba(255,244,198,.92);
-}
+.fish.theme-blue .fish-body{background:linear-gradient(180deg,#5fd0ff,#1f86d0)}
+.fish.theme-blue .fish-tail{background:linear-gradient(180deg,#7ae0ff,#2a97d8)}
+.fish.theme-blue .fish-fin{background:linear-gradient(180deg,rgba(252,248,109,.92), rgba(232,200,42,.74))}
+.fish.theme-blue .fish-stripe{background:rgba(255,221,80,.92)}
+.fish.theme-yellow .fish-body{background:linear-gradient(180deg,#ffe27b,#f1b52b)}
+.fish.theme-yellow .fish-tail{background:linear-gradient(180deg,#ffd55d,#db9a12)}
+.fish.theme-yellow .fish-fin{background:linear-gradient(180deg,rgba(255,253,206,.92), rgba(255,232,145,.72))}
+.fish.theme-yellow .fish-stripe{background:rgba(255,244,198,.92)}
 .fish.theme-yellow .stripe2{opacity:.55}
+
 @media(max-width:700px){
-  .plant1,.plant3{height:78px}
-  .plant2,.plant4{height:60px}
-  .rock1{width:62px;height:34px}
-  .rock2{width:72px;height:38px}
+  .plant1,.plant3{height:84px}
+  .plant2,.plant4,.plant5{height:62px}
+  .rock1{width:68px;height:36px}
+  .rock2{width:82px;height:42px}
+  .rock3{width:50px;height:28px}
+  .dune1,.dune2,.dune3{width:140px}
+  .coral3,.shell2,.star1{display:none}
 }
+
 
 </style>
 </head>
@@ -535,14 +595,30 @@ button{font:inherit}
 
   <div class="playfield" id="playfield">
     <div class="water-glow"></div>
+    <div class="caustics caustic1"></div>
+    <div class="caustics caustic2"></div>
+
+    <div class="sand-dune dune1"></div>
+    <div class="sand-dune dune2"></div>
+    <div class="sand-dune dune3"></div>
+
     <div class="plant plant1"></div>
     <div class="plant plant2"></div>
     <div class="plant plant3"></div>
     <div class="plant plant4"></div>
+    <div class="plant plant5"></div>
+
     <div class="reef rock1"></div>
     <div class="reef rock2"></div>
+    <div class="reef rock3"></div>
+
     <div class="coral coral1"></div>
     <div class="coral coral2"></div>
+    <div class="coral coral3"></div>
+
+    <div class="shell shell1"></div>
+    <div class="shell shell2"></div>
+    <div class="starfish-decor star1"></div>
 
     <div class="fish theme-clown" id="fish" aria-label="Ψάρι">
       <span class="fish-tail"></span>
