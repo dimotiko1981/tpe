@@ -259,6 +259,79 @@ button{font:inherit}
   background:linear-gradient(180deg,#fff,#f0f3f6);color:#667687;
   font-size:18px;font-weight:900;box-shadow:0 4px 10px rgba(16,59,85,.10);cursor:pointer;
 }
+
+/* V25 swim effects and catch FX */
+.fish-fin.top{animation:finFlutterTop .52s ease-in-out infinite alternate}
+.fish-fin.bottom{animation:finFlutterBottom .58s ease-in-out infinite alternate}
+.fish-dorsal{animation:dorsalPulse .70s ease-in-out infinite alternate}
+@keyframes finFlutterTop{
+  from{transform:rotate(-14deg) translateY(0)}
+  to{transform:rotate(-4deg) translateY(-2px)}
+}
+@keyframes finFlutterBottom{
+  from{transform:rotate(180deg) translateY(0)}
+  to{transform:rotate(180deg) translateY(2px)}
+}
+@keyframes dorsalPulse{
+  from{transform:scaleY(1)}
+  to{transform:scaleY(1.08)}
+}
+
+.trail-bubble{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  border:2px solid rgba(255,255,255,.46);
+  background:radial-gradient(circle at 32% 32%, rgba(255,255,255,.32), rgba(255,255,255,.06) 58%, rgba(255,255,255,.02) 100%);
+  animation:trailRise .9s ease-out forwards;
+}
+@keyframes trailRise{
+  0%{opacity:.88; transform:translate(0,0) scale(.72)}
+  100%{opacity:0; transform:translate(var(--dx), var(--dy)) scale(1.18)}
+}
+
+.splash-ring{
+  position:absolute;
+  border-radius:50%;
+  border:3px solid rgba(255,255,255,.62);
+  background:rgba(255,255,255,.10);
+  pointer-events:none;
+  animation:splashRing .65s ease-out forwards;
+}
+@keyframes splashRing{
+  0%{opacity:.75; transform:scale(.22)}
+  100%{opacity:0; transform:scale(1.55)}
+}
+
+.mini-bubble{
+  position:absolute;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.5);
+  background:radial-gradient(circle at 35% 35%, rgba(255,255,255,.28), rgba(255,255,255,.05));
+  pointer-events:none;
+  animation:miniBurst .8s ease-out forwards;
+}
+@keyframes miniBurst{
+  0%{opacity:.95; transform:translate(0,0) scale(.7)}
+  100%{opacity:0; transform:translate(var(--dx), var(--dy)) scale(1.15)}
+}
+
+.splash-star{
+  position:absolute;
+  font-size:20px;
+  line-height:1;
+  pointer-events:none;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.18));
+  animation:splashStar .75s ease-out forwards;
+}
+@keyframes splashStar{
+  0%{opacity:0; transform:translate(0,0) scale(.5) rotate(0deg)}
+  20%{opacity:1}
+  100%{opacity:0; transform:translate(var(--dx), var(--dy)) scale(1.2) rotate(32deg)}
+}
+
 @media(max-width:700px){
   .modal{padding:20px 16px;border-radius:30px}
   .instruction{grid-template-columns:80px 1fr;padding:15px}
@@ -448,7 +521,8 @@ button{font:inherit}
 }
 @keyframes rise{from{transform:translateY(0)}to{transform:translateY(-120vh)}}
 
-/* Semi-realistic CSS fish */
+
+/* V24 ultra-realistic fish with varied silhouettes */
 .fish{
   position:absolute;
   display:block;
@@ -456,83 +530,277 @@ button{font:inherit}
   height:90px;
   user-select:none;
   cursor:pointer;
-  filter:drop-shadow(0 10px 10px rgba(0,0,0,.18));
+  filter:drop-shadow(0 12px 14px rgba(0,0,0,.22));
   transition:left .08s linear, top .08s linear, transform .08s linear;
   touch-action:manipulation;
+  transform-origin:center center;
 }
 .fish *{position:absolute;display:block}
+.fish-tail{
+  left:2%;
+  top:27%;
+  width:30%;
+  height:45%;
+  clip-path:polygon(100% 50%, 0 0, 2% 100%);
+  background:linear-gradient(180deg,#ffae68,#e8681b);
+  transform-origin:right center;
+  animation:tailSway .55s ease-in-out infinite alternate;
+  box-shadow:inset 0 6px 5px rgba(255,255,255,.18), inset -5px -6px 8px rgba(88,33,0,.15);
+}
+@keyframes tailSway{
+  from{transform:rotate(-6deg)}
+  to{transform:rotate(6deg)}
+}
+
 .fish-body{
   left:20%;
-  top:14%;
+  top:15%;
   width:62%;
-  height:72%;
-  border-radius:50% 44% 44% 50%;
-  background:linear-gradient(180deg,#ffb067,#f36d1f);
-  box-shadow:inset -10px -6px 0 rgba(0,0,0,.08), inset 7px 8px 0 rgba(255,255,255,.16);
+  height:70%;
+  border-radius:52% 46% 46% 52%;
+  background:
+    radial-gradient(circle at 28% 24%, rgba(255,255,255,.28) 0 12%, transparent 13%),
+    linear-gradient(180deg,#ffbe79 0%,#f37a27 42%,#cf5814 100%);
+  box-shadow:
+    inset 10px 10px 14px rgba(255,255,255,.18),
+    inset -12px -12px 16px rgba(99,37,3,.16),
+    inset 0 -10px 14px rgba(0,0,0,.06);
 }
-.fish-tail{
-  left:0;
-  top:24%;
-  width:32%;
-  height:48%;
-  clip-path:polygon(100% 50%, 0 0, 0 100%);
-  background:linear-gradient(180deg,#ff9a47,#e06318);
-  transform-origin:right center;
+.fish-belly{
+  left:32%;
+  top:44%;
+  width:40%;
+  height:24%;
+  border-radius:50%;
+  background:linear-gradient(180deg, rgba(255,244,228,.82), rgba(255,225,182,.18));
+  filter:blur(.2px);
+  opacity:.9;
 }
 .fish-fin{
   width:22%;
   height:22%;
-  background:linear-gradient(180deg,rgba(255,255,255,.38), rgba(255,255,255,.12));
+  background:linear-gradient(180deg,rgba(255,255,255,.42), rgba(255,255,255,.12));
   clip-path:polygon(50% 0, 100% 100%, 0 100%);
+  box-shadow:inset 0 4px 3px rgba(255,255,255,.18);
 }
-.fish-fin.top{left:42%; top:4%; transform:rotate(-8deg)}
-.fish-fin.bottom{left:42%; bottom:2%; transform:rotate(180deg)}
+.fish-fin.top{left:42%; top:4%; transform:rotate(-12deg)}
+.fish-fin.bottom{left:42%; bottom:4%; transform:rotate(180deg)}
+.fish-dorsal{
+  left:46%;
+  top:7%;
+  width:16%;
+  height:19%;
+  background:linear-gradient(180deg,rgba(255,255,255,.25),rgba(255,255,255,.08));
+  clip-path:polygon(20% 100%, 54% 0, 88% 100%);
+}
 .fish-eye{
   right:18%;
-  top:31%;
-  width:12%;
-  height:12%;
+  top:32%;
+  width:11%;
+  height:11%;
   border-radius:50%;
-  background:#fff;
-  box-shadow:inset -3px -2px 0 rgba(0,0,0,.12);
+  background:radial-gradient(circle at 35% 35%, #fff 0 38%, #dfe6ea 39% 100%);
+  box-shadow:inset -2px -2px 0 rgba(0,0,0,.10);
 }
 .fish-eye::after{
   content:"";
   position:absolute;
-  inset:26%;
+  inset:24%;
   border-radius:50%;
-  background:#111c26;
+  background:#111a22;
+}
+.fish-eye::before{
+  content:"";
+  position:absolute;
+  right:18%;
+  top:16%;
+  width:20%;
+  height:20%;
+  border-radius:50%;
+  background:rgba(255,255,255,.9);
+}
+.fish-gill{
+  right:28%;
+  top:29%;
+  width:13%;
+  height:22%;
+  border-left:3px solid rgba(84,40,16,.38);
+  border-radius:50%;
 }
 .fish-mouth{
-  right:8%;
-  top:46%;
-  width:8%;
+  right:7%;
+  top:47%;
+  width:9%;
   height:8%;
-  border-bottom:3px solid rgba(45,25,14,.65);
-  border-radius:0 0 12px 12px;
+  border-bottom:3px solid rgba(59,31,15,.68);
+  border-radius:0 0 15px 15px;
 }
 .fish-stripe{
-  top:16%;
-  width:10%;
-  height:68%;
-  border-radius:10px;
-  background:rgba(255,248,240,.9);
-  box-shadow:inset 2px 0 0 rgba(255,255,255,.45), inset -2px 0 0 rgba(0,0,0,.05);
+  top:18%;
+  width:9%;
+  height:64%;
+  border-radius:12px;
+  background:rgba(255,249,241,.92);
+  box-shadow:inset 2px 0 0 rgba(255,255,255,.56), inset -2px 0 0 rgba(0,0,0,.06);
 }
 .stripe1{left:33%}
-.stripe2{left:50%}
+.stripe2{left:48%}
+.stripe3{left:59%; width:6%; opacity:0}
+.fish-spot{
+  width:9%;
+  height:12%;
+  border-radius:50%;
+  background:rgba(255,255,255,0);
+  opacity:0;
+}
+.spot1{left:40%; top:28%}
+.spot2{left:52%; top:49%}
 .fish.caught{transform:scale(1.14) !important}
 
-.fish.theme-blue .fish-body{background:linear-gradient(180deg,#5fd0ff,#1f86d0)}
-.fish.theme-blue .fish-tail{background:linear-gradient(180deg,#7ae0ff,#2a97d8)}
-.fish.theme-blue .fish-fin{background:linear-gradient(180deg,rgba(252,248,109,.92), rgba(232,200,42,.74))}
-.fish.theme-blue .fish-stripe{background:rgba(255,221,80,.92)}
-.fish.theme-yellow .fish-body{background:linear-gradient(180deg,#ffe27b,#f1b52b)}
-.fish.theme-yellow .fish-tail{background:linear-gradient(180deg,#ffd55d,#db9a12)}
-.fish.theme-yellow .fish-fin{background:linear-gradient(180deg,rgba(255,253,206,.92), rgba(255,232,145,.72))}
-.fish.theme-yellow .fish-stripe{background:rgba(255,244,198,.92)}
+/* Color families */
+.fish.theme-clown .fish-body{
+  background:
+    radial-gradient(circle at 28% 24%, rgba(255,255,255,.28) 0 12%, transparent 13%),
+    linear-gradient(180deg,#ffbe79 0%,#f37a27 42%,#cf5814 100%);
+}
+.fish.theme-clown .fish-tail{background:linear-gradient(180deg,#ffae68,#e8681b)}
+
+.fish.theme-blue .fish-body{
+  background:
+    radial-gradient(circle at 28% 24%, rgba(255,255,255,.22) 0 12%, transparent 13%),
+    linear-gradient(180deg,#79e0ff 0%,#2d95d9 48%,#1e6cb7 100%);
+}
+.fish.theme-blue .fish-tail{background:linear-gradient(180deg,#96ebff,#329ddf)}
+.fish.theme-blue .fish-fin,
+.fish.theme-blue .fish-dorsal{background:linear-gradient(180deg,rgba(255,242,136,.92), rgba(236,206,64,.74))}
+.fish.theme-blue .fish-stripe{background:rgba(255,226,89,.92)}
+.fish.theme-blue .fish-belly{background:linear-gradient(180deg, rgba(255,248,219,.75), rgba(255,244,192,.15))}
+
+.fish.theme-yellow .fish-body{
+  background:
+    radial-gradient(circle at 28% 24%, rgba(255,255,255,.25) 0 12%, transparent 13%),
+    linear-gradient(180deg,#ffe88a 0%,#f2bf37 50%,#d99615 100%);
+}
+.fish.theme-yellow .fish-tail{background:linear-gradient(180deg,#ffdf6d,#e0a317)}
+.fish.theme-yellow .fish-fin,
+.fish.theme-yellow .fish-dorsal{background:linear-gradient(180deg,rgba(255,252,213,.92), rgba(255,236,152,.70))}
+.fish.theme-yellow .fish-stripe{background:rgba(255,249,219,.92)}
 .fish.theme-yellow .stripe2{opacity:.55}
 
+.fish.theme-silver .fish-body{
+  background:
+    radial-gradient(circle at 28% 24%, rgba(255,255,255,.30) 0 12%, transparent 13%),
+    linear-gradient(180deg,#e5eff5 0%,#aac0cd 50%,#7c97a9 100%);
+}
+.fish.theme-silver .fish-tail{background:linear-gradient(180deg,#cfe0e8,#84a3b4)}
+.fish.theme-silver .fish-fin,
+.fish.theme-silver .fish-dorsal{background:linear-gradient(180deg,rgba(255,255,255,.86), rgba(193,211,220,.72))}
+.fish.theme-silver .fish-stripe{background:rgba(255,255,255,.34)}
+.fish.theme-silver .fish-gill{border-left-color:rgba(53,74,88,.28)}
+.fish.theme-silver .fish-belly{background:linear-gradient(180deg, rgba(255,255,255,.65), rgba(232,241,247,.18))}
+
+.fish.theme-red .fish-body{
+  background:
+    radial-gradient(circle at 28% 24%, rgba(255,255,255,.24) 0 12%, transparent 13%),
+    linear-gradient(180deg,#ff9d88 0%,#f35c4f 48%,#c83330 100%);
+}
+.fish.theme-red .fish-tail{background:linear-gradient(180deg,#ffb09c,#d64540)}
+.fish.theme-red .fish-fin,
+.fish.theme-red .fish-dorsal{background:linear-gradient(180deg,rgba(255,224,214,.88), rgba(255,176,164,.62))}
+.fish.theme-red .fish-belly{background:linear-gradient(180deg, rgba(255,233,226,.75), rgba(255,209,197,.18))}
+.fish.theme-red .fish-spot{
+  opacity:.9;
+  background:rgba(255,242,226,.50);
+  box-shadow:12px 8px 0 rgba(255,242,226,.32), 22px 16px 0 rgba(255,242,226,.26);
+}
+
+/* Body shapes */
+.fish.shape-clown .fish-body{border-radius:52% 46% 46% 52%}
+.fish.shape-clown .stripe3{opacity:.82}
+
+.fish.shape-tang .fish-body{
+  left:24%; top:14%; width:54%; height:72%;
+  border-radius:49% 49% 47% 53%;
+}
+.fish.shape-tang .fish-tail{
+  left:6%; top:31%; width:20%; height:36%;
+  clip-path:polygon(100% 50%, 0 0, 8% 100%);
+}
+.fish.shape-tang .fish-fin.top{left:48%; top:5%; width:18%; height:18%}
+.fish.shape-tang .fish-fin.bottom{left:46%; bottom:7%; width:18%; height:16%}
+.fish.shape-tang .fish-belly{left:34%; top:47%; width:33%; height:18%}
+.fish.shape-tang .stripe1{left:37%; width:7%}
+.fish.shape-tang .stripe2{left:48%; width:6%}
+.fish.shape-tang .stripe3{left:57%; width:5%; opacity:.68}
+.fish.shape-tang .fish-eye{right:22%}
+
+.fish.shape-puffer .fish-body{
+  left:25%; top:13%; width:52%; height:74%;
+  border-radius:50%;
+}
+.fish.shape-puffer .fish-tail{
+  left:7%; top:33%; width:18%; height:28%;
+  clip-path:polygon(100% 50%, 0 0, 2% 100%);
+}
+.fish.shape-puffer .fish-fin.top{left:50%; top:8%; width:15%; height:15%}
+.fish.shape-puffer .fish-fin.bottom{left:49%; bottom:9%; width:15%; height:14%}
+.fish.shape-puffer .fish-dorsal{display:none}
+.fish.shape-puffer .fish-stripe{display:none}
+.fish.shape-puffer .fish-spot{
+  opacity:.92;
+  background:rgba(255,255,255,.46);
+  box-shadow:
+    15px 4px 0 rgba(255,255,255,.34),
+    -8px 12px 0 rgba(255,255,255,.28),
+    8px 18px 0 rgba(255,255,255,.34),
+    22px 15px 0 rgba(255,255,255,.20);
+}
+.fish.shape-puffer .fish-belly{left:36%; top:51%; width:24%; height:14%}
+.fish.shape-puffer .fish-gill{right:30%; top:33%; height:16%}
+.fish.shape-puffer .fish-mouth{right:10%; top:48%}
+
+.fish.shape-angel .fish-body{
+  left:29%; top:11%; width:40%; height:80%;
+  border-radius:44% 56% 52% 44%;
+}
+.fish.shape-angel .fish-tail{
+  left:14%; top:26%; width:18%; height:40%;
+  clip-path:polygon(100% 50%, 0 0, 12% 100%);
+}
+.fish.shape-angel .fish-fin.top{
+  left:40%; top:-1%; width:26%; height:34%;
+  clip-path:polygon(55% 0, 100% 100%, 0 100%);
+}
+.fish.shape-angel .fish-fin.bottom{
+  left:42%; bottom:-2%; width:22%; height:30%;
+}
+.fish.shape-angel .fish-dorsal{display:none}
+.fish.shape-angel .stripe1{left:37%; width:7%}
+.fish.shape-angel .stripe2{left:48%; width:6%}
+.fish.shape-angel .stripe3{left:57%; width:5%; opacity:.92}
+.fish.shape-angel .fish-eye{right:25%; top:31%}
+.fish.shape-angel .fish-gill{right:33%}
+.fish.shape-angel .fish-belly{left:35%; top:49%; width:25%; height:17%}
+
+.fish.shape-butterfly .fish-body{
+  left:25%; top:14%; width:50%; height:72%;
+  border-radius:47% 53% 48% 52%;
+}
+.fish.shape-butterfly .fish-tail{
+  left:8%; top:30%; width:17%; height:34%;
+  clip-path:polygon(100% 50%, 0 0, 10% 100%);
+}
+.fish.shape-butterfly .fish-fin.top{
+  left:39%; top:0; width:26%; height:26%;
+  clip-path:polygon(48% 0, 100% 100%, 0 100%);
+}
+.fish.shape-butterfly .fish-fin.bottom{
+  left:41%; bottom:1%; width:24%; height:22%;
+}
+.fish.shape-butterfly .stripe1{left:36%; width:6%}
+.fish.shape-butterfly .stripe2{left:46%; width:5%}
+.fish.shape-butterfly .stripe3{left:55%; width:4%; opacity:.8}
+.fish.shape-butterfly .fish-belly{left:34%; top:50%; width:24%; height:16%}
 @media(max-width:700px){
   .plant1,.plant3{height:84px}
   .plant2,.plant4,.plant5{height:62px}
@@ -591,7 +859,7 @@ button{font:inherit}
     </div>
   </div>
 
-  <div class="tip">Κάνε <strong>αριστερό κλικ</strong> πάνω στο ψάρι! Κάθε νέο επίπεδο έχει μικρότερα και γρηγορότερα ψάρια. 🖱️</div>
+  <div class="tip">Κάνε <strong>αριστερό κλικ</strong> πάνω στο ψάρι! Τώρα τα ψάρια κολυμπούν πιο φυσικά και κάθε νέο επίπεδο έχει μικρότερα και γρηγορότερα ψάρια. 🖱️</div>
 
   <div class="playfield" id="playfield">
     <div class="water-glow"></div>
@@ -620,14 +888,20 @@ button{font:inherit}
     <div class="shell shell2"></div>
     <div class="starfish-decor star1"></div>
 
-    <div class="fish theme-clown" id="fish" aria-label="Ψάρι">
+    <div class="fish theme-clown shape-clown" id="fish" aria-label="Ψάρι">
       <span class="fish-tail"></span>
       <span class="fish-body"></span>
+      <span class="fish-belly"></span>
       <span class="fish-fin top"></span>
       <span class="fish-fin bottom"></span>
+      <span class="fish-dorsal"></span>
       <span class="fish-eye"></span>
+      <span class="fish-gill"></span>
       <span class="fish-stripe stripe1"></span>
       <span class="fish-stripe stripe2"></span>
+      <span class="fish-stripe stripe3"></span>
+      <span class="fish-spot spot1"></span>
+      <span class="fish-spot spot2"></span>
       <span class="fish-mouth"></span>
     </div>
   </div>
@@ -666,6 +940,9 @@ level=Math.min(Math.max(level,1),TOTAL_LEVELS);
 let caught=0;
 let canCatch=true;
 let motionRAF=null;
+let swimPhase=0;
+let trailTick=0;
+let audioCtx=null;
 let fishX=100, fishY=100, vx=1.2, vy=.25;
 
 const mission=document.getElementById("mission");
@@ -740,18 +1017,135 @@ function fishSpeed(){
   return 1.0 + (level-1)*0.18;
 }
 
-function randomFishTheme(){
-  const variants=["theme-clown","theme-blue","theme-yellow"];
+function randomFishVariant(){
+  const variants = [
+    "theme-clown shape-clown",
+    "theme-blue shape-tang",
+    "theme-yellow shape-puffer",
+    "theme-silver shape-angel",
+    "theme-red shape-butterfly"
+  ];
   return variants[Math.floor(Math.random()*variants.length)];
 }
+
+
+function initAudio(){
+  if(!audioCtx){
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if(Ctx) audioCtx = new Ctx();
+  }
+  if(audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+}
+
+function playTone(freq, duration, type="sine", gain=.03, delay=0){
+  if(!audioCtx) return;
+  const now = audioCtx.currentTime + delay;
+  const osc = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, now);
+  g.gain.setValueAtTime(0.0001, now);
+  g.gain.exponentialRampToValueAtTime(gain, now + 0.02);
+  g.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  osc.connect(g);
+  g.connect(audioCtx.destination);
+  osc.start(now);
+  osc.stop(now + duration + 0.03);
+}
+
+function playCatchSound(){
+  initAudio();
+  if(!audioCtx) return;
+  playTone(540, 0.10, "sine", 0.030, 0.00);
+  playTone(760, 0.12, "triangle", 0.025, 0.06);
+}
+
+function playLevelUpSound(){
+  initAudio();
+  if(!audioCtx) return;
+  playTone(520, 0.10, "triangle", 0.030, 0.00);
+  playTone(660, 0.10, "triangle", 0.028, 0.08);
+  playTone(880, 0.18, "sine", 0.032, 0.16);
+}
+
+function createTrailBubble(){
+  const b = document.createElement("div");
+  b.className = "trail-bubble";
+  const size = 6 + Math.random()*10;
+  const fishRect = fish.getBoundingClientRect();
+  const width = fishRect.width || 90;
+  const height = fishRect.height || 60;
+  const x = fishX + width * (vx < 0 ? 0.84 : 0.12);
+  const y = fishY + height * (0.50 + Math.random()*0.18);
+  b.style.width = size + "px";
+  b.style.height = size + "px";
+  b.style.left = x + "px";
+  b.style.top = y + "px";
+  b.style.setProperty("--dx", (-8 + Math.random()*16) + "px");
+  b.style.setProperty("--dy", (-22 - Math.random()*24) + "px");
+  playfield.appendChild(b);
+  setTimeout(() => b.remove(), 900);
+}
+
+function createCatchBurst(){
+  const fishRect = fish.getBoundingClientRect();
+  const cx = fishX + fishRect.width/2;
+  const cy = fishY + fishRect.height/2;
+
+  for(let i=0;i<2;i++){
+    const ring = document.createElement("div");
+    ring.className = "splash-ring";
+    const size = i===0 ? 34 : 54;
+    ring.style.width = size + "px";
+    ring.style.height = size + "px";
+    ring.style.left = (cx - size/2) + "px";
+    ring.style.top = (cy - size/2) + "px";
+    ring.style.animationDelay = (i*0.05) + "s";
+    playfield.appendChild(ring);
+    setTimeout(() => ring.remove(), 700);
+  }
+
+  for(let i=0;i<8;i++){
+    const bub = document.createElement("div");
+    bub.className = "mini-bubble";
+    bub.style.left = (cx - 6) + "px";
+    bub.style.top = (cy - 6) + "px";
+    const angle = (Math.PI*2/8)*i + Math.random()*0.18;
+    const dist = 18 + Math.random()*26;
+    bub.style.setProperty("--dx", Math.cos(angle)*dist + "px");
+    bub.style.setProperty("--dy", Math.sin(angle)*dist + "px");
+    playfield.appendChild(bub);
+    setTimeout(() => bub.remove(), 820);
+  }
+
+  for(let i=0;i<3;i++){
+    const s = document.createElement("div");
+    s.className = "splash-star";
+    s.textContent = ["✨","💦","⭐"][i];
+    s.style.left = (cx - 10) + "px";
+    s.style.top = (cy - 10) + "px";
+    s.style.setProperty("--dx", (-24 + Math.random()*48) + "px");
+    s.style.setProperty("--dy", (-36 - Math.random()*22) + "px");
+    playfield.appendChild(s);
+    setTimeout(() => s.remove(), 760);
+  }
+}
+
 
 function placeFish(resetDirection=true){
   const rect=playfield.getBoundingClientRect();
   const size=fishSize();
-  const width=Math.round(size*1.58);
+  fish.className="fish " + randomFishVariant();
+
+  let widthRatio = 1.58;
+  if(fish.classList.contains("shape-puffer")) widthRatio = 1.24;
+  if(fish.classList.contains("shape-angel")) widthRatio = 1.30;
+  if(fish.classList.contains("shape-tang")) widthRatio = 1.40;
+  if(fish.classList.contains("shape-butterfly")) widthRatio = 1.34;
+
+  const width=Math.round(size*widthRatio);
   const height=size;
 
-  fish.className="fish " + randomFishTheme();
   fish.style.width=width+"px";
   fish.style.height=height+"px";
 
@@ -788,22 +1182,35 @@ function spawnBubbles(){
 function animateFish(){
   if(!game.classList.contains("active")) return;
   const rect=playfield.getBoundingClientRect();
-  const goal = levelGoal();
-  const size=fish.getBoundingClientRect().width || 100;
+  const fishRect = fish.getBoundingClientRect();
+  const width = fishRect.width || 100;
+  const height = fishRect.height || 60;
 
   fishX+=vx;
   fishY+=vy;
 
   if(fishX<10){fishX=10;vx=Math.abs(vx)}
-  if(fishX>rect.width-size-10){fishX=rect.width-size-10;vx=-Math.abs(vx)}
+  if(fishX>rect.width-width-10){fishX=rect.width-width-10;vx=-Math.abs(vx)}
   if(fishY<20){fishY=20;vy=Math.abs(vy)}
-  if(fishY>rect.height-size-110){fishY=rect.height-size-110;vy=-Math.abs(vy)}
+  if(fishY>rect.height-height-110){fishY=rect.height-height-110;vy=-Math.abs(vy)}
+
+  swimPhase += 0.20 + fishSpeed()*0.02;
+  const bob = Math.sin(swimPhase) * 3.2;
+  const pitch = Math.sin(swimPhase * 0.75) * 4 + vy * 2.2;
+  const facing = vx < 0 ? -1 : 1;
 
   fish.style.left=fishX+"px";
-  fish.style.top=fishY+"px";
+  fish.style.top=(fishY + bob)+"px";
+
   if(!fish.classList.contains("caught")){
-    fish.style.transform=vx<0?"scaleX(-1)":"scaleX(1)";
+    fish.style.transform=`scaleX(${facing}) rotate(${pitch*facing}deg)`;
   }
+
+  trailTick++;
+  if(trailTick % Math.max(6, 15 - Math.floor(level/2)) === 0){
+    createTrailBubble();
+  }
+
   motionRAF=requestAnimationFrame(animateFish);
 }
 
@@ -820,13 +1227,15 @@ function popMessage(){
 function catchFish(e){
   if(!canCatch) return;
 
-  // Desktop: explicitly require left mouse button.
   if(e && e.pointerType==="mouse" && e.button!==0) return;
 
+  initAudio();
   canCatch=false;
   fish.classList.add("caught");
-  fish.style.transform=(vx<0?"scaleX(-1) ":"") + "scale(1.14)";
+  fish.style.transform=(vx<0?"scaleX(-1) ":"") + "scale(1.16) rotate(6deg)";
   caught++;
+  playCatchSound();
+  createCatchBurst();
   popMessage();
   updateProgress();
 
@@ -834,6 +1243,7 @@ function catchFish(e){
     fish.classList.remove("caught");
     if(caught>=levelGoal()){
       if(motionRAF) cancelAnimationFrame(motionRAF);
+      playLevelUpSound();
       doneLevel.textContent=level;
       renderCompleteTrack();
       showScreen(complete);
@@ -841,10 +1251,11 @@ function catchFish(e){
     }
     placeFish(true);
     canCatch=true;
-  },220);
+  },260);
 }
 
 function startLevel(){
+  initAudio();
   caught=0;canCatch=true;
   updateProgress();
   showScreen(game);
