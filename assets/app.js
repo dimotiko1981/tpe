@@ -243,6 +243,7 @@ if(resetProgressBtn){
     if(!confirm("Θέλεις να μηδενιστεί όλη η πρόοδος των δραστηριοτήτων;")) return;
     localStorage.removeItem("starHuntLevel");
     localStorage.removeItem("fishHuntLevel");
+    localStorage.removeItem("fishDoubleClickLevel");
     localStorage.removeItem("evagelak_star_hunt_level");
     const keys=[];
     for(let i=0;i<localStorage.length;i++){
