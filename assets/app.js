@@ -244,6 +244,7 @@ if(resetProgressBtn){
     localStorage.removeItem("starHuntLevel");
     localStorage.removeItem("fishHuntLevel");
     localStorage.removeItem("fishDoubleClickLevel");
+    localStorage.removeItem("connectDotsLevel");
     localStorage.removeItem("evagelak_star_hunt_level");
     const keys=[];
     for(let i=0;i<localStorage.length;i++){
