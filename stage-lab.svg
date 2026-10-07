@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Εργαστήριο δικτύων οχημάτων σε υπολογιστή</title>
+  <desc id="desc">Οθόνη υπολογιστή με τέσσερις ECU σε δίκτυο και διαγνωστική σειρά ελέγχων για ABS.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102c49"/><stop offset="1" stop-color="#061522"/></linearGradient></defs>
+  <rect width="960" height="540" rx="34" fill="url(#bg)"/>
+  <text x="70" y="88" fill="#2bd9fe" font-family="Manrope,Arial" font-size="22" font-weight="800" letter-spacing="4">ΕΡΓΑΣΤΗΡΙΟ ΣΕ ΥΠΟΛΟΓΙΣΤΕΣ</text>
+  <text x="70" y="142" fill="#f4f8fb" font-family="Manrope,Arial" font-size="42" font-weight="800">Χαρτογράφηση • Έλεγχος • Απόφαση</text>
+  <g transform="translate(70 188)">
+    <rect width="500" height="270" rx="22" fill="#091d31" stroke="#84cef7" stroke-opacity=".35" stroke-width="4"/>
+    <rect x="25" y="25" width="450" height="210" rx="12" fill="#071523" stroke="#2bd9fe" stroke-opacity=".25"/>
+    <g font-family="Manrope,Arial" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">
+      <g transform="translate(95 88)"><rect x="-50" y="-25" width="100" height="50" rx="9" fill="#0d304d" stroke="#2bd9fe"/><text y="6">ECU</text></g>
+      <g transform="translate(225 88)"><rect x="-50" y="-25" width="100" height="50" rx="9" fill="#0d304d" stroke="#2bd9fe"/><text y="6">ABS</text></g>
+      <g transform="translate(355 88)"><rect x="-50" y="-25" width="100" height="50" rx="9" fill="#0d304d" stroke="#2bd9fe"/><text y="6">IPC</text></g>
+      <g transform="translate(225 175)"><rect x="-50" y="-25" width="100" height="50" rx="9" fill="#103553" stroke="#47e6ae"/><text y="6">BCM</text></g>
+    </g>
+    <path d="M95 113v34h260v-34M225 113v62M225 147v3" fill="none" stroke="#2bd9fe" stroke-width="5"/>
+    <path d="M190 270h120l28 35H162z" fill="#0d2944" stroke="#84cef7" stroke-opacity=".35" stroke-width="3"/>
+  </g>
+  <g transform="translate(630 194)" font-family="Manrope,Arial">
+    <text y="12" fill="#ffa75b" font-size="19" font-weight="800">ΧΩΡΙΣ ΕΠΙΚΟΙΝΩΝΙΑ ABS</text>
+    <g transform="translate(0 48)" font-size="17" font-weight="700">
+      <g><circle cx="18" cy="18" r="18" fill="#2bd9fe"/><text x="18" y="24" fill="#03101b" text-anchor="middle">1</text><text x="54" y="24" fill="#dce8ef">Τροφοδοσία</text></g>
+      <g transform="translate(0 55)"><circle cx="18" cy="18" r="18" fill="#2bd9fe"/><text x="18" y="24" fill="#03101b" text-anchor="middle">2</text><text x="54" y="24" fill="#dce8ef">Γείωση</text></g>
+      <g transform="translate(0 110)"><circle cx="18" cy="18" r="18" fill="#2bd9fe"/><text x="18" y="24" fill="#03101b" text-anchor="middle">3</text><text x="54" y="24" fill="#dce8ef">Φίσα</text></g>
+      <g transform="translate(0 165)"><circle cx="18" cy="18" r="18" fill="#2bd9fe"/><text x="18" y="24" fill="#03101b" text-anchor="middle">4</text><text x="54" y="24" fill="#dce8ef">Καλωδίωση</text></g>
+      <g transform="translate(0 220)"><circle cx="18" cy="18" r="18" fill="#47e6ae"/><text x="18" y="24" fill="#03101b" text-anchor="middle">5</text><text x="54" y="24" fill="#dce8ef">Αξιολόγηση ECU</text></g>
+    </g>
+  </g>
+</svg>

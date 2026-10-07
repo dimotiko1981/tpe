@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Τελικό τεστ τριάντα ερωτήσεων</title>
+  <desc id="desc">Οθόνη αυτοαξιολόγησης με τριάντα ερωτήσεις, όριο επιτυχίας είκοσι τέσσερις σωστές και τελικό ποσοστό.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102c49"/><stop offset="1" stop-color="#061522"/></linearGradient><linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2d67ff"/><stop offset="1" stop-color="#2bd9fe"/></linearGradient></defs>
+  <rect width="960" height="540" rx="34" fill="url(#bg)"/>
+  <text x="70" y="88" fill="#2bd9fe" font-family="Manrope,Arial" font-size="22" font-weight="800" letter-spacing="4">ΤΕΛΙΚΗ ΑΥΤΟΑΞΙΟΛΟΓΗΣΗ</text>
+  <text x="70" y="142" fill="#f4f8fb" font-family="Manrope,Arial" font-size="42" font-weight="800">30 ερωτήσεις • άμεσο αποτέλεσμα</text>
+  <g transform="translate(230 330)" font-family="Manrope,Arial" text-anchor="middle">
+    <circle r="122" fill="#091d31" stroke="#173e5b" stroke-width="22"/>
+    <circle r="122" fill="none" stroke="url(#ring)" stroke-width="22" stroke-linecap="round" stroke-dasharray="613 766" transform="rotate(-90)"/>
+    <text y="-2" fill="#fff" font-size="54" font-weight="800">24/30</text>
+    <text y="36" fill="#9fb7c8" font-size="18">ΟΡΙΟ ΕΠΙΤΥΧΙΑΣ</text>
+  </g>
+  <g transform="translate(460 216)" font-family="Manrope,Arial">
+    <g><rect width="400" height="66" rx="14" fill="#0b2740" stroke="#2bd9fe" stroke-opacity=".35"/><circle cx="34" cy="33" r="16" fill="#47e6ae"/><path d="m27 33 5 6 10-13" fill="none" stroke="#04111d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="66" y="40" fill="#e9f3f7" font-size="20" font-weight="700">Βασικές έννοιες</text></g>
+    <g transform="translate(0 82)"><rect width="400" height="66" rx="14" fill="#0b2740" stroke="#2bd9fe" stroke-opacity=".35"/><circle cx="34" cy="33" r="16" fill="#47e6ae"/><path d="m27 33 5 6 10-13" fill="none" stroke="#04111d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="66" y="40" fill="#e9f3f7" font-size="20" font-weight="700">Δίκτυο και μηνύματα</text></g>
+    <g transform="translate(0 164)"><rect width="400" height="66" rx="14" fill="#0b2740" stroke="#2bd9fe" stroke-opacity=".35"/><circle cx="34" cy="33" r="16" fill="#2bd9fe"/><text x="34" y="40" fill="#04111d" font-size="18" font-weight="800" text-anchor="middle">%</text><text x="66" y="40" fill="#e9f3f7" font-size="20" font-weight="700">Τελικό ποσοστό</text></g>
+  </g>
+</svg>

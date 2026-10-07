@@ -1,0 +1,647 @@
+.introduction-lab-page {
+  --intro-violet: #9b8cff;
+  --intro-gold: #ffc45c;
+}
+
+.intro-lab-welcome {
+  background:
+    radial-gradient(circle at 74% 42%, rgba(155, 140, 255, 0.12), transparent 30rem),
+    radial-gradient(circle at 22% 18%, rgba(43, 217, 254, 0.08), transparent 26rem),
+    rgba(5, 17, 31, 0.92);
+}
+
+.intro-network-visual {
+  min-height: min(540px, 66vh);
+}
+
+.intro-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  width: min(100%, 570px);
+}
+
+.intro-mode-card {
+  display: grid;
+  gap: 0.16rem;
+  min-width: 0;
+  padding: 0.68rem 0.75rem;
+  border: 1px solid rgba(150, 198, 230, 0.2);
+  border-radius: 11px;
+  background: rgba(8, 25, 43, 0.78);
+  color: #f3f6fb;
+  text-align: left;
+  cursor: pointer;
+  transition: 160ms ease;
+}
+
+.intro-mode-card:hover,
+.intro-mode-card:focus-visible {
+  border-color: rgba(43, 217, 254, 0.68);
+  background: rgba(43, 217, 254, 0.08);
+  transform: translateY(-1px);
+}
+
+.intro-mode-card span {
+  color: var(--cyan);
+  font-size: 0.45rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.intro-mode-card strong {
+  overflow-wrap: anywhere;
+  font-size: 0.72rem;
+}
+
+.intro-mode-card small {
+  color: var(--muted);
+  font-size: 0.5rem;
+  line-height: 1.35;
+}
+
+.intro-mode-card.is-recommended {
+  border-color: rgba(43, 217, 254, 0.56);
+  background: linear-gradient(135deg, rgba(10, 111, 164, 0.42), rgba(43, 217, 254, 0.09));
+  box-shadow: 0 10px 28px rgba(43, 217, 254, 0.1);
+}
+
+.intro-mode-card.is-challenge {
+  border-color: rgba(255, 196, 92, 0.38);
+}
+
+.intro-mode-card.is-challenge span {
+  color: var(--intro-gold);
+}
+
+.intro-mode-card.is-all {
+  border-color: rgba(155, 140, 255, 0.4);
+}
+
+.intro-mode-card.is-all span {
+  color: #c9c0ff;
+}
+
+.intro-car-map {
+  display: grid;
+  min-height: 315px;
+  place-items: center;
+}
+
+.intro-car-map svg {
+  width: 100%;
+  max-width: 700px;
+}
+
+.intro-car-shell,
+.intro-car-glass {
+  fill: rgba(43, 217, 254, 0.045);
+  stroke: rgba(140, 236, 255, 0.48);
+  stroke-width: 3;
+}
+
+.intro-car-glass {
+  fill: rgba(155, 140, 255, 0.08);
+  stroke-width: 2;
+}
+
+.intro-wheel {
+  fill: #06111f;
+  stroke: #31536f;
+  stroke-width: 8;
+}
+
+.intro-bus-line {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 5;
+}
+
+.intro-car-map g rect {
+  fill: #0b2a46;
+  stroke: var(--green);
+  stroke-width: 2;
+}
+
+.intro-car-map g:nth-of-type(2) rect {
+  stroke: var(--intro-violet);
+}
+
+.intro-car-map g text {
+  fill: #fff;
+  font: 800 12px "Manrope", sans-serif;
+  text-anchor: middle;
+}
+
+.intro-bus-title {
+  fill: var(--cyan-soft);
+  font: 800 10px "Manrope", sans-serif;
+  letter-spacing: 1.4px;
+  text-anchor: middle;
+}
+
+.intro-flow-strip {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.68rem;
+  border: 1px solid rgba(155, 140, 255, 0.34);
+  border-radius: 11px;
+  background: rgba(155, 140, 255, 0.07);
+  text-align: center;
+}
+
+.intro-flow-strip span {
+  color: #d8d2ff;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.intro-flow-strip i {
+  color: var(--cyan);
+  font-style: normal;
+}
+
+.intro-mission-grid {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: minmax(220px, 0.76fr) minmax(270px, 0.92fr) minmax(360px, 1.32fr);
+  gap: 0.7rem;
+  padding: 0.7rem;
+}
+
+.intro-mission-grid > * {
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: rgba(8, 25, 43, 0.76);
+}
+
+.intro-mission-grid > * > header {
+  display: flex;
+  align-items: center;
+  gap: 0.52rem;
+  padding: 0.55rem 0.65rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(14, 42, 68, 0.58);
+}
+
+.intro-mission-grid > * > header > span {
+  display: grid;
+  width: 28px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(43, 217, 254, 0.32);
+  border-radius: 7px;
+  color: var(--cyan-soft);
+  font-size: 0.58rem;
+  font-weight: 900;
+}
+
+.intro-mission-grid > * > header div {
+  display: grid;
+}
+
+.intro-mission-grid > * > header small {
+  color: var(--cyan);
+  font-size: 0.49rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.intro-mission-grid > * > header strong {
+  font-size: 0.69rem;
+}
+
+.intro-station-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.intro-station-panel ol {
+  display: grid;
+  min-height: 0;
+  gap: 0.36rem;
+  align-content: start;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 0.65rem;
+  list-style: none;
+}
+
+.intro-station-panel li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: center;
+  gap: 0.48rem;
+  padding: 0.48rem;
+  border: 1px solid rgba(150, 198, 230, 0.11);
+  border-radius: 9px;
+  opacity: 0.48;
+  transition: 180ms ease;
+}
+
+.intro-station-panel li > span {
+  display: grid;
+  width: 30px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(150, 198, 230, 0.2);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.58rem;
+  font-weight: 900;
+}
+
+.intro-station-panel li div {
+  display: grid;
+}
+
+.intro-station-panel li strong {
+  font-size: 0.61rem;
+}
+
+.intro-station-panel li small {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.47rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.intro-station-panel li.is-active {
+  border-color: rgba(43, 217, 254, 0.45);
+  background: rgba(43, 217, 254, 0.07);
+  box-shadow: 0 0 22px rgba(43, 217, 254, 0.08);
+  opacity: 1;
+}
+
+.intro-station-panel li.is-active > span {
+  border-color: var(--cyan);
+  background: var(--cyan);
+  color: #03101b;
+}
+
+.intro-station-panel li.is-done {
+  opacity: 0.78;
+}
+
+.intro-station-panel li.is-done > span {
+  border-color: rgba(71, 230, 174, 0.45);
+  background: rgba(71, 230, 174, 0.1);
+  color: var(--green);
+}
+
+.intro-console-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.intro-console-screen {
+  display: grid;
+  min-height: 0;
+  align-content: center;
+  justify-items: center;
+  padding: 0.8rem;
+  background:
+    linear-gradient(rgba(43, 217, 254, 0.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 217, 254, 0.024) 1px, transparent 1px),
+    #061521;
+  background-size: 20px 20px;
+  text-align: center;
+}
+
+.intro-console-icon {
+  display: grid;
+  width: 72px;
+  aspect-ratio: 1;
+  margin-bottom: 0.7rem;
+  place-items: center;
+  border: 1px solid rgba(155, 140, 255, 0.5);
+  border-radius: 21px;
+  background: rgba(155, 140, 255, 0.1);
+  box-shadow: 0 0 32px rgba(155, 140, 255, 0.12);
+  color: #d9d3ff;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.intro-console-screen > span {
+  color: var(--cyan);
+  font-size: 0.5rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.intro-console-screen > strong {
+  max-width: 320px;
+  margin: 0.4rem 0 0.35rem;
+  color: #f3f6fb;
+  font-size: clamp(0.85rem, 1.25vw, 1.08rem);
+  line-height: 1.35;
+}
+
+.intro-console-screen > p {
+  max-width: 330px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.6rem;
+  line-height: 1.48;
+}
+
+.intro-console-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.8rem;
+}
+
+.intro-console-chips span {
+  padding: 0.3rem 0.45rem;
+  border: 1px solid rgba(43, 217, 254, 0.22);
+  border-radius: 999px;
+  background: rgba(43, 217, 254, 0.06);
+  color: var(--cyan-soft);
+  font-size: 0.46rem;
+  font-weight: 800;
+}
+
+.intro-rule-card {
+  margin: 0.6rem;
+  padding: 0.62rem;
+  border-left: 3px solid var(--intro-gold);
+  border-radius: 8px;
+  background: rgba(255, 196, 92, 0.06);
+}
+
+.intro-rule-card span {
+  color: var(--intro-gold);
+  font-size: 0.46rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.intro-rule-card p {
+  margin: 0.14rem 0 0;
+  color: #c7d3dd;
+  font-size: 0.55rem;
+  line-height: 1.42;
+}
+
+.intro-decision-panel {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+}
+
+.intro-decision-panel .decision-copy,
+.intro-decision-panel .decision-options,
+.intro-decision-panel .decision-feedback,
+.intro-decision-panel .decision-actions {
+  min-width: 0;
+}
+
+.intro-decision-panel .decision-options {
+  align-content: start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(43, 217, 254, 0.38) transparent;
+  scrollbar-width: thin;
+}
+
+.intro-decision-panel .decision-feedback {
+  position: relative;
+  z-index: 2;
+  overflow-wrap: anywhere;
+}
+
+.intro-decision-panel .decision-option {
+  grid-template-columns: 32px minmax(0, 1fr);
+}
+
+.intro-decision-panel .decision-option small {
+  grid-column: 2;
+}
+
+.intro-lab-result .result-badge {
+  border-color: rgba(155, 140, 255, 0.2);
+  border-top-color: var(--intro-violet);
+  background: rgba(155, 140, 255, 0.06);
+}
+
+.intro-lab-result .result-badge strong {
+  color: #bfb5ff;
+}
+
+@media (max-width: 1060px) {
+  .intro-mission-grid {
+    grid-template-columns: minmax(190px, 0.58fr) minmax(240px, 0.78fr) minmax(330px, 1.22fr);
+  }
+}
+
+@media (max-width: 820px) {
+  .intro-mission-grid {
+    grid-template-columns: 0.76fr 1.24fr;
+    grid-template-rows: minmax(0, 1fr);
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .intro-station-panel {
+    display: none;
+  }
+
+  .intro-mission-grid > * > header {
+    padding: 0.4rem 0.48rem;
+  }
+
+  .intro-mission-grid > * > header > span {
+    width: 24px;
+  }
+
+  .intro-console-icon {
+    width: 58px;
+    border-radius: 16px;
+    font-size: 1.5rem;
+  }
+
+  .intro-console-screen {
+    padding: 0.55rem;
+  }
+
+  .intro-console-screen > p,
+  .intro-rule-card p {
+    font-size: 0.5rem;
+  }
+
+  .intro-rule-card {
+    margin: 0.45rem;
+    padding: 0.45rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .intro-mode-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-mode-card {
+    padding: 0.58rem 0.65rem;
+  }
+
+  .intro-mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-console-panel {
+    display: none;
+  }
+
+  .intro-decision-panel .decision-copy h2 {
+    font-size: 0.9rem;
+  }
+
+  .intro-decision-panel .decision-copy p {
+    font-size: 0.58rem;
+  }
+
+  .intro-decision-panel .decision-option strong {
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .intro-network-visual {
+    min-height: 0;
+  }
+
+  .intro-car-map {
+    min-height: 165px;
+  }
+
+  .intro-flow-strip {
+    padding: 0.48rem;
+  }
+
+  .intro-flow-strip span {
+    font-size: 0.46rem;
+  }
+}
+
+/* Compact mode for the introductory lab on short laptop screens. */
+@media (min-width: 761px) and (max-height: 820px) {
+  .intro-mode-grid {
+    gap: 0.35rem;
+  }
+
+  .intro-mode-card {
+    padding: 0.48rem 0.58rem;
+  }
+
+  .intro-mode-card strong {
+    font-size: 0.62rem;
+  }
+
+  .intro-mode-card small {
+    font-size: 0.45rem;
+  }
+
+  .intro-network-visual {
+    min-height: 0;
+  }
+
+  .intro-car-map {
+    min-height: 205px;
+  }
+
+  .intro-flow-strip {
+    padding: 0.5rem;
+  }
+
+  .intro-mission-grid {
+    gap: 0.45rem;
+    padding: 0.45rem;
+  }
+
+  .intro-station-panel ol {
+    gap: 0.22rem;
+    padding: 0.42rem;
+  }
+
+  .intro-station-panel li {
+    grid-template-columns: 25px minmax(0, 1fr);
+    gap: 0.35rem;
+    padding: 0.3rem;
+  }
+
+  .intro-station-panel li > span {
+    width: 25px;
+  }
+
+  .intro-station-panel li small {
+    display: none;
+  }
+
+  .intro-console-icon {
+    width: 54px;
+    margin-bottom: 0.4rem;
+    border-radius: 15px;
+    font-size: 1.45rem;
+  }
+
+  .intro-console-chips {
+    margin-top: 0.45rem;
+  }
+
+  .intro-rule-card {
+    margin: 0.4rem;
+    padding: 0.42rem;
+  }
+
+  .intro-decision-panel .decision-copy {
+    padding: 0.48rem 0.62rem 0.18rem;
+  }
+
+  .intro-decision-panel .decision-copy h2 {
+    margin: 0.12rem 0 0.14rem;
+    font-size: clamp(0.82rem, 1.25vw, 1.02rem);
+  }
+
+  .intro-decision-panel .decision-copy p {
+    font-size: 0.53rem;
+    line-height: 1.35;
+  }
+
+  .intro-decision-panel .decision-options {
+    gap: 0.3rem;
+    padding: 0.3rem 0.62rem;
+  }
+
+  .intro-decision-panel .decision-option {
+    gap: 0.45rem;
+    padding: 0.42rem;
+  }
+
+  .intro-decision-panel .decision-option small {
+    display: none;
+  }
+
+  .intro-decision-panel .decision-feedback {
+    margin: 0 0.62rem 0.35rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .intro-decision-panel .decision-feedback p {
+    font-size: 0.5rem;
+    line-height: 1.32;
+  }
+
+  .intro-decision-panel .decision-actions {
+    padding: 0.38rem 0.62rem;
+  }
+}

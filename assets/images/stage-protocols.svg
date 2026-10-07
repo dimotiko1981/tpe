@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Δίκτυο CAN με γραμμές CAN-H και CAN-L</title>
+  <desc id="desc">Τέσσερις κόμβοι ECU συνδεδεμένοι στις δύο γραμμές ενός διαφορικού διαύλου CAN.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102c49"/><stop offset="1" stop-color="#061522"/></linearGradient></defs>
+  <rect width="960" height="540" rx="34" fill="url(#bg)"/>
+  <text x="70" y="88" fill="#2bd9fe" font-family="Manrope,Arial" font-size="22" font-weight="800" letter-spacing="4">CAN BUS</text>
+  <text x="70" y="142" fill="#f4f8fb" font-family="Manrope,Arial" font-size="42" font-weight="800">Διαφορικό σήμα • κοινός δίαυλος</text>
+  <g font-family="Manrope,Arial" text-anchor="middle">
+    <g transform="translate(155 250)"><rect x="-68" y="-44" width="136" height="88" rx="14" fill="#0c263f" stroke="#2bd9fe" stroke-width="3"/><text y="8" fill="#fff" font-size="24" font-weight="800">ECU 1</text></g>
+    <g transform="translate(370 250)"><rect x="-68" y="-44" width="136" height="88" rx="14" fill="#0c263f" stroke="#2bd9fe" stroke-width="3"/><text y="8" fill="#fff" font-size="24" font-weight="800">ECU 2</text></g>
+    <g transform="translate(585 250)"><rect x="-68" y="-44" width="136" height="88" rx="14" fill="#0c263f" stroke="#2bd9fe" stroke-width="3"/><text y="8" fill="#fff" font-size="24" font-weight="800">ECU 3</text></g>
+    <g transform="translate(800 250)"><rect x="-68" y="-44" width="136" height="88" rx="14" fill="#0c263f" stroke="#2bd9fe" stroke-width="3"/><text y="8" fill="#fff" font-size="24" font-weight="800">ECU 4</text></g>
+  </g>
+  <g stroke="#84cef7" stroke-width="4"><path d="M155 294v76M370 294v76M585 294v76M800 294v76"/></g>
+  <path d="M90 360H870" stroke="#2bd9fe" stroke-width="8" stroke-linecap="round"/>
+  <path d="M90 402H870" stroke="#2d67ff" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Manrope,Arial" font-size="18" font-weight="800"><text x="95" y="346" fill="#8cecff">CAN-H</text><text x="95" y="432" fill="#7e9fff">CAN-L</text></g>
+  <g font-family="Manrope,Arial" font-size="17" fill="#b8cad7"><text x="470" y="475" text-anchor="middle">Προτεραιότητα • Έλεγχος σφαλμάτων • Αξιόπιστη μετάδοση</text></g>
+</svg>

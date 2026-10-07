@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Αλυσίδα αισθητήρα ECU ενεργοποιητή</title>
+  <desc id="desc">Ο αισθητήρας μετρά, η ECU αποφασίζει και ο ενεργοποιητής εκτελεί.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102c49"/><stop offset="1" stop-color="#061522"/></linearGradient><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0v6l9-3z" fill="#2bd9fe"/></marker></defs>
+  <rect width="960" height="540" rx="34" fill="url(#bg)"/>
+  <text x="70" y="88" fill="#2bd9fe" font-family="Manrope,Arial" font-size="22" font-weight="800" letter-spacing="4">ΒΑΣΙΚΗ ΑΛΥΣΙΔΑ</text>
+  <text x="70" y="142" fill="#f4f8fb" font-family="Manrope,Arial" font-size="42" font-weight="800">Μέτρηση → Απόφαση → Ενέργεια</text>
+  <g font-family="Manrope,Arial" text-anchor="middle">
+    <g transform="translate(170 300)"><circle r="88" fill="#0b2740" stroke="#2bd9fe" stroke-opacity=".55" stroke-width="4"/><path d="M-15-35v52a34 34 0 1 0 30 0v-52a15 15 0 0 0-30 0z" fill="none" stroke="#8cecff" stroke-width="8"/><text y="125" fill="#fff" font-size="23" font-weight="800">ΑΙΣΘΗΤΗΡΑΣ</text><text y="153" fill="#9fb7c8" font-size="17">ΜΕΤΡΑ</text></g>
+    <g transform="translate(480 300)"><rect x="-98" y="-76" width="196" height="152" rx="24" fill="#103553" stroke="#47e6ae" stroke-width="5"/><path d="M-60-32h120M-60 0h120M-60 32h70" stroke="#47e6ae" stroke-width="8" stroke-linecap="round"/><text y="125" fill="#fff" font-size="23" font-weight="800">ECU</text><text y="153" fill="#b9f2df" font-size="17">ΑΠΟΦΑΣΙΖΕΙ</text></g>
+    <g transform="translate(790 300)"><circle r="88" fill="#0b2740" stroke="#2bd9fe" stroke-opacity=".55" stroke-width="4"/><circle r="36" fill="none" stroke="#8cecff" stroke-width="8"/><path d="M0-67v31M0 36v31M-67 0h31M36 0h31M-48-48l22 22M26 26l22 22M48-48 26-26M-26 26l-22 22" stroke="#8cecff" stroke-width="7" stroke-linecap="round"/><text y="125" fill="#fff" font-size="23" font-weight="800">ΕΝΕΡΓΟΠΟΙΗΤΗΣ</text><text y="153" fill="#9fb7c8" font-size="17">ΕΚΤΕΛΕΙ</text></g>
+  </g>
+  <path d="M268 300h94M578 300h94" stroke="#2bd9fe" stroke-width="7" marker-end="url(#a)"/>
+</svg>

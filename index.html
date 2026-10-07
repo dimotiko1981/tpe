@@ -1,223 +1,237 @@
 <!doctype html>
 <html lang="el">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#E8F9FF">
-<title>EVAGELAK EDU LAB</title>
-<link rel="stylesheet" href="assets/style.css?v=20260917i">
-</head>
-<body>
-<canvas id="circuitCanvas" aria-hidden="true"></canvas>
-<div class="site">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Εκπαιδευτικό υλικό ΣΑΕΚ οργανωμένο ανά ειδικότητα και μάθημα."
+    />
+    <meta name="theme-color" content="#edf4f7" />
+    <title>Εκπαιδευτικό Υλικό ΣΑΕΚ</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23071426'/%3E%3Cpath d='M17 42V22l15-8 15 8v20l-15 8-15-8Z' fill='none' stroke='%232bd9fe' stroke-width='4'/%3E%3Cpath d='M25 26h14M25 33h14M25 40h9' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Roboto+Slab:wght@600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css?v=11" />
+    <link rel="stylesheet" href="assets/css/theme-graphite.css?v=3" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
 
-<header class="topbar">
-  <a class="logo" href="index.html" aria-label="Αρχική">
-    <img src="assets/logo.png" alt="EVAGELAK EDU LAB">
-  </a>
-  <div class="brand">
-    <h1>EVAGELAK EDU LAB</h1>
-    <div class="motto">Μαθαίνω • Δημιουργώ • Καινοτομώ</div>
-  </div>
-  <div class="header-tools">
-  <div class="clock">
-    <span class="date" id="liveDate"></span>
-    <span class="time" id="liveTime"></span>
-  </div>
-  <div class="settings-wrap">
-      <button class="settings-btn" id="settingsBtn" type="button" aria-label="Ρυθμίσεις" aria-expanded="false">⚙️</button>
-      <div class="settings-menu" id="settingsMenu" hidden>
-        <button class="settings-item danger" id="resetProgressBtn" type="button">↺ Μηδενισμός προόδου</button>
-      </div>
+    <div class="site-shell">
+      <header class="site-header" aria-label="Κύρια κεφαλίδα">
+        <a class="brand" href="./" aria-label="ΣΑΕΚ — Αρχική σελίδα">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img">
+              <path d="M12 32V16l12-6 12 6v16l-12 6-12-6Z" />
+              <path d="M18 19h12M18 24h12M18 29h8" />
+            </svg>
+          </span>
+          <span>
+            <strong>ΣΑΕΚ</strong>
+            <small>Εκπαιδευτικό Υλικό</small>
+          </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Κύρια πλοήγηση">
+          <a class="active" href="#top">Αρχική</a>
+          <a href="#specialties">Ειδικότητες</a>
+        </nav>
+
+        <a class="header-cta" href="#specialties">Προβολή υλικού</a>
+      </header>
+
+      <main id="main-content">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              <span class="eyebrow-dot" aria-hidden="true"></span>
+              Ψηφιακός χώρος μαθημάτων
+            </div>
+            <h1 id="hero-title">Εκπαιδευτικό Υλικό <span>ΣΑΕΚ</span></h1>
+            <p class="hero-lead">
+              Μαθήματα, παρουσιάσεις, εργαστηριακές δραστηριότητες και ψηφιακές
+              ασκήσεις οργανωμένα ανά ειδικότητα.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#specialties">
+                Εξερεύνηση ειδικοτήτων
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="m7 4 6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+
+            <dl class="hero-stats" aria-label="Στοιχεία εκπαιδευτικού υλικού">
+              <div>
+                <dt>1</dt>
+                <dd>Ειδικότητα</dd>
+              </div>
+              <div>
+                <dt>1</dt>
+                <dd>Γνωστικό αντικείμενο</dd>
+              </div>
+              <div>
+                <dt>1</dt>
+                <dd>Διαθέσιμο μάθημα</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-grid"></div>
+            <div class="dashboard-card dashboard-card-main">
+              <div class="dashboard-topline">
+                <span>VEHICLE NETWORK</span>
+                <span class="signal-bars"><i></i><i></i><i></i><i></i></span>
+              </div>
+              <div class="network-orbit">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="core">
+                  <svg viewBox="0 0 48 48">
+                    <rect x="12" y="12" width="24" height="24" rx="5" />
+                    <path d="M17 8v4m7-4v4m7-4v4M17 36v4m7-4v4m7-4v4M8 17h4m-4 7h4m-4 7h4m24-14h4m-4 7h4m-4 7h4" />
+                    <path d="M19 24h10m-5-5v10" />
+                  </svg>
+                </div>
+                <span class="node node-a"></span>
+                <span class="node node-b"></span>
+                <span class="node node-c"></span>
+              </div>
+              <div class="dashboard-label">
+                <small>ΜΑΘΗΜΑ</small>
+                <strong>Δίκτυα &amp; Επικοινωνία Οχημάτων</strong>
+              </div>
+            </div>
+            <div class="dashboard-card dashboard-card-small card-top">
+              <span class="mini-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4zM8 17v3m8-3v3M8 4v3m8-3v3" /></svg>
+              </span>
+              <span><small>ΕΝΟΤΗΤΕΣ</small><strong>15</strong></span>
+            </div>
+            <div class="dashboard-card dashboard-card-small card-bottom">
+              <span class="mini-icon accent">
+                <svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>
+              </span>
+              <span><small>ΚΑΤΑΣΤΑΣΗ</small><strong>Σε εξέλιξη</strong></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="specialties-section" id="specialties" aria-labelledby="specialties-title">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Εκπαιδευτικές διαδρομές</p>
+              <h2 id="specialties-title">Διαθέσιμες ειδικότητες</h2>
+            </div>
+            <p>Επίλεξε ειδικότητα για να δεις τα διαθέσιμα μαθήματα και το υλικό τους.</p>
+          </div>
+
+          <article class="specialty-card">
+            <figure class="specialty-photo">
+              <img
+                src="assets/images/mechatronics-diagnostic.webp"
+                width="800"
+                height="800"
+                loading="lazy"
+                alt="Τεχνικός μηχανοτρονικής πραγματοποιεί διαγνωστικό έλεγχο σε αυτοκίνητο με φορητό υπολογιστή"
+              />
+              <figcaption>
+                <small>ΔΙΑΓΝΩΣΤΙΚΟΣ ΕΛΕΓΧΟΣ</small>
+                <strong>Σύγχρονο συνεργείο</strong>
+              </figcaption>
+            </figure>
+            <div class="specialty-content">
+              <span class="status-pill"><i aria-hidden="true"></i> Ενεργή ειδικότητα</span>
+              <p class="specialty-code">ΕΙΔΙΚΟΤΗΤΑ 1</p>
+              <h3>Τεχνικός Μηχανοτρονικής Οχημάτων</h3>
+              <p>
+                Εκπαιδευτικό υλικό για τα ηλεκτρονικά συστήματα, τα δίκτυα
+                επικοινωνίας και τη σύγχρονη τεχνολογία οχημάτων.
+              </p>
+              <ul class="specialty-meta" aria-label="Περιεχόμενο ειδικότητας">
+                <li>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4h12v12H4zM7 8h6m-6 4h4" /></svg>
+                  2 διαθέσιμα μαθήματα
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" /><path d="M10 6v4l3 2" /></svg>
+                  60 διδακτικές ώρες
+                </li>
+              </ul>
+            </div>
+            <div class="specialty-action">
+              <button class="round-button" type="button" data-preview-button aria-expanded="false" aria-controls="specialty-preview">
+                <span class="sr-only">Προβολή διαθέσιμων μαθημάτων</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
+              </button>
+            </div>
+          </article>
+
+          <div class="course-preview course-preview-stack" id="specialty-preview" hidden>
+            <article class="lesson-entry lesson-entry-intro">
+              <div class="lesson-entry-main">
+                <span class="course-number course-number-intro" aria-hidden="true">1</span>
+                <div>
+                  <small>ΜΑΘΗΜΑ 1</small>
+                  <strong>Γνωριμία με το μάθημα</strong>
+                  <p>12 εισαγωγικές διαφάνειες · 80 σενάρια σε 3 διαδρομές</p>
+                </div>
+              </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link course-open-link-secondary" href="eisagogiki-parousiasi.html">
+                  Παρουσίαση Μαθήματος 1
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary" href="ergastirio-eisagogis.html">
+                  Εργαστήριο Μαθήματος 1
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="lesson-entry">
+              <div class="lesson-entry-main">
+                <span class="course-number" aria-hidden="true">2</span>
+                <div>
+                  <small>ΜΑΘΗΜΑ 2</small>
+                  <strong>Δεδομένα και βασικές αρχές μετάδοσης</strong>
+                  <p>30 διαφάνειες · σήματα · μετάδοση · σφάλματα επικοινωνίας</p>
+                </div>
+              </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link" href="mathima-02.html">
+                  Άνοιγμα μαθήματος
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <span class="footer-monogram">Σ</span>
+          <div>
+            <strong>Εκπαιδευτικό Υλικό ΣΑΕΚ</strong>
+            <small>Οργανωμένη ψηφιακή μάθηση</small>
+          </div>
+        </div>
+        <p>© <span data-year></span> EVAGELAK EDU LAB</p>
+      </footer>
     </div>
-  
-</div>
-</header>
 
-<main class="wrap">
-
-  
-  <div class="scene-panel" aria-hidden="true">
-    <div class="scene-content">
-      <div class="sun"><div class="sun-face">😊</div><div class="sun-rays">
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-      </div></div>
-
-      <div class="cloud c1"></div>
-      <div class="cloud c2"></div>
-      <div class="cloud c3"></div>
-
-      <div class="rainbow">
-        <span class="r1"></span><span class="r2"></span><span class="r3"></span>
-        <span class="r4"></span><span class="r5"></span><span class="r6"></span>
-      </div>
-
-      <div class="spark s1">✦</div><div class="spark s2">✦</div>
-      <div class="spark s3">✦</div><div class="spark s4">✦</div>
-
-      <div class="gear-big">⚙️</div>
-      <div class="gear-small">⚙️</div>
-      <div class="chip-icon">💻</div>
-      <div class="satellite">🛰️</div>
-      <div class="drone">🚁</div>
-      <div class="bulb-tech">💡</div>
-      <div class="code-star">✨</div>
-
-      <div class="orb o1"></div>
-      <div class="orb o2"></div>
-      <div class="orb o3"></div>
-      <div class="orb o4"></div>
-
-      <div class="plane">✈️</div>
-      <div class="robot-main">🤖</div>
-      <div class="robot-side left">🦾</div>
-      <div class="robot-side right">🤖</div>
-      <div class="rocket-float">🚀</div>
-      <div class="butterfly">🛸</div>
-      <div class="bee">🔩</div>
-
-      <div class="hill h1"></div>
-      <div class="hill h2"></div>
-      <div class="hill h3"></div>
-
-      <div class="tech-glow"></div>
-      <div class="circuit-band">
-        <span class="l1"></span><span class="l2"></span><span class="l3"></span><span class="l4"></span><span class="l5"></span>
-      </div>
-      <div class="platform"></div>
-      <div class="tech-tower t1"></div>
-      <div class="tech-tower t2"></div>
-
-      <div class="tree">
-        <div class="leaf1"></div><div class="leaf2"></div><div class="leaf3"></div><div class="trunk"></div>
-      </div>
-
-      <div class="flower f1"><div class="bloom"></div></div>
-      <div class="flower f2"><div class="bloom"></div></div>
-      <div class="flower f3"><div class="bloom"></div></div>
-      <div class="flower f4"><div class="bloom"></div></div>
-      <div class="flower f5"><div class="bloom"></div></div>
-      <div class="flower f6"><div class="bloom"></div></div>
-      <div class="mushroom"></div>
-
-      <div class="foreground-note">Πιο ρομποτικό, πιο δυναμικό, πιο ζωντανό περιβάλλον μάθησης</div>
-    </div>
-  </div>
-
-  <div class="content-layer">
-  <section class="intro">
-    <div class="intro-icon">🚀</div>
-    <div>
-      <h2>Διαδραστικές Δραστηριότητες Πληροφορικής</h2>
-      <p>Διάλεξε τάξη και κατηγορία. Το περιεχόμενο φιλτράρεται άμεσα χωρίς ανανέωση της σελίδας.</p>
-    </div>
-  </section>
-  
-<section class="filter-panel" aria-label="Φίλτρο τάξης">
-  <p class="filter-title">Επίλεξε τάξη</p>
-  <div class="grade-filters">
-    <button class="grade-btn all" data-grade="all" aria-pressed="true">Όλες</button>
-    <button class="grade-btn a" data-grade="a" aria-pressed="false">Α΄</button>
-    <button class="grade-btn b" data-grade="b" aria-pressed="false">Β΄</button>
-    <button class="grade-btn g" data-grade="g" aria-pressed="false">Γ΄</button>
-    <button class="grade-btn d" data-grade="d" aria-pressed="false">Δ΄</button>
-    <button class="grade-btn e" data-grade="e" aria-pressed="false">Ε΄</button>
-    <button class="grade-btn st" data-grade="st" aria-pressed="false">ΣΤ΄</button>
-  </div>
-</section>
-
-  <section class="dashboard" id="dashboard">
-    
-<a class="card" href="pontiki/index.html" data-grades="a,b" style="--accent:#F97316">
-  <div class="icon">🖱️</div>
-  <h3>Ποντίκι</h3>
-  <p>Κίνηση, κλικ, διπλό κλικ, σύρσιμο & απόθεση</p>
-  <div class="card-bottom">
-    <div class="progress"><span></span></div>
-    <div class="meta">4 δραστηριότητες • Ποντίκι</div>
-  </div>
-</a>
-
-<a class="card" href="pliktrologio/index.html" data-grades="a,b,g" style="--accent:#4F46E5">
-  <div class="icon">⌨️</div>
-  <h3>Πληκτρολόγιο</h3>
-  <p>Γράμματα, λέξεις, φράσεις και σωστή χρήση πλήκτρων</p>
-  <div class="card-bottom">
-    <div class="progress"><span></span></div>
-    <div class="meta">1 δραστηριότητα • Πληκτρολόγιο</div>
-  </div>
-</a>
-
-<a class="card" href="ypologistis/index.html" data-grades="a,b,g,d" style="--accent:#0F9E91">
-  <div class="icon">💻</div>
-  <h3>Υπολογιστής</h3>
-  <p>Γνωρίζω τα βασικά μέρη και τις λειτουργίες του υπολογιστή</p>
-  <div class="card-bottom">
-    <div class="progress"><span></span></div>
-    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
-  </div>
-</a>
-
-<a class="card" href="skepsi/index.html" data-grades="b,g,d,e,st" style="--accent:#16A34A">
-  <div class="icon">🧩</div>
-  <h3>Υπολογιστική Σκέψη</h3>
-  <p>Ακολουθίες, μοτίβα, λογική και επίλυση προβλημάτων</p>
-  <div class="card-bottom">
-    <div class="progress"><span></span></div>
-    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
-  </div>
-</a>
-
-<a class="card" href="sxediase/index.html" data-grades="a,b,g,d,e,st" style="--accent:#EC4899">
-  <div class="icon">🎨</div>
-  <h3>Σχεδίασε</h3>
-  <p>Ζωγραφική, pixel art, χρώματα και δημιουργικές αποστολές</p>
-  <div class="card-bottom">
-    <div class="progress"><span></span></div>
-    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
-  </div>
-</a>
-
-<a class="card" href="gnosi/index.html" data-grades="a,b,g,d,e,st" style="--accent:#7C3AED">
-  <div class="icon">🧠</div>
-  <h3>Γνώση & Τακτική</h3>
-  <p>Παιχνίδια γνώσεων, μνήμης, λογικής και στρατηγικής</p>
-  <div class="card-bottom">
-    <div class="progress"><span></span></div>
-    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
-  </div>
-</a>
-
-<a class="card" href="diadiktyo/index.html" data-grades="d,e,st" style="--accent:#0891B2">
-  <div class="icon">🌐</div>
-  <h3>Διαδίκτυο</h3>
-  <p>Ασφαλής πλοήγηση, αναζήτηση και σωστή συμπεριφορά online</p>
-  <div class="card-bottom">
-    <div class="progress"><span></span></div>
-    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
-  </div>
-</a>
-
-<a class="card" href="robotiki/index.html" data-grades="g,d,e,st" style="--accent:#D97706">
-  <div class="icon">🤖</div>
-  <h3>Ρομποτική</h3>
-  <p>Αισθητήρες, ρομπότ, εντολές και δημιουργίες STEM</p>
-  <div class="card-bottom">
-    <div class="progress"><span></span></div>
-    <div class="meta">0 δραστηριότητες • έτοιμο για προσθήκες</div>
-  </div>
-</a>
-
-    <div class="empty-state" id="emptyState">
-      <h3>Δεν υπάρχουν ακόμη κατηγορίες για αυτή την τάξη.</h3>
-      <p>Μπορούμε να προσθέσουμε οποιαδήποτε στιγμή.</p>
-    </div>
-  </section>
-  </div>
-</main>
-<footer class="footer">EVAGELAK EDU LAB • Πληροφορική Δημοτικού</footer>
-</div>
-<script src="assets/app.js?v=20260917i"></script>
-</body>
+    <script src="assets/js/app.js"></script>
+  </body>
 </html>

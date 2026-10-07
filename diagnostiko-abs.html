@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Διαδραστικό εργαστήριο διάγνωσης απώλειας επικοινωνίας με τη μονάδα ABS." />
+    <meta name="theme-color" content="#edf4f7" />
+    <title>Διαγνωστικό εργαστήριο ABS | ΣΑΕΚ</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23071426'/%3E%3Cpath d='M17 42V22l15-8 15 8v20l-15 8-15-8Z' fill='none' stroke='%232bd9fe' stroke-width='4'/%3E%3Cpath d='M25 26h14M25 33h14M25 40h9' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/diagnostic-lab.css?v=3" />
+    <link rel="stylesheet" href="assets/css/theme-graphite.css?v=3" />
+  </head>
+  <body class="diagnostic-page">
+    <a class="lab-skip-link" href="#lab-main">Μετάβαση στην εφαρμογή</a>
+
+    <header class="lab-header">
+      <a class="lab-brand" href="index.html" aria-label="ΣΑΕΚ — Αρχική σελίδα">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M12 32V16l12-6 12 6v16l-12 6-12-6Z" /><path d="M18 19h12M18 24h12M18 29h8" /></svg>
+        </span>
+        <div><strong>ΣΑΕΚ</strong><small>Διαγνωστικό εργαστήριο</small></div>
+      </a>
+      <div class="lab-header-title"><span>ΜΑΘΗΜΑ 2</span><strong>Αποστολή ABS</strong></div>
+      <a class="lab-back-link" href="mathima-02.html#ergastirio"><span aria-hidden="true">←</span> Επιστροφή στο μάθημα</a>
+    </header>
+
+    <main id="lab-main" class="lab-main" data-diagnostic-lab>
+      <section class="lab-screen lab-welcome" data-lab-screen="welcome" aria-labelledby="welcome-title">
+        <div class="welcome-copy">
+          <span class="lab-eyebrow">ΕΙΚΟΝΙΚΟ ΔΙΑΓΝΩΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ</span>
+          <h1 id="welcome-title">Καμία επικοινωνία με τη μονάδα ABS</h1>
+          <p>Ακολούθησε τη σωστή σειρά ελέγχων, εντόπισε την πραγματική αιτία και απόφυγε την άσκοπη αντικατάσταση της ECU.</p>
+
+          <div class="mission-facts" aria-label="Στοιχεία αποστολής">
+            <article><strong>6</strong><span>διαγνωστικά βήματα</span></article>
+            <article><strong>100</strong><span>αρχικοί βαθμοί</span></article>
+            <article><strong>10′</strong><span>ενδεικτικός χρόνος</span></article>
+          </div>
+
+          <button class="lab-primary-button" type="button" data-start-mission>
+            Έναρξη αποστολής
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+          </button>
+        </div>
+
+        <div class="welcome-visual" aria-label="Δίκτυο οχήματος με τη μονάδα ABS εκτός επικοινωνίας">
+          <div class="vehicle-outline" aria-hidden="true">
+            <svg viewBox="0 0 620 330">
+              <path class="car-shell" d="M95 220h430l-20-76-92-64H226l-86 64-45 76Z" />
+              <path class="car-window" d="m230 96-58 46h276l-63-46H230Z" />
+              <circle class="wheel" cx="184" cy="227" r="43" />
+              <circle class="wheel" cx="448" cy="227" r="43" />
+              <path class="bus-line" d="M205 180h211" />
+              <path class="bus-branch" d="M244 180v-40M310 180v-40M376 180v-40" />
+              <g class="ecu-node"><rect x="212" y="108" width="64" height="36" rx="8" /><text x="244" y="132">ECU</text></g>
+              <g class="abs-node is-offline"><rect x="278" y="108" width="64" height="36" rx="8" /><text x="310" y="132">ABS</text></g>
+              <g class="bcm-node"><rect x="344" y="108" width="64" height="36" rx="8" /><text x="376" y="132">BCM</text></g>
+            </svg>
+          </div>
+          <div class="fault-banner"><i></i><span>U0121</span><strong>Χάθηκε η επικοινωνία με ABS</strong></div>
+          <ul>
+            <li>Διάβασε τα στοιχεία πριν αποφασίσεις.</li>
+            <li>Κάθε άσκοπη ενέργεια μειώνει τη βαθμολογία.</li>
+            <li>Η αλλαγή μονάδας είναι πάντα η τελευταία επιλογή.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="lab-screen lab-workspace" data-lab-screen="mission" aria-labelledby="mission-title" hidden>
+        <div class="mission-topbar">
+          <div class="mission-progress-copy">
+            <span>ΔΙΑΓΝΩΣΤΙΚΗ ΠΟΡΕΙΑ</span>
+            <strong>Βήμα <b data-step-current>1</b> από 6</strong>
+          </div>
+          <div class="mission-progress-track" aria-hidden="true"><span data-mission-progress></span></div>
+          <dl class="mission-metrics">
+            <div><dt>Βαθμοί</dt><dd data-score>100</dd></div>
+            <div><dt>Χρόνος</dt><dd data-timer>00:00</dd></div>
+          </dl>
+        </div>
+
+        <div class="mission-grid">
+          <section class="vehicle-panel" aria-labelledby="vehicle-title">
+            <header><span>01</span><div><small>ΟΧΗΜΑ</small><strong id="vehicle-title">Κατάσταση δικτύου</strong></div></header>
+            <div class="network-diagram" data-network-diagram>
+              <div class="network-node node-engine"><span>ECU</span><small>Κινητήρας</small><i>ONLINE</i></div>
+              <div class="network-node node-abs is-offline" data-abs-node><span>ABS</span><small>Φρένα</small><i data-abs-status>OFFLINE</i></div>
+              <div class="network-node node-bcm"><span>BCM</span><small>Αμάξωμα</small><i>ONLINE</i></div>
+              <div class="network-node node-cluster"><span>IPC</span><small>Όργανα</small><i>ONLINE</i></div>
+              <div class="network-bus"><span>CAN HIGH</span><span>CAN LOW</span></div>
+            </div>
+            <div class="vehicle-symptom">
+              <span class="warning-lamp">ABS</span>
+              <div><small>ΣΥΜΠΤΩΜΑ ΟΔΗΓΟΥ</small><strong>Η λυχνία ABS παραμένει αναμμένη</strong></div>
+            </div>
+          </section>
+
+          <section class="scanner-panel" aria-labelledby="scanner-title">
+            <header><span>02</span><div><small>ΔΙΑΓΝΩΣΤΙΚΟ</small><strong id="scanner-title">OBD / Μετρήσεις</strong></div></header>
+            <div class="scan-tool">
+              <div class="scan-tool-brand"><i></i><span>VEHICLE DIAGNOSTIC</span><b>OBD-II</b></div>
+              <div class="scan-display" aria-live="polite">
+                <span data-reading-label>ΑΡΧΙΚΗ ΚΑΤΑΣΤΑΣΗ</span>
+                <strong data-reading-value>ABS: ΧΩΡΙΣ ΕΠΙΚΟΙΝΩΝΙΑ</strong>
+                <p data-reading-detail>Οι υπόλοιπες μονάδες απαντούν κανονικά. Απαιτείται οργανωμένος έλεγχος.</p>
+              </div>
+              <div class="measurement-grid" aria-label="Καταγεγραμμένες μετρήσεις">
+                <div data-measurement="power"><span>Τροφοδοσία</span><strong>—</strong></div>
+                <div data-measurement="ground"><span>Γείωση</span><strong>—</strong></div>
+                <div data-measurement="can"><span>CAN</span><strong>—</strong></div>
+                <div data-measurement="fuse"><span>Ασφάλεια F17</span><strong>—</strong></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="decision-panel" aria-labelledby="mission-title">
+            <header><span>03</span><div><small>ΑΠΟΦΑΣΗ ΤΕΧΝΙΚΟΥ</small><strong id="mission-title" data-decision-kicker>Ξεκίνα από τα στοιχεία</strong></div></header>
+            <div class="decision-copy">
+              <span data-step-tag>ΒΗΜΑ 1</span>
+              <h2 data-decision-title>Ποια είναι η πρώτη σωστή ενέργεια;</h2>
+              <p data-decision-description>Η λυχνία ABS είναι αναμμένη και η μονάδα δεν εμφανίζεται στη σάρωση.</p>
+            </div>
+            <div class="decision-options" data-decision-options></div>
+            <div class="decision-feedback" data-decision-feedback role="status" hidden>
+              <strong></strong><p></p>
+            </div>
+            <div class="decision-actions">
+              <button type="button" data-hint>Βοήθεια <span>−4 βαθμοί</span></button>
+              <button class="continue-button" type="button" data-continue hidden>Συνέχεια <span aria-hidden="true">→</span></button>
+            </div>
+          </section>
+        </div>
+
+        <div class="diagnostic-log" aria-live="polite">
+          <span>ΙΣΤΟΡΙΚΟ ΕΛΕΓΧΩΝ</span>
+          <ol data-diagnostic-log><li>Η αποστολή ξεκίνησε. Επίλεξε τον πρώτο έλεγχο.</li></ol>
+        </div>
+      </section>
+
+      <section class="lab-screen lab-result" data-lab-screen="result" aria-labelledby="result-title" hidden>
+        <div class="result-panel">
+          <div class="result-badge" data-result-badge>
+            <span>ΤΕΛΙΚΗ ΒΑΘΜΟΛΟΓΙΑ</span>
+            <strong data-final-score>0</strong>
+            <small>/100</small>
+          </div>
+          <div class="result-copy">
+            <span class="lab-eyebrow">ΑΠΟΣΤΟΛΗ ΟΛΟΚΛΗΡΩΘΗΚΕ</span>
+            <h1 id="result-title" data-result-title>Η επικοινωνία αποκαταστάθηκε</h1>
+            <p data-result-message></p>
+            <dl>
+              <div><dt>Πραγματική βλάβη</dt><dd>Τραυματισμένη μόνωση καλωδίου τροφοδοσίας κοντά στη βάση της μονάδας ABS.</dd></div>
+              <div><dt>Συνέπεια</dt><dd>Βραχυκύκλωμα προς γείωση και καμένη ασφάλεια F17.</dd></div>
+              <div><dt>Σωστή επισκευή</dt><dd>Επισκευή καλωδίωσης, προστασία της πλεξούδας, αντικατάσταση ασφάλειας και τελικός επανέλεγχος.</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="result-learning">
+          <article><span>1</span><strong>Ο κωδικός είναι αφετηρία</strong><p>Δεν αποτελεί απόδειξη ότι χάλασε η μονάδα.</p></article>
+          <article><span>2</span><strong>Πρώτα οι βασικές προϋποθέσεις</strong><p>Τροφοδοσία, γείωση, ασφάλεια και φίσα.</p></article>
+          <article><span>3</span><strong>Επισκευάζουμε την αιτία</strong><p>Δεν αλλάζουμε απλώς την καμένη ασφάλεια.</p></article>
+          <article><span>4</span><strong>Πάντα τελικός έλεγχος</strong><p>Νέα σάρωση και επιβεβαίωση επικοινωνίας.</p></article>
+        </div>
+
+        <div class="result-actions">
+          <button class="lab-primary-button" type="button" data-restart-mission>Νέα προσπάθεια</button>
+          <a href="mathima-02.html#ergastirio">Επιστροφή στο Μάθημα 2</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/js/diagnostic-lab.js?v=2"></script>
+  </body>
+</html>

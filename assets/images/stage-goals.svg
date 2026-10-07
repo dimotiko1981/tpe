@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Πέντε μαθησιακοί στόχοι</title>
+  <desc id="desc">Διαδρομή πέντε σταδίων από την κατανόηση δικτύων έως την αρχική διάγνωση.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102c49"/><stop offset="1" stop-color="#061522"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2d67ff"/><stop offset="1" stop-color="#2bd9fe"/></linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="34" fill="url(#bg)"/>
+  <path d="M0 90h960M0 450h960" stroke="#84cef7" stroke-opacity=".08"/>
+  <text x="70" y="92" fill="#2bd9fe" font-family="Manrope,Arial" font-size="22" font-weight="800" letter-spacing="4">ΜΑΘΗΣΙΑΚΗ ΔΙΑΔΡΟΜΗ</text>
+  <text x="70" y="146" fill="#f4f8fb" font-family="Manrope,Arial" font-size="42" font-weight="800">5 στόχοι • 1 τελικό αποτέλεσμα</text>
+  <path d="M145 302H815" stroke="url(#line)" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Manrope,Arial" text-anchor="middle">
+    <g transform="translate(145 302)"><circle r="42" fill="#0d2944" stroke="#2bd9fe" stroke-width="4"/><text y="9" fill="#fff" font-size="26" font-weight="800">1</text><text y="82" fill="#9fb7c8" font-size="17">Δίκτυο</text></g>
+    <g transform="translate(312 302)"><circle r="42" fill="#0d2944" stroke="#2bd9fe" stroke-width="4"/><text y="9" fill="#fff" font-size="26" font-weight="800">2</text><text y="82" fill="#9fb7c8" font-size="17">Ρόλοι</text></g>
+    <g transform="translate(480 302)"><circle r="42" fill="#0d2944" stroke="#2bd9fe" stroke-width="4"/><text y="9" fill="#fff" font-size="26" font-weight="800">3</text><text y="82" fill="#9fb7c8" font-size="17">Ροή</text></g>
+    <g transform="translate(648 302)"><circle r="42" fill="#0d2944" stroke="#2bd9fe" stroke-width="4"/><text y="9" fill="#fff" font-size="26" font-weight="800">4</text><text y="82" fill="#9fb7c8" font-size="17">Πρωτόκολλα</text></g>
+    <g transform="translate(815 302)"><circle r="48" fill="#12374d" stroke="#47e6ae" stroke-width="5"/><path d="m-18 0 12 13 27-30" fill="none" stroke="#47e6ae" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><text y="88" fill="#c9f6e6" font-size="17">Διάγνωση</text></g>
+  </g>
+</svg>

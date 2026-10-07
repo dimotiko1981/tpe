@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Εκπαιδευτικό υλικό του μαθήματος</title>
+  <desc id="desc">Κάρτες παρουσίασης και φύλλου εργασίας με σύμβολο λήψης και ανακεφαλαίωσης.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102c49"/><stop offset="1" stop-color="#061522"/></linearGradient></defs>
+  <rect width="960" height="540" rx="34" fill="url(#bg)"/>
+  <text x="70" y="88" fill="#2bd9fe" font-family="Manrope,Arial" font-size="22" font-weight="800" letter-spacing="4">ΥΛΙΚΟ ΜΑΘΗΜΑΤΟΣ</text>
+  <text x="70" y="142" fill="#f4f8fb" font-family="Manrope,Arial" font-size="42" font-weight="800">Μελέτη • Εργασία • Επανάληψη</text>
+  <g font-family="Manrope,Arial">
+    <g transform="translate(120 205)"><rect width="260" height="240" rx="24" fill="#0b2740" stroke="#2bd9fe" stroke-width="4"/><rect x="28" y="28" width="72" height="84" rx="12" fill="#123a59"/><text x="64" y="79" fill="#8cecff" font-size="20" font-weight="800" text-anchor="middle">PPTX</text><text x="28" y="154" fill="#fff" font-size="24" font-weight="800">Παρουσίαση</text><text x="28" y="188" fill="#9fb7c8" font-size="17">30 διαφάνειες θεωρίας</text><path d="M212 55v58M188 90l24 24 24-24" fill="none" stroke="#2bd9fe" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g transform="translate(420 205)"><rect width="260" height="240" rx="24" fill="#0b2740" stroke="#47e6ae" stroke-width="4"/><rect x="28" y="28" width="72" height="84" rx="12" fill="#123d3c"/><text x="64" y="79" fill="#9ff4d5" font-size="20" font-weight="800" text-anchor="middle">DOCX</text><text x="28" y="154" fill="#fff" font-size="24" font-weight="800">Φύλλο εργασίας</text><text x="28" y="188" fill="#9fb7c8" font-size="17">Δραστηριότητες εφαρμογής</text><path d="M212 55v58M188 90l24 24 24-24" fill="none" stroke="#47e6ae" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g transform="translate(720 205)"><rect width="150" height="240" rx="24" fill="#103553" stroke="#84cef7" stroke-opacity=".45" stroke-width="4"/><circle cx="75" cy="68" r="34" fill="#47e6ae" fill-opacity=".12" stroke="#47e6ae" stroke-width="4"/><path d="m57 68 13 13 25-28" fill="none" stroke="#47e6ae" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><text x="75" y="142" fill="#fff" font-size="20" font-weight="800" text-anchor="middle">5 σημεία</text><text x="75" y="174" fill="#9fb7c8" font-size="16" text-anchor="middle">ανακεφαλαίωσης</text></g>
+  </g>
+</svg>

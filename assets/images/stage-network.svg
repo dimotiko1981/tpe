@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Κοινός δίαυλος οχήματος</title>
+  <desc id="desc">Τέσσερις ηλεκτρονικές μονάδες συνδεδεμένες σε κοινό δίαυλο δεδομένων.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102c49"/><stop offset="1" stop-color="#061522"/></linearGradient><linearGradient id="bus" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2d67ff"/><stop offset="1" stop-color="#2bd9fe"/></linearGradient></defs>
+  <rect width="960" height="540" rx="34" fill="url(#bg)"/>
+  <text x="70" y="86" fill="#2bd9fe" font-family="Manrope,Arial" font-size="22" font-weight="800" letter-spacing="4">ΔΙΚΤΥΩΜΕΝΗ ΛΟΓΙΚΗ</text>
+  <text x="70" y="140" fill="#f4f8fb" font-family="Manrope,Arial" font-size="42" font-weight="800">Μία γραμμή • πολλά μηνύματα</text>
+  <g font-family="Manrope,Arial" text-anchor="middle">
+    <g transform="translate(160 240)"><rect x="-82" y="-46" width="164" height="92" rx="16" fill="#0c263f" stroke="#2bd9fe" stroke-opacity=".55" stroke-width="3"/><text y="-2" fill="#fff" font-size="24" font-weight="800">ECU</text><text y="27" fill="#9fb7c8" font-size="16">ΚΙΝΗΤΗΡΑΣ</text></g>
+    <g transform="translate(374 240)"><rect x="-82" y="-46" width="164" height="92" rx="16" fill="#0c263f" stroke="#2bd9fe" stroke-opacity=".55" stroke-width="3"/><text y="-2" fill="#fff" font-size="24" font-weight="800">ECU</text><text y="27" fill="#9fb7c8" font-size="16">ABS / ESP</text></g>
+    <g transform="translate(588 240)"><rect x="-82" y="-46" width="164" height="92" rx="16" fill="#0c263f" stroke="#2bd9fe" stroke-opacity=".55" stroke-width="3"/><text y="-2" fill="#fff" font-size="24" font-weight="800">ECU</text><text y="27" fill="#9fb7c8" font-size="16">ΟΡΓΑΝΑ</text></g>
+    <g transform="translate(802 240)"><rect x="-82" y="-46" width="164" height="92" rx="16" fill="#0c263f" stroke="#2bd9fe" stroke-opacity=".55" stroke-width="3"/><text y="-2" fill="#fff" font-size="24" font-weight="800">ECU</text><text y="27" fill="#9fb7c8" font-size="16">ΑΝΕΣΗ</text></g>
+  </g>
+  <g stroke="#2bd9fe" stroke-width="4"><path d="M160 286v70M374 286v70M588 286v70M802 286v70"/></g>
+  <rect x="90" y="350" width="780" height="36" rx="18" fill="url(#bus)"/>
+  <text x="480" y="376" fill="#03101b" font-family="Manrope,Arial" font-size="19" font-weight="800" text-anchor="middle" letter-spacing="3">ΚΟΙΝΟΣ ΔΙΑΥΛΟΣ ΔΕΔΟΜΕΝΩΝ</text>
+  <g font-family="Manrope,Arial" font-size="17" fill="#b8cad7"><text x="130" y="448">Λιγότερη καλωδίωση</text><text x="380" y="448">Κοινή πληροφορία</text><text x="630" y="448">Ευκολότερη διάγνωση</text></g>
+</svg>

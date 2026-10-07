@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Έλεγχος θερμοκρασίας ψυκτικού</title>
+  <desc id="desc">Αισθητήρας ECT μετρά 104 βαθμούς, η ECU αποφασίζει και ενεργοποιεί ανεμιστήρα ενώ ενημερώνει τον πίνακα οργάνων.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102c49"/><stop offset="1" stop-color="#061522"/></linearGradient><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0v6l9-3z" fill="#2bd9fe"/></marker></defs>
+  <rect width="960" height="540" rx="34" fill="url(#bg)"/>
+  <text x="70" y="88" fill="#ffa75b" font-family="Manrope,Arial" font-size="22" font-weight="800" letter-spacing="4">ΘΕΡΜΟΚΡΑΣΙΑ ΨΥΚΤΙΚΟΥ</text>
+  <text x="70" y="142" fill="#f4f8fb" font-family="Manrope,Arial" font-size="42" font-weight="800">Μία μέτρηση • δύο χρήσεις</text>
+  <g font-family="Manrope,Arial" text-anchor="middle">
+    <g transform="translate(145 310)"><circle r="82" fill="#39231f" stroke="#ffa75b" stroke-width="4"/><text y="-2" fill="#fff" font-size="36" font-weight="800">104°</text><text y="31" fill="#e7b28b" font-size="17">ECT</text><text y="118" fill="#fff" font-size="21" font-weight="800">ΑΙΣΘΗΤΗΡΑΣ</text></g>
+    <g transform="translate(435 310)"><rect x="-94" y="-70" width="188" height="140" rx="22" fill="#103553" stroke="#47e6ae" stroke-width="5"/><text y="-5" fill="#fff" font-size="30" font-weight="800">ECU</text><text y="29" fill="#b9f2df" font-size="17">ΣΥΓΚΡΙΝΕΙ ΟΡΙΑ</text></g>
+    <g transform="translate(760 238)"><circle r="62" fill="#0b2740" stroke="#2bd9fe" stroke-width="4"/><circle r="19" fill="none" stroke="#8cecff" stroke-width="6"/><path d="M0-48v28M0 20v28M-48 0h28M20 0h28" stroke="#8cecff" stroke-width="7" stroke-linecap="round"/><text y="91" fill="#fff" font-size="19" font-weight="800">ΑΝΕΜΙΣΤΗΡΑΣ</text></g>
+    <g transform="translate(760 405)"><rect x="-76" y="-50" width="152" height="100" rx="18" fill="#0b2740" stroke="#2bd9fe" stroke-width="4"/><path d="M-38 18a40 40 0 0 1 76 0" fill="none" stroke="#8cecff" stroke-width="7"/><path d="M0 18 24-15" stroke="#ffa75b" stroke-width="6" stroke-linecap="round"/><text y="82" fill="#fff" font-size="19" font-weight="800">ΟΡΓΑΝΑ</text></g>
+  </g>
+  <path d="M227 310h105M529 295 681 245M529 325 681 395" fill="none" stroke="#2bd9fe" stroke-width="7" marker-end="url(#a)"/>
+</svg>
